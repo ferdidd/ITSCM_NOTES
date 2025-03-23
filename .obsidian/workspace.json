@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 209.5
+    "width": 300
   },
   "right": {
     "id": "76cf340e08f9ab59",
@@ -170,10 +170,10 @@
   },
   "active": "62b123170eae34f7",
   "lastOpenFiles": [
-    "test",
-    "tets",
+    "Notes_1/Logique_combinatoire/Plan_etude.md",
+    "Notes_1/Logique_combinatoire",
     "Notes_1/Welcome.md",
-    "Notes_1",
-    "README.md"
+    "README.md",
+    "Notes_1"
   ]
 }
