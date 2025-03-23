@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 209.5
   },
   "right": {
     "id": "76cf340e08f9ab59",
@@ -170,6 +170,8 @@
   },
   "active": "62b123170eae34f7",
   "lastOpenFiles": [
+    "test",
+    "tets",
     "Notes_1/Welcome.md",
     "Notes_1",
     "README.md"
