@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Plan_etude.md",
+                "file": "Notes_1/Logique_combinatoire/Plan_etude.md",
                 "mode": "source",
                 "source": false
               },
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Plan_etude.md",
+                "file": "Notes_1/Logique_combinatoire/Plan_etude.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Plan_etude.md",
+                "file": "Notes_1/Logique_combinatoire/Plan_etude.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -157,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Plan_etude.md",
+                "file": "Notes_1/Logique_combinatoire/Plan_etude.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,10 +183,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "12d92af7d977a31e",
+  "active": "d5e5389364dc8195",
   "lastOpenFiles": [
     "README.md",
-    "Plan_etude.md",
+    "Notes_1/Logique_combinatoire/Plan_etude.md",
     "Notes_1/Welcome.md",
     "Notes_1/Logique_combinatoire",
     "test",
