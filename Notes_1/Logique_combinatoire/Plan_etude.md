@@ -1,6 +1,7 @@
 # Plan d'étude - Road Map 
 
 ## Table des matières (test)
+
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
@@ -11,6 +12,74 @@
 ## Introduction
 
 Roadmap du plan d'étude 
+
+
+Etude des fn logiques : operateur OUI ; opérateur NON ; opérateur ET ; opérateur OU ; opérateur ETNON ; opérateur OUNON ; opérateur Inibition (portes logiques)
+
+Algèbre de Boole 
+
+Arithmétique binaire
+
+Schémas électrique 
+
+Schémas logique (logigramme ou diagramme logique) 
+
+Exercices :  
+
+- 
+
+
+Théorème de MORGAN 
+
+(Signaux périodique & impulsions - diagrammes temporels / chronographes - introduction aux concepts numériques)
+
+Conversions de bases (binaire, octal, decimal, hexadécimal) 
+
+Représentation (filaire etc)
+
+Tableaux de Karnaugh (+ simplifications)
+
+Code GRAY
+
+Expressions logiques 
+
+Partie 1
+
+1) Concepts numériques (intro) -> dans les pages 2 à 17 ->  3,7,8,9, 
+2) Portes logiques -> dans les pages 18 à 28 -> 17 à 24  
+3) Algèbre booléenne -> dans les pages 29 à 40 -> 30,33,34,35,36,40
+4) Arithmétique binaire -> dans les pages 40 à 47 -> 40, 40.1 , 40.2 , 44, 45, 46, 47
+5) Fonctions de logique combinatoire (+ (dé)multiplexeur ) ->  pages 49 à la fin -> 49, 51, 52
+6) Bascules -> autre syllabus > page 2 à 27  
+
+Partie 2
+
+1) Additionneur
+2) Comparateur
+3) Décodeur
+4) Encodeur
+5) Convertisseur de code
+6) (Dé)Multiplexeus
+
+Partie 3
+
+1) Binaire
+2) Octal
+3) Décimal
+4) Hexadecimal
+
+Partie 4
+
+1) Introduction au système logique séquentiel
+2) Concept d'état
+3) Logique asynchrone & synchrone
+4) Les bascules (Flip-Flop)
+5) Les bascules RS asynchrones
+6) Les bascules RSH synchrones
+7) Les bascules D (Latch = verrou) synchrones
+8) Les bascules JK synchrones
+9) Les bascules T (Toggle) 
+10) Forcage asynchrones des bascules synchrones
 
 | Critères                                           | Points                                                 | Status |
 | -------------------------------------------------- | ------------------------------------------------------ | ------ |
