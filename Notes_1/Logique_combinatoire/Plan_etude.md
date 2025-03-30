@@ -8,7 +8,7 @@
 - [Plan de Révision 🔍](#plan-de-révision)
 
 ## Introduction 🤖
-Ferdinand, voici ton plan d'étude pour préparer l'examen de logique combinatoire. Reste sceptique et vérifie toujours tes sources.
+Voici ton plan d'étude pour préparer l'examen de logique combinatoire. Reste sceptique et vérifie toujours tes sources.
 
 ## Plan de Révision 🔍
 - Introduction aux concepts numériques
