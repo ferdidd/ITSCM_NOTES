@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portail des Quiz - Logique Numérique</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #2f3136;
+      color: #dcddde;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #23272a;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .navbar li {
+      margin-right: 20px;
+      position: relative;
+    }
+    .navbar a {
+      color: #dcddde;
+      text-decoration: none;
+      padding: 10px 0;
+      display: inline-block;
+    }
+    .navbar a:hover {
+      color: #7289da;
+    }
+    .navbar .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #23272a;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      z-index: 1;
+      border-radius: 5px;
+    }
+    .navbar .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .navbar .dropdown-content a {
+      padding: 12px 16px;
+      display: block;
+      width: 100%;
+    }
+    .navbar .dropdown-content a:hover {
+      background-color: #36393f;
+    }
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background-color: #36393f;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+    .card p {
+      margin-bottom: 15px;
+    }
+    .card a {
+      background-color: #7289da;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .card a:hover {
+      background-color: #5b6eae;
+    }
+    h1, h2 {
+      color: #ffffff;
+    }
+    .category {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#">Quiz Basiques</a>
+        <div class="dropdown-content">
+          <a href="quizz_00.html">Quiz Logique Numérique</a>
+          <a href="quizz_01.html">TP Logique Numérique – Interactif</a>
+          <a href="quizz_02.html">TP Conversions (4 niveaux)</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">Codes Binaires</a>
+        <div class="dropdown-content">
+          <a href="quizz_03_1.html">Lab2 - Binaire Naturel (1/6)</a>
+          <a href="quizz_03_2.html">Lab2 - Transcription (2/6)</a>
+          <a href="quizz_03_3.html">Lab2 - Exercices Base 10 → 2 (3/6)</a>
+          <a href="quizz_03_4.html">Lab2 - Code Gray Explication (4/6)</a>
+          <a href="quizz_03_5.html">Lab2 - Code Gray Table (5/6)</a>
+          <a href="quizz_03_6.html">Lab2 - Code DCB (6/6)</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">Simplifications</a>
+        <div class="dropdown-content">
+          <a href="quizz_04_1.html">Simplifications Logiques (1/3)</a>
+          <a href="quizz_04_2.html">Simplifications Logiques - S3 (2/3)</a>
+          <a href="quizz_04_3.html">Exercices de Karnaugh (3/3)</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <h1>🧠 Portail des Quiz - Logique Numérique</h1>
+    <p>Bienvenue sur le portail des quiz de logique numérique. Choisissez un quiz dans les catégories ci-dessous.</p>
+
+    <div class="category">
+      <h2>Quiz Basiques</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Quiz Logique Numérique</h3>
+          <p>Quiz général sur les concepts de logique numérique: TOR, portes, impulsions, etc.</p>
+          <a href="quizz_00.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>TP Logique Numérique – Interactif</h3>
+          <p>Cours interactif sur les portes logiques de base: OUI, NON, ET, OU.</p>
+          <a href="quizz_01.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>TP Conversions (4 niveaux)</h3>
+          <p>Exercices de conversion entre les bases numériques : binaire, décimal, octal, hexadécimal.</p>
+          <a href="quizz_02.html">Commencer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <h2>Codes Binaires (Lab2)</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Binaire Naturel (1/6)</h3>
+          <p>Étude des premiers nombres en base 2 et introduction au code binaire naturel.</p>
+          <a href="quizz_03_1.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Transcription Base 2 ↔ Base 10 (2/6)</h3>
+          <p>Méthodes de conversion entre binaire et décimal avec exercices.</p>
+          <a href="quizz_03_2.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Exercices Base 10 → Base 2 (3/6)</h3>
+          <p>Exercices pratiques de conversion du décimal vers le binaire.</p>
+          <a href="quizz_03_3.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Code Gray Explication (4/6)</h3>
+          <p>Explication du code binaire réfléchi (Gray) et son utilité.</p>
+          <a href="quizz_03_4.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Code Gray Table (5/6)</h3>
+          <p>Étude complète de la table du code Gray et exercices.</p>
+          <a href="quizz_03_5.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Code DCB (6/6)</h3>
+          <p>Décimal Codé Binaire: représentation numérique avancée.</p>
+          <a href="quizz_03_6.html">Commencer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <h2>Simplifications Logiques</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Simplifications Karnaugh (1/3)</h3>
+          <p>Simplifications de fonctions logiques à l'aide des tableaux de Karnaugh.</p>
+          <a href="quizz_04_1.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Simplifications Avancées - S3 (2/3)</h3>
+          <p>Exercice avancé de simplification pour la fonction logique S3.</p>
+          <a href="quizz_04_2.html">Commencer</a>
+        </div>
+        <div class="card">
+          <h3>Exercices de Karnaugh Interactifs (3/3)</h3>
+          <p>Application interactive pour pratiquer les tableaux de Karnaugh.</p>
+          <a href="quizz_04_3.html">Commencer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

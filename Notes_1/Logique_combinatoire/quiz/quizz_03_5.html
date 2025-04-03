@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab2 - Les Codes Binaires</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    input[type="text"] {
+      width: 32px;
+      height: 32px;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    input[type="text"]:invalid {
+      border: 1px solid red;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #72767d;
+      padding: 6px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #36393f;
+    }
+    .note {
+      font-style: italic;
+      color: #b9bbbe;
+    }
+    .box {
+      background-color: #23272a;
+      padding: 15px;
+      border-left: 4px solid #43b581;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 10px;
+      background-color: #7289da;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .correction {
+      margin-top: 15px;
+      background-color: #23272a;
+      padding: 10px;
+      border-left: 4px solid #43b581;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lab2. Les Codes Binaires</h1>
+  <h2>II/ Le code binaire réfléchi (code GRAY)</h2>
+
+  <table id="grayTable">
+    <thead>
+      <tr>
+        <th>Base 10</th>
+        <th>b3</th>
+        <th>b2</th>
+        <th>b1</th>
+        <th>b0</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>1</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>2</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>3</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>4</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>5</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>6</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>7</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>8</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>9</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+      <tr><td>10</td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td><td><input pattern="[01]"></td></tr>
+    </tbody>
+  </table>
+
+  <button onclick="verifyGray()">Vérifier les résultats</button>
+  <div id="grayCorrection" class="correction" style="display: none;"></div>
+
+  <div class="box">
+    <p><strong>Remarque :</strong> Quand on passe d’un nombre à son suivant, on change la valeur d’un seul bit.</p>
+  </div>
+
+  <h3>Exemple : Passage de 3 à 4 degrés lors d’une mesure de température</h3>
+  <p>En binaire réfléchi :</p>
+  <table>
+    <thead><tr><th>b2</th><th>b1</th><th>b0</th></tr></thead>
+    <tbody>
+      <tr><td><input type="text" pattern="[01]"></td><td><input type="text" pattern="[01]"></td><td><input type="text" pattern="[01]"></td></tr>
+      <tr><td><input type="text" pattern="[01]"></td><td><input type="text" pattern="[01]"></td><td><input type="text" pattern="[01]"></td></tr>
+    </tbody>
+  </table>
+
+  <p>En base 10 : <strong>3 → 4</strong></p>
+
+  <div class="box">
+    <p>On voit qu’il ne peut pas y avoir d’état transitoire entre 3 et 4 (un seul bit change d’état).</p>
+  </div>
+
+  <p class="note">Page 5 — Table et fonctionnement du code GRAY (champs stylés avec vérification)</p>
+
+  <script>
+    const grayAnswers = [
+      "0000", "0001", "0011", "0010", "0110", "0111", "0101", "0100", "1100", "1101", "1111"
+    ];
+
+    function verifyGray() {
+      const rows = document.querySelectorAll('#grayTable tbody tr');
+      const correctionDiv = document.getElementById('grayCorrection');
+      correctionDiv.innerHTML = '<strong>Correction :</strong><br><ul>';
+      rows.forEach((row, idx) => {
+        const inputs = row.querySelectorAll('input');
+        const userVal = Array.from(inputs).map(i => i.value.trim()).join('');
+        const expected = grayAnswers[idx];
+        if (userVal === expected) {
+          correctionDiv.innerHTML += `<li>${idx} : ✅ ${userVal}</li>`;
+        } else {
+          correctionDiv.innerHTML += `<li>${idx} : ❌ ${userVal || 'vide'} → ${expected}</li>`;
+        }
+      });
+      correctionDiv.innerHTML += '</ul>';
+      correctionDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

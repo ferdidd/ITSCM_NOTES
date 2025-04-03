@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab2 - Les Codes Binaires</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #72767d;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #36393f;
+    }
+    input[type="text"] {
+      width: 60px;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      padding: 4px;
+      text-align: center;
+    }
+    button {
+      background-color: #7289da;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .note {
+      font-style: italic;
+      color: #b9bbbe;
+    }
+    .code {
+      font-family: monospace;
+      background: #40444b;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .correction {
+      margin-top: 10px;
+      background-color: #23272a;
+      padding: 10px;
+      border-left: 4px solid #43b581;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+  <!-- Inclusion du script de navbar -->
+  <script src="navbar.js"></script>
+</head>
+<body>
+  <div class="content">
+    <h1>Lab2. Les Codes Binaires</h1>
+    <h2>I/ Le code binaire naturel</h2>
+    <p>Travailler en code binaire naturel revient à travailler en base 2.</p>
+
+    <h3>Rappels sur la base 10 :</h3>
+    <p>
+      Le nombre cent cinquante-deux en base 10 s'écrit : <br>
+      <strong>1</strong> (centaines) <strong>5</strong> (dizaines) <strong>2</strong> (unités)<br>
+      10<sup>2</sup> = 100, 10<sup>1</sup> = 10, 10<sup>0</sup> = 1<br>
+      <span class="code">1 × 100 + 5 × 10 + 2 × 1 = 152</span>
+    </p>
+
+    <h3>De la même façon en base 2 :</h3>
+    <p>
+      Le nombre "cent un" en base 2 s'écrit : <br>
+      <strong>1</strong> <strong>0</strong> <strong>1</strong> (unités)<br>
+      2<sup>2</sup> = 4, 2<sup>1</sup> = 2, 2<sup>0</sup> = 1<br>
+      <span class="code">1 × 4 + 0 × 2 + 1 × 1 = 5</span>
+    </p>
+
+    <h3>1) Les premiers nombres en base 2</h3>
+
+    <table id="binaryTable">
+      <thead>
+        <tr>
+          <th>Base 10</th>
+          <th>Base 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td><input type="text"></td></tr>
+        <tr><td>1</td><td><input type="text"></td></tr>
+        <tr><td>2</td><td><input type="text"></td></tr>
+        <tr><td>3</td><td><input type="text"></td></tr>
+        <tr><td>4</td><td><input type="text"></td></tr>
+        <tr><td>5</td><td><input type="text"></td></tr>
+        <tr><td>6</td><td><input type="text"></td></tr>
+        <tr><td>7</td><td><input type="text"></td></tr>
+        <tr><td>8</td><td><input type="text"></td></tr>
+        <tr><td>9</td><td><input type="text"></td></tr>
+        <tr><td>10</td><td><input type="text"></td></tr>
+      </tbody>
+    </table>
+
+    <button onclick="checkAnswers()">Vérifier les résultats</button>
+
+    <div id="corrections" class="correction" style="display: none;"></div>
+
+    <p class="note">Binaire naturel & Binaire code Gray (Réfléchis)</p>
+  </div>
+
+  <script>
+    const corrections = ["0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010"];
+
+    function checkAnswers() {
+      const inputs = document.querySelectorAll('#binaryTable input');
+      const correctionDiv = document.getElementById('corrections');
+      correctionDiv.innerHTML = '<strong>Correction :</strong><br><ul>';
+
+      inputs.forEach((input, index) => {
+        const userValue = input.value.trim();
+        const correctValue = corrections[index];
+        if (userValue === correctValue) {
+          correctionDiv.innerHTML += `<li>${index} : ✅ ${userValue}</li>`;
+        } else {
+          correctionDiv.innerHTML += `<li>${index} : ❌ ${userValue || 'vide'} → ${correctValue}</li>`;
+        }
+      });
+
+      correctionDiv.innerHTML += '</ul>';
+      correctionDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

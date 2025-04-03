@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab2 - Les Codes Binaires</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    input[type="text"] {
+      width: 40px;
+      height: 32px;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    td {
+      padding: 8px;
+    }
+    .box {
+      background-color: #23272a;
+      padding: 15px;
+      border-left: 4px solid #43b581;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 10px;
+      background-color: #7289da;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .correction {
+      margin-top: 15px;
+      background-color: #23272a;
+      padding: 10px;
+      border-left: 4px solid #43b581;
+    }
+  </style>
+</head>
+<body>
+  <h2>III// Le code décimal codé binaire (BCD ou DCB)</h2>
+  <p>Pour obtenir ce code, on traduit directement les chiffres de la base 10 en binaire naturel sur un format de 4 bits.</p>
+
+  <div class="box">
+    <p>Exemple : écrire 349 en DCB</p>
+    <p>
+      3 → 0011<br>
+      4 → 0100<br>
+      9 → 1001<br>
+      Donc 349 en DCB = <strong>0011 0100 1001</strong>
+    </p>
+  </div>
+
+  <h3>Exercice : écrire les nombres suivants en DCB</h3>
+
+  <table id="bcdTable">
+    <tbody>
+      <tr><td>1235</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>842</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>196</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>728</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>3964</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>81</td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>743</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+      <tr><td>572</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+    </tbody>
+  </table>
+
+  <button onclick="verifyBCD()">Vérifier les résultats</button>
+  <div id="bcdCorrection" class="correction" style="display: none;"></div>
+
+  <script>
+    const bcdAnswers = {
+      "1235": "0001001000110101",
+      "842": "100001000010",
+      "196": "000110010110",
+      "728": "011100101000",
+      "3964": "0011100101100100",
+      "81": "10000001",
+      "743": "011101000011",
+      "572": "010101110010"
+    };
+
+    function verifyBCD() {
+      const rows = document.querySelectorAll('#bcdTable tbody tr');
+      const correctionDiv = document.getElementById('bcdCorrection');
+      correctionDiv.innerHTML = '<strong>Correction :</strong><br><ul>';
+      rows.forEach(row => {
+        const val = row.cells[0].innerText;
+        const inputs = row.querySelectorAll('input');
+        const userVal = Array.from(inputs).map(i => i.value.trim()).join('');
+        const expected = bcdAnswers[val];
+        if (userVal === expected) {
+          correctionDiv.innerHTML += `<li>${val} : ✅ ${userVal}</li>`;
+        } else {
+          correctionDiv.innerHTML += `<li>${val} : ❌ ${userVal || 'vide'} → ${expected}</li>`;
+        }
+      });
+      correctionDiv.innerHTML += '</ul>';
+      correctionDiv.style.display = 'block';
+    }
+  </script>
+
+  <p class="note">Page 6 — DCB : chaque chiffre décimal est codé sur 4 bits</p>
+</body>
+</html>

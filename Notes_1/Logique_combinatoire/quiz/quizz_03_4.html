@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab2 - Les Codes Binaires</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    .note {
+      font-style: italic;
+      color: #b9bbbe;
+    }
+    .code {
+      font-family: monospace;
+      background: #40444b;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .box {
+      background-color: #23272a;
+      padding: 15px;
+      border-left: 4px solid #43b581;
+      margin-top: 20px;
+    }
+    .underline {
+      text-decoration: underline;
+    }
+    table {
+      width: auto;
+      margin-top: 10px;
+      border-spacing: 10px;
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lab2. Les Codes Binaires</h1>
+
+  <div class="box">
+    <p class="underline"><strong>Remarque :</strong></p>
+    <p>Le passage d'un nombre à son suivant est une opération courante dans les mesures réelles.<br>
+    Le code binaire naturel ne convient pas à cette opération fréquente car il peut entraîner le changement de plusieurs bits en même temps. Ce passage d'états est techniquement inacceptable.</p>
+  </div>
+
+  <h2>Exemple : Passage de 3 à 4 degrés lors d’une mesure de température</h2>
+
+  <table>
+    <tr><td>b2</td><td>b1</td><td>b0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>→</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td colspan="7">Théoriquement</td></tr>
+  </table>
+
+  <p>Poids : 4, 2, 1 → En base 10 : <strong>3 → 4</strong></p>
+
+  <p>Mais en pratique, les 3 bits ne changent pas simultanément d’état. Cela donne :</p>
+
+  <table>
+    <tr><td>b2</td><td>b1</td><td>b0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>→</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td></td><td></td><td></td><td>→</td><td>1</td><td>0</td><td>0</td></tr>
+  </table>
+
+  <p>Ce qui correspond à : <strong>3 → 2 → 0 → 4</strong> en base 10.</p>
+
+  <div class="box">
+    <p>L’état transitoire est très court mais techniquement incontrôlable. Pour éviter cette situation, on a créé un code binaire où seul un bit change quand il y a passage d’un nombre à son suivant.</p>
+    <p>C’est le <strong>code binaire réfléchi</strong> ou <strong>code GRAY</strong>.</p>
+  </div>
+
+  <p class="note">Page 4 — Motivation pour le code Gray</p>
+</body>
+</html>

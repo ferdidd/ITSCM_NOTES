@@ -39,7 +39,14 @@ Voici ton plan d'étude pour préparer l'examen de logique combinatoire. Reste s
 
 ## Contenu du Cours 📘
 
-### 1. Concepts de Base ⚙️
+1. Concepts numériques (pages 2 à 17)
+2. Portes logiques (pages 18 à 28)
+3. Algèbre booléenne (pages 29 à 40)
+4. Arithmétique binaire (pages 40 à 47)
+5. Fonctions de logique combinatoire (+ dé/multiplexeurs) (pages 49 à la fin)
+6. Bascules (autre syllabus, pages 2 à 27)
+
+### 0. Concepts de Base ⚙️
 - Fonctions logiques : opérateur OUI, NON, ET, OU, ETNON, OUNON, Inhibition (portes logiques)
 - Algèbre de Boole
 - Arithmétique binaire
@@ -56,15 +63,7 @@ Voici ton plan d'étude pour préparer l'examen de logique combinatoire. Reste s
 - Code GRAY
 - Expressions logiques
 
-### 4. Partie 1 : Étude Approfondie 📖
-1. Concepts numériques (pages 2 à 17)
-2. Portes logiques (pages 18 à 28)
-3. Algèbre booléenne (pages 29 à 40)
-4. Arithmétique binaire (pages 40 à 47)
-5. Fonctions de logique combinatoire (+ dé/multiplexeurs) (pages 49 à la fin)
-6. Bascules (autre syllabus, pages 2 à 27)
-
-### 5. Partie 2 : Fonctions Logiques Avancées 💡
+### 5.  Fonctions Logiques Avancées 💡
 1. Additionneur  
 2. Comparateur  
 3. Décodeur  
@@ -72,13 +71,8 @@ Voici ton plan d'étude pour préparer l'examen de logique combinatoire. Reste s
 5. Convertisseur de code  
 6. Dé/multiplexeurs  
 
-### 6. Partie 3 : Systèmes de Numérotation 🔢
-1. Binaire  
-2. Octal  
-3. Décimal  
-4. Hexadécimal  
 
-### 7. Partie 4 : Systèmes Logiques Séquentiels ⏱️
+### 6. Systèmes Logiques Séquentiels ⏱️
 1. Introduction au système logique séquentiel  
 2. Concept d'état  
 3. Logique asynchrone & synchrone  

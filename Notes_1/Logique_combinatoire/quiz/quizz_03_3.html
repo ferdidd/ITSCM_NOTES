@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab2 - Les Codes Binaires</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    input[type="text"] {
+      width: 100px;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      padding: 4px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    button {
+      background-color: #7289da;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .correction {
+      margin-top: 10px;
+      background-color: #23272a;
+      padding: 10px;
+      border-left: 4px solid #43b581;
+    }
+    .note {
+      font-style: italic;
+      color: #b9bbbe;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lab2. Les Codes Binaires</h1>
+
+  <h2>Exercices : Transcrivez en binaire les nombres suivants</h2>
+
+  <ul>
+    <li>15 : <input type="text" id="bin1"></li>
+    <li>32 : <input type="text" id="bin2"></li>
+    <li>125 : <input type="text" id="bin3"></li>
+    <li>1087 : <input type="text" id="bin4"></li>
+    <li>781 : <input type="text" id="bin5"></li>
+  </ul>
+
+  <button onclick="verifyPage3()">Vérifier les résultats</button>
+
+  <div id="corrections3" class="correction" style="display: none;"></div>
+
+  <script>
+    const expectedBin = [
+      "1111",          // 15
+      "100000",        // 32
+      "1111101",       // 125
+      "10000111111",   // 1087
+      "1100001101"      // 781
+    ];
+
+    function verifyPage3() {
+      const answers = [
+        document.getElementById('bin1').value.trim(),
+        document.getElementById('bin2').value.trim(),
+        document.getElementById('bin3').value.trim(),
+        document.getElementById('bin4').value.trim(),
+        document.getElementById('bin5').value.trim()
+      ];
+
+      const correctionDiv = document.getElementById('corrections3');
+      correctionDiv.innerHTML = '<strong>Correction :</strong><br><ul>';
+
+      answers.forEach((val, idx) => {
+        const expected = expectedBin[idx];
+        if (val === expected) {
+          correctionDiv.innerHTML += `<li>✅ ${val}</li>`;
+        } else {
+          correctionDiv.innerHTML += `<li>❌ ${val || 'vide'} → ${expected}</li>`;
+        }
+      });
+
+      correctionDiv.innerHTML += '</ul>';
+      correctionDiv.style.display = 'block';
+    }
+  </script>
+
+  <p class="note">Page 3 — Conversion base 10 vers base 2 (binaire naturel)</p>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Logique Numérique</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navbar.js"></script>
+</head>
+<body>
+  <div class="content">
+    <h1>🧠 Quiz : Logique Numérique</h1>
+    <form id="quiz">
+      <div class="question">
+        1. Que signifie TOR ?<br>
+        <input type="radio" name="q1" value="0"> Temps ou Résistance<br>
+        <input type="radio" name="q1" value="1"> Tout ou Rien<br>
+        <input type="radio" name="q1" value="0"> Test ou Réinitialisation<br>
+      </div>
+
+      <div class="question">
+        2. Un front montant correspond à :<br>
+        <input type="radio" name="q2" value="1"> de 0 à 1<br>
+        <input type="radio" name="q2" value="0"> de 1 à 0<br>
+        <input type="radio" name="q2" value="0"> toujours à 1<br>
+      </div>
+
+      <div class="question">
+        3. Quelle est l'unité de la résistance ?<br>
+        <input type="radio" name="q3" value="0"> Farad<br>
+        <input type="radio" name="q3" value="1"> Ohm<br>
+        <input type="radio" name="q3" value="0"> Watt<br>
+      </div>
+
+      <div class="question">
+        4. Si une impulsion est de 3V, le milieu de l'impulsion est à :<br>
+        <input type="radio" name="q4" value="1"> 1,5V<br>
+        <input type="radio" name="q4" value="0"> 0V<br>
+        <input type="radio" name="q4" value="0"> 3V<br>
+      </div>
+
+      <div class="question">
+        5. La fréquence est :<br>
+        <input type="radio" name="q5" value="0"> T x 2<br>
+        <input type="radio" name="q5" value="1"> 1 / T<br>
+        <input type="radio" name="q5" value="0"> T / 2<br>
+      </div>
+
+      <div class="question">
+        6. Un signal périodique a une valeur moyenne :<br>
+        <input type="radio" name="q6" value="1"> proche de zéro<br>
+        <input type="radio" name="q6" value="0"> égale à l'amplitude<br>
+        <input type="radio" name="q6" value="0"> constante non nulle<br>
+      </div>
+
+      <div class="question">
+        7. La porte logique qui inverse une entrée est :<br>
+        <input type="radio" name="q7" value="1"> NOT (inverseur)<br>
+        <input type="radio" name="q7" value="0"> AND<br>
+        <input type="radio" name="q7" value="0"> OR<br>
+      </div>
+
+      <div class="question">
+        8. La condition vraie correspond à :<br>
+        <input type="radio" name="q8" value="1"> niveau haut<br>
+        <input type="radio" name="q8" value="0"> niveau bas<br>
+        <input type="radio" name="q8" value="0"> zéro logique<br>
+      </div>
+
+      <div class="question">
+        9. Le symbole logique pour la porte OU est :<br>
+        <input type="radio" name="q9" value="1"> ≥1<br>
+        <input type="radio" name="q9" value="0"> D<br>
+        <input type="radio" name="q9" value="0"> o◁<br>
+      </div>
+
+      <div class="question">
+        10. Le picoFarad est une unité de :<br>
+        <input type="radio" name="q10" value="1"> capacité<br>
+        <input type="radio" name="q10" value="0"> résistance<br>
+        <input type="radio" name="q10" value="0"> tension<br>
+      </div>
+
+      <button type="button" onclick="corriger()">✅ Voir le résultat</button>
+      <div id="result" class="result"></div>
+    </form>
+  </div>
+
+  <script>
+    const explications = [
+      "TOR est un acronyme pour 'Tout ou Rien'. En logique numérique, cela désigne un signal binaire ne pouvant être que 0 ou 1.",
+      "Un front montant correspond à une transition de 0 à 1, caractéristique d'un changement d'état dans un signal numérique.",
+      "L'unité de la résistance est l'Ohm (Ω), utilisée pour mesurer l'opposition au passage du courant électrique.",
+      "La moitié de 3V est 1,5V, ce qui correspond à la largeur à mi-hauteur d'une impulsion logique.",
+      "La fréquence est l'inverse de la période (f = 1/T), elle indique combien de cycles se répètent par seconde.",
+      "Un signal périodique équilibré a une moyenne nulle, car les valeurs positives et négatives s'annulent sur une période.",
+      "La porte NOT (ou inverseur) renvoie l'opposé logique de l'entrée : 1 devient 0, et 0 devient 1.",
+      "En logique, un niveau haut (ou HIGH) représente la condition vraie, c'est-à-dire un signal de 1.",
+      "Le symbole ≥1 est associé à la porte logique OU car elle renvoie 1 si au moins une entrée est vraie.",
+      "Le picoFarad (pF) est une unité de mesure de capacité électrique, utilisée pour les condensateurs."
+    ];
+
+    function corriger() {
+      let score = 0;
+      let details = "";
+      for (let i = 1; i <= 10; i++) {
+        const r = document.querySelector(`input[name='q${i}']:checked`);
+        if (r && r.value === "1") {
+          score++;
+          details += `✅ Q${i} : <span class='correct'>Bonne réponse</span>\n`;
+        } else {
+          details += `❌ Q${i} : <span class='incorrect'>Mauvaise réponse</span> → ${explications[i - 1]}\n`;
+        }
+      }
+      document.getElementById("result").innerHTML = `🎯 Score : ${score}/10\n\n${details}`;
+    }
+  </script>
+</body>
+</html>

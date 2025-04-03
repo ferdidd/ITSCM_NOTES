@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercices de Karnaugh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navbar.js"></script>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+    .instructions {
+      background-color: #36393f;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #7289da;
+    }
+    #exercices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .exercice-container {
+      background-color: #36393f;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    table.kmap {
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    .kmap th, .kmap td {
+      border: 1px solid #72767d;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+    }
+    .kmap th {
+      background-color: #23272a;
+    }
+    .kmap td {
+      background-color: #2f3136;
+    }
+    /* Styles pour les cellules sélectionnées */
+    .kmap td.selected-1 {
+      color: var(--success-color);
+      font-weight: bold;
+    }
+    .kmap td.selected-0 {
+      color: var(--error-color);
+      font-weight: bold;
+    }
+    
+    /* Styles pour les groupes */
+    .group1 { box-shadow: inset 0 0 0 3px rgba(0, 204, 136, 0.8); }
+    .group2 { box-shadow: inset 0 0 0 3px rgba(255, 204, 0, 0.8); }
+    .group3 { box-shadow: inset 0 0 0 3px rgba(0, 170, 255, 0.8); }
+    .group4 { box-shadow: inset 0 0 0 3px rgba(255, 102, 204, 0.8); }
+    .group5 { box-shadow: inset 0 0 0 3px rgba(255, 51, 51, 0.8); }
+    .group6 { box-shadow: inset 0 0 0 3px rgba(153, 102, 255, 0.8); }
+    
+    /* Styles pour les boutons de groupe */
+    .group-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 10px 0;
+    }
+    .group-btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .group-btn[data-group="group1"] { background-color: #00cc88; }
+    .group-btn[data-group="group2"] { background-color: #ffcc00; }
+    .group-btn[data-group="group3"] { background-color: #00aaff; }
+    .group-btn[data-group="group4"] { background-color: #ff66cc; }
+    .group-btn[data-group="group5"] { background-color: #ff3333; }
+    .group-btn[data-group="group6"] { background-color: #9966ff; }
+    .group-btn.active {
+      box-shadow: 0 0 0 2px white;
+    }
+    
+    /* Styles pour l'aide à la saisie des équations */
+    .equation-helpers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 10px 0;
+    }
+    .eq-helper-btn {
+      padding: 5px 8px;
+      background-color: var(--bg-input);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      cursor: pointer;
+    }
+    .eq-helper-btn:hover {
+      background-color: #7289da;
+    }
+    
+    /* Styles pour les champs d'équation */
+    input[type="text"] {
+      width: 100%;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      padding: 8px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-family: monospace;
+    }
+    
+    /* Styles pour les boutons d'action */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #7289da;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5b6eae;
+    }
+    button.secondary {
+      background-color: #4f545c;
+    }
+    button.warning {
+      background-color: #faa61a;
+    }
+    
+    /* Styles pour les messages de résultat */
+    .result {
+      font-weight: bold;
+      margin-top: 15px;
+      white-space: pre-line;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .result.success {
+      background-color: rgba(67, 181, 129, 0.2);
+      border-left: 4px solid #43b581;
+    }
+    .result.error {
+      background-color: rgba(240, 71, 71, 0.2);
+      border-left: 4px solid #f04747;
+    }
+    .result.warning {
+      background-color: rgba(250, 166, 26, 0.2);
+      border-left: 4px solid #faa61a;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Exercices de Karnaugh - Simplifications Logiques</h1>
+    
+    <div class="instructions">
+      <h3>Comment utiliser cet outil</h3>
+      <p>1. Chaque tableau représente une fonction logique à simplifier</p>
+      <p>2. Cliquez sur les cellules pour former des groupes (groupes de 1, 2, 4, 8)</p>
+      <p>3. Les groupes doivent être des rectangles/carrés et leurs dimensions doivent être des puissances de 2</p>
+      <p>4. Utilisez les boutons de groupe pour sélectionner le groupe actif</p>
+      <p>5. Écrivez l'équation simplifiée puis vérifiez votre réponse</p>
+    </div>
+    
+    <div id="exercices"></div>
+  </div>
+  
+  <script>
+    // Données des tableaux de Karnaugh avec leurs solutions
+    const solutions = {
+      // Tableau F1
+      F1: ["a·b + a·c"],
+      // Tableau F2
+      F2: ["b·c + a·c"],
+      // Tableau F3
+      F3: ["a·c + a·d"],
+      // Tableau F4
+      F4: ["c·d + a·b"],
+      // Tableau F5
+      F5: ["a·d + b·c"],
+      // Tableau F6
+      F6: ["b + c"],
+      // Tableau F7
+      F7: ["a + b + c"],
+      // Tableau F8
+      F8: ["(a + c)·(b + c)"],
+      // Tableau F9
+      F9: ["a·c̄ + b·c"],
+      // Tableau F10
+      F10: ["a + b̄"],
+      // Tableau F11
+      F11: ["(a + b + c)·(a + b̄)"],
+      // Tableau F12
+      F12: ["(a + b)·(a + c)"]
+    };
+    
+    // Données complètes des 12 tableaux de Karnaugh
+    const kmapData = {
+      F1: {
+        title: "Tableau F1",
+        values: [
+          [0, 0, 1, 1],
+          [0, 0, 1, 1],
+          [0, 0, 0, 0],
+          [0, 0, 0, 0]
+        ],
+        solution: "a·b + a·c"
+      },
+      F2: {
+        title: "Tableau F2",
+        values: [
+          [0, 0, 0, 0],
+          [0, 0, 1, 1],
+          [0, 1, 1, 1],
+          [0, 0, 1, 1]
+        ],
+        solution: "b·c + a·c"
+      },
+      F3: {
+        title: "Tableau F3",
+        values: [
+          [0, 0, 1, 1],
+          [0, 0, 0, 0],
+          [1, 1, 1, 1],
+          [0, 0, 0, 0]
+        ],
+        solution: "a·c + a·d"
+      },
+      F4: {
+        title: "Tableau F4",
+        values: [
+          [0, 0, 1, 1],
+          [0, 0, 1, 1],
+          [0, 0, 1, 1],
+          [1, 1, 1, 1]
+        ],
+        solution: "c·d + a·b"
+      },
+      F5: {
+        title: "Tableau F5",
+        values: [
+          [0, 0, 0, 1],
+          [0, 0, 1, 1],
+          [0, 1, 1, 0],
+          [0, 1, 0, 0]
+        ],
+        solution: "a·d + b·c"
+      },
+      F6: {
+        title: "Tableau F6",
+        values: [
+          [0, 1, 1, 1],
+          [0, 1, 1, 1],
+          [0, 1, 1, 1],
+          [0, 1, 1, 1]
+        ],
+        solution: "b + c"
+      },
+      F7: {
+        title: "Tableau F7",
+        values: [
+          [0, 1, 1, 1],
+          [1, 1, 1, 1],
+          [1, 1, 1, 1],
+          [1, 1, 1, 1]
+        ],
+        solution: "a + b + c"
+      },
+      F8: {
+        title: "Tableau F8",
+        values: [
+          [0, 0, 1, 1],
+          [0, 0, 1, 1],
+          [1, 1, 1, 1],
+          [1, 1, 1, 1]
+        ],
+        solution: "(a + c)·(b + c)"
+      },
+      F9: {
+        title: "Tableau F9",
+        values: [
+          [1, 1, 0, 0],
+          [1, 1, 0, 0],
+          [0, 0, 1, 1],
+          [0, 0, 1, 1]
+        ],
+        solution: "a·c̄ + b·c"
+      },
+      F10: {
+        title: "Tableau F10",
+        values: [
+          [1, 0, 1, 0],
+          [1, 0, 1, 0],
+          [1, 0, 1, 0],
+          [1, 0, 1, 0]
+        ],
+        solution: "a + b̄"
+      },
+      F11: {
+        title: "Tableau F11",
+        values: [
+          [1, 0, 1, 1],
+          [1, 0, 1, 1],
+          [1, 1, 1, 1],
+          [1, 1, 1, 1]
+        ],
+        solution: "(a + b + c)·(a + b̄)"
+      },
+      F12: {
+        title: "Tableau F12",
+        values: [
+          [1, 1, 1, 1],
+          [1, 1, 1, 1],
+          [1, 1, 0, 0],
+          [1, 1, 0, 0]
+        ],
+        solution: "(a + b)·(a + c)"
+      }
+    };
+    
+    // Fonction pour créer tous les tableaux de Karnaugh
+    function createKarnaughTables() {
+      const container = document.getElementById('exercices');
+      
+      // Créer les 12 tableaux spécifiques
+      for (const key in kmapData) {
+        createKarnaughTable(key, kmapData[key], container);
+      }
+    }
+    
+    // Fonction pour créer un tableau de Karnaugh
+    function createKarnaughTable(key, data, container) {
+      const div = document.createElement('div');
+      div.className = 'exercice-container';
+      
+      // Titre
+      const title = document.createElement('h3');
+      title.textContent = data.title;
+      div.appendChild(title);
+      
+      // Boutons de groupe
+      const groupButtons = document.createElement('div');
+      groupButtons.className = 'group-buttons';
+      
+      let activeGroupBtn = null;
+      for (let i = 1; i <= 4; i++) {
+        const groupBtn = document.createElement('button');
+        groupBtn.className = 'group-btn';
+        groupBtn.textContent = `Groupe ${i}`;
+        groupBtn.dataset.group = `group${i}`;
+        
+        groupBtn.addEventListener('click', () => {
+          // Désactiver le bouton actif précédent
+          if (activeGroupBtn) {
+            activeGroupBtn.classList.remove('active');
+          }
+          
+          // Activer ce bouton s'il n'est pas déjà actif
+          if (activeGroupBtn !== groupBtn) {
+            groupBtn.classList.add('active');
+            activeGroupBtn = groupBtn;
+          } else {
+            activeGroupBtn = null;
+          }
+        });
+        
+        groupButtons.appendChild(groupBtn);
+      }
+      
+      div.appendChild(groupButtons);
+      
+      // Créer le tableau
+      const table = document.createElement('table');
+      table.className = 'kmap';
+      
+      // Entêtes du tableau (colonnes)
+      const headerRow = document.createElement('tr');
+      const cornerCell = document.createElement('th');
+      cornerCell.textContent = 'ab/cd';
+      headerRow.appendChild(cornerCell);
+      
+      ['00', '01', '11', '10'].forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+      });
+      
+      table.appendChild(headerRow);
+      
+      // Corps du tableau avec les valeurs
+      ['00', '01', '11', '10'].forEach((rowHeader, rowIndex) => {
+        const tr = document.createElement('tr');
+        
+        // Cellule d'entête de ligne
+        const th = document.createElement('th');
+        th.textContent = rowHeader;
+        tr.appendChild(th);
+        
+        // Cellules de données
+        data.values[rowIndex].forEach((value, colIndex) => {
+          const td = document.createElement('td');
+          td.textContent = value;
+          td.dataset.value = value;
+          td.dataset.rowIndex = rowIndex;
+          td.dataset.colIndex = colIndex;
+          td.dataset.groups = "";
+          
+          // Ajouter une classe pour styliser selon la valeur
+          td.className = value === 1 ? 'selected-1' : 'selected-0';
+          
+          // Ajouter l'événement pour sélectionner/désélectionner un groupe
+          td.addEventListener('click', () => {
+            if (!activeGroupBtn) return;
+            
+            const groupName = activeGroupBtn.dataset.group;
+            
+            // Vérifier si cette cellule est déjà dans ce groupe
+            const groups = td.dataset.groups.split(" ").filter(g => g);
+            const groupIndex = groups.indexOf(groupName);
+            
+            if (groupIndex !== -1) {
+              // Enlever du groupe
+              groups.splice(groupIndex, 1);
+              td.classList.remove(groupName);
+            } else {
+              // Ajouter au groupe
+              groups.push(groupName);
+              td.classList.add(groupName);
+            }
+            
+            td.dataset.groups = groups.join(" ");
+          });
+          
+          tr.appendChild(td);
+        });
+        
+        table.appendChild(tr);
+      });
+      
+      div.appendChild(table);
+      
+      // Créer les aides à la saisie
+      const eqHelpers = document.createElement('div');
+      eqHelpers.className = 'equation-helpers';
+      
+      // Variables
+      ['a', 'b', 'c', 'd'].forEach(variable => {
+        const btn = document.createElement('button');
+        btn.className = 'eq-helper-btn';
+        btn.textContent = variable;
+        btn.addEventListener('click', () => {
+          const input = document.getElementById(`eq-${key}`);
+          input.value += variable;
+          input.focus();
+        });
+        eqHelpers.appendChild(btn);
+      });
+      
+      // Variables inversées
+      ['ā', 'b̄', 'c̄', 'd̄'].forEach(variable => {
+        const btn = document.createElement('button');
+        btn.className = 'eq-helper-btn';
+        btn.textContent = variable;
+        btn.addEventListener('click', () => {
+          const input = document.getElementById(`eq-${key}`);
+          input.value += variable;
+          input.focus();
+        });
+        eqHelpers.appendChild(btn);
+      });
+      
+      // Opérateurs
+      ['+', '·', '(', ')', '!'].forEach(op => {
+        const btn = document.createElement('button');
+        btn.className = 'eq-helper-btn';
+        btn.textContent = op;
+        btn.addEventListener('click', () => {
+          const input = document.getElementById(`eq-${key}`);
+          input.value += op;
+          input.focus();
+        });
+        eqHelpers.appendChild(btn);
+      });
+      
+      div.appendChild(eqHelpers);
+      
+      // Champ d'équation
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.id = `eq-${key}`;
+      inputField.placeholder = 'Entrez votre équation simplifiée (Ex: a + b·c)';
+      div.appendChild(inputField);
+      
+      // Boutons d'action
+      const actionButtons = document.createElement('div');
+      actionButtons.className = 'action-buttons';
+      
+      // Bouton de vérification de l'équation
+      const checkBtn = document.createElement('button');
+      checkBtn.textContent = 'Vérifier l\'équation';
+      checkBtn.addEventListener('click', () => {
+        const userEq = inputField.value.trim();
+        const isCorrect = checkEquation(key, userEq);
+        
+        // Afficher le résultat
+        const oldResult = div.querySelector('.result');
+        if (oldResult) oldResult.remove();
+        
+        const resultDiv = document.createElement('div');
+        
+        if (isCorrect) {
+          resultDiv.className = 'result success';
+          resultDiv.textContent = '✓ Votre équation est correcte !';
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.textContent = '✗ Équation incorrecte. Vérifiez votre notation ou continuez à chercher.';
+        }
+        
+        div.appendChild(resultDiv);
+      });
+      actionButtons.appendChild(checkBtn);
+      
+      // Bouton pour voir la solution
+      const solutionBtn = document.createElement('button');
+      solutionBtn.textContent = 'Voir la solution';
+      solutionBtn.className = 'warning';
+      solutionBtn.addEventListener('click', () => {
+        // Afficher la solution
+        const oldResult = div.querySelector('.result');
+        if (oldResult) oldResult.remove();
+        
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'result warning';
+        resultDiv.innerHTML = `
+          <p><strong>Solution :</strong></p>
+          <p>Équation simplifiée : ${data.solution}</p>
+        `;
+        
+        div.appendChild(resultDiv);
+        
+        // Mettre la solution dans le champ
+        inputField.value = data.solution;
+      });
+      actionButtons.appendChild(solutionBtn);
+      
+      // Bouton pour réinitialiser
+      const resetBtn = document.createElement('button');
+      resetBtn.textContent = 'Réinitialiser';
+      resetBtn.className = 'secondary';
+      resetBtn.addEventListener('click', () => {
+        // Effacer les groupes
+        table.querySelectorAll('td').forEach(td => {
+          const value = td.dataset.value;
+          td.dataset.groups = "";
+          td.className = value === "1" ? 'selected-1' : 'selected-0';
+        });
+        
+        // Effacer l'équation
+        inputField.value = "";
+        
+        // Effacer le résultat
+        const oldResult = div.querySelector('.result');
+        if (oldResult) oldResult.remove();
+      });
+      actionButtons.appendChild(resetBtn);
+      
+      div.appendChild(actionButtons);
+      
+      container.appendChild(div);
+    }
+    
+    // Vérifier si l'équation est correcte
+    function checkEquation(functionKey, userEquation) {
+      if (!userEquation) return false;
+      
+      // Nettoyer l'équation
+      const cleanUserEq = userEquation.toLowerCase()
+        .replace(/\s+/g, '')
+        .replace(/·/g, '')
+        .replace(/\*/g, '')
+        .replace(/!/g, '̄')
+        .replace(/not/g, '̄');
+      
+      return solutions[functionKey].some(solution => {
+        const cleanSolution = solution.toLowerCase()
+          .replace(/\s+/g, '')
+          .replace(/·/g, '')
+          .replace(/\*/g, '')
+          .replace(/!/g, '̄')
+          .replace(/not/g, '̄');
+        
+        return cleanUserEq === cleanSolution;
+      });
+    }
+    
+    // Initialiser quand la page est chargée
+    document.addEventListener("DOMContentLoaded", createKarnaughTables);
+  </script>
+</body>
+</html>

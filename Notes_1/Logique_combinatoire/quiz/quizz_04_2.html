@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Simplifications Logiques - S3</title>
+  <style>
+    body {
+      background-color: #2f3136;
+      color: #dcddde;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px 0;
+      width: auto;
+    }
+    th, td {
+      border: 1px solid #72767d;
+      padding: 6px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #36393f;
+    }
+    input[type="text"] {
+      width: 100%;
+      background-color: #40444b;
+      color: #dcddde;
+      border: 1px solid #72767d;
+      padding: 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #7289da;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .box {
+      background-color: #23272a;
+      padding: 15px;
+      border-left: 4px solid #43b581;
+      margin-top: 20px;
+    }
+    .correction {
+      display: none;
+      margin-top: 15px;
+      background-color: #2f3136;
+      padding: 10px;
+      border-left: 4px solid #43b581;
+      white-space: pre-wrap;
+    }
+    code {
+      background-color: #40444b;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+      max-width: 600px;
+    }
+    .form-row input {
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simplification Logique — S3</h1>
+
+  <h2>3. Table de vérité de la fonction logique S3</h2>
+  <table>
+    <thead><tr><th>a</th><th>b</th><th>c</th><th>d</th><th>S3</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+      <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+    </tbody>
+  </table>
+
+  <div class="form-row">
+    <label>Simplification proposée pour S3 :
+      <input id="s3" type="text">
+    </label>
+  </div>
+
+  <button onclick="corriger()">Corriger</button>
+  <div id="corrections" class="correction"></div>
+
+  <script>
+    function corriger() {
+      const solutions = {
+        s3: [
+          "a̅c̅ + b̅c̅ + a.b̅.d̅ + a̅.b̅.d + a̅.b.d + a.b.d̅", 
+          "(a + c).(b + c).(a̅ + b + d̅).(a + b + d̅).(a + b̅ + d)"
+        ]
+      };
+
+      let html = '<strong>Correction :</strong><br><ul>';
+      for (const key in solutions) {
+        const input = document.getElementById(key);
+        if (!input) continue;
+        const val = input.value.trim().replace(/\s+/g, '').toLowerCase();
+        const matches = solutions[key].some(sol => val === sol.replace(/\s+/g, '').toLowerCase());
+        html += `<li><code>${key.toUpperCase()}</code> : ${matches ? '✅' : '❌'} ${input.value || 'vide'} → ${solutions[key].join('  ou  ')}</li>`;
+      }
+      html += '</ul>';
+      const zone = document.getElementById('corrections');
+      zone.innerHTML = html;
+      zone.style.display = 'block';
+    }
+  </script>
+
+  <div class="box">
+    <p><strong>B)</strong> Ensuite dessiner soigneusement le diagramme logique de chaque fonction simplifiée par le tableau de Karnaugh en utilisant les symboles américains (<code>S1 ∧ S3</code>).</p>
+  </div>
+</body>
+</html>
