@@ -366,8 +366,9 @@ p {
   backdrop-filter: blur(10px);
   padding: 15px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  position: fixed;
+  position: sticky;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -418,25 +419,29 @@ p {
   width: 100%;
 }
 
+/* Position des dropdown menus */
 .dropdown-content {
   display: none;
   position: absolute;
   background: rgba(30, 30, 36, 0.95);
   min-width: 260px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
+  z-index: 1000;
   border-radius: 8px;
   padding: 10px 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  left: 50%;
-  transform: translateX(-50%);
-  top: 40px;
+  left: 0;
+  top: 100%;
+  transform: none;
   backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  animation: fadeIn 0.3s ease;
+  opacity: 1;
+  animation: none;
 }
 
 .dropdown-content a {
@@ -1244,7 +1249,7 @@ li {
   color: white;
   padding: 12px 0;
   position: relative;
-  z-index: 1000;
+  z-index: 900;
   margin-bottom: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
