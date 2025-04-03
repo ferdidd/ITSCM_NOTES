@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simplifications Logiques (1/3)</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="navbar.js"></script>
   <style>
     body {
@@ -81,114 +85,205 @@
 </head>
 <body>
   <div class="content">
-    <h1>Simplifications Logiques - Les Tableaux de Karnaugh</h1>
-
-    <h2>I. À l'aide de tableaux de Karnaugh, simplifiez les fonctions logiques suivantes :</h2>
-
-    <div class="form-row">
-      <label><code>R = a·b·c̅ + a·b·c + a·b̅·c</code>
-        <input id="r" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>S = a·b·c + a·b̅·c + a·b·c̅</code>
-        <input id="s" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>T = a·b·c̅·d + a·b·c·d + a·b·c̅·d̅ + a·b̅·c·d + a·b̅·c̅·d</code>
-        <input id="t" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>U = a̅·b·c̅·d + a·b·c̅·d + a̅·b·c·d + a·b·c·d + a·b̅·c·d + a·b·c·d̅</code>
-        <input id="u" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>V = a̅·b̅·c̅·d̅ + a̅·b̅·c·d + a·b̅·c̅·d + a·b·c̅·d</code>
-        <input id="v" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>W = a̅·b̅·d + a·b·c + b·c̅·d + b·c̅ + a·b·c</code>
-        <input id="w" type="text">
-      </label>
-    </div>
-    <div class="form-row">
-      <label><code>X = b̅·c̅·d + a·b·c + b·c + a·c̅·d</code>
-        <input id="x" type="text">
-      </label>
+    <div class="header-section">
+      <div class="icon-container">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <h1>Simplifications Logiques - Les Tableaux de Karnaugh</h1>
+      <p class="subtitle">Apprenez à simplifier les fonctions logiques pour optimiser les circuits.</p>
     </div>
 
-    <h2>II. Tableaux de vérité</h2>
+    <div class="category">
+      <div class="category-header">
+        <i class="fas fa-th"></i>
+        <h2>I. Simplification des fonctions logiques</h2>
+      </div>
+      <p>À l'aide de tableaux de Karnaugh, simplifiez les fonctions logiques suivantes :</p>
 
-    <h3>1. Table de vérité de la fonction logique S1</h3>
-    <table>
-      <thead><tr><th>a</th><th>b</th><th>S1</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td>1</td><td>0</td><td>1</td></tr>
-        <tr><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td>1</td><td>1</td><td>0</td></tr>
-      </tbody>
-    </table>
-    <div class="form-row">
-      <label>Simplification proposée :
-        <input id="s1" type="text">
-      </label>
+      <div class="exercise">
+        <div class="form-row">
+          <label><code>R = a·b·c̅ + a·b·c + a·b̅·c</code>
+            <input id="r" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>S = a·b·c + a·b̅·c + a·b·c̅</code>
+            <input id="s" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>T = a·b·c̅·d + a·b·c·d + a·b·c̅·d̅ + a·b̅·c·d + a·b̅·c̅·d</code>
+            <input id="t" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>U = a̅·b·c̅·d + a·b·c̅·d + a̅·b·c·d + a·b·c·d + a·b̅·c·d + a·b·c·d̅</code>
+            <input id="u" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>V = a̅·b̅·c̅·d̅ + a̅·b̅·c·d + a·b̅·c̅·d + a·b·c̅·d</code>
+            <input id="v" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>W = a̅·b̅·d + a·b·c + b·c̅·d + b·c̅ + a·b·c</code>
+            <input id="w" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><code>X = b̅·c̅·d + a·b·c + b·c + a·c̅·d</code>
+            <input id="x" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+      </div>
     </div>
 
-    <h3>2. Table de vérité de la fonction logique S2</h3>
-    <table>
-      <thead><tr><th>a</th><th>b</th><th>c</th><th>S2</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-        <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-        <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
-        <tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
-        <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-      </tbody>
-    </table>
-    <div class="form-row">
-      <label>Simplification proposée :
-        <input id="s2" type="text">
-      </label>
-    </div>
+    <div class="category">
+      <div class="category-header">
+        <i class="fas fa-table"></i>
+        <h2>II. Tableaux de vérité</h2>
+      </div>
 
-    <button onclick="corriger()">Corriger</button>
-    <div id="corrections" class="correction"></div>
+      <div class="subcategory">
+        <h3 class="subcategory-title"><i class="fas fa-list-ol"></i> 1. Table de vérité de la fonction logique S1</h3>
+        <table>
+          <thead><tr><th>a</th><th>b</th><th>S1</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+        <div class="form-row">
+          <label>Simplification proposée :
+            <input id="s1" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+      </div>
+
+      <div class="subcategory">
+        <h3 class="subcategory-title"><i class="fas fa-list-ol"></i> 2. Table de vérité de la fonction logique S2</h3>
+        <table>
+          <thead><tr><th>a</th><th>b</th><th>c</th><th>S2</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+        <div class="form-row">
+          <label>Simplification proposée :
+            <input id="s2" type="text" placeholder="Forme simplifiée">
+          </label>
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <button onclick="corriger()" class="submit-button">
+          <i class="fas fa-check-circle"></i> Vérifier les simplifications
+        </button>
+      </div>
+      
+      <div id="corrections" class="result-container"></div>
+    </div>
   </div>
   
   <script>
     function corriger() {
       const solutions = {
-        r: ["a.b + a.c", "(a + b).(a + c)"],
-        s: ["a.c + b.c", "(a + b).(a + c)"],
-        t: ["a.c + a.d", "(a + b + c).(a + b + d)"],
-        u: ["c.d + a.b", "(a + b + d).(a + c + d)"],
-        v: ["a.d + b.c", "(a + b + c).(a + b + d)"],
-        w: ["a.b.c + a̅.d + b.c̅", "(a + d).(b + c)"],
-        x: ["a.c̅.d + b.c + a.b.c", "(a + b + c).(a + d + b̅)"],
-        s1: ["a̅.b̅ + a.b̅ + a̅.b", "(a + b)"],
-        s2: ["a̅.c̅ + b̅.c̅ + a.b", "(a + b + c)"]
+        r: ["a.b + a.c", "a.(b + c)"],
+        s: ["a.c + a.b", "a.(b + c)"],
+        t: ["a.c + a.d", "a.(c + d)"],
+        u: ["c.d + a.b", "c.d + a.b"],
+        v: ["a.d + b.c", "a.d + b.c"],
+        w: ["a.b.c + a̅.d + b.c̅", "a.b.c + a̅.d + b.c̅"],
+        x: ["a.c̅.d + b.c + a.b.c", "a.c̅.d + b.c"],
+        s1: ["a̅ + b̅", "a̅ + b̅"],
+        s2: ["a̅.c̅ + b̅.c̅ + a.b", "(a̅ + b̅).c̅ + a.b"]
       };
 
-      let html = '<strong>Correction :</strong><br><ul>';
+      let html = '';
+      let score = 0;
+      const totalQuestions = Object.keys(solutions).length;
+      
       for (const key in solutions) {
         const input = document.getElementById(key);
         if (!input) continue;
+        
         const val = input.value.trim().replace(/\s+/g, '').toLowerCase();
-        const matches = solutions[key].some(sol => val === sol.replace(/\s+/g, '').toLowerCase());
-        html += `<li><code>${key.toUpperCase()}</code> : ${matches ? '✅' : '❌'} ${input.value || 'vide'} → ${solutions[key].join('  ou  ')}</li>`;
+        const matches = solutions[key].some(sol => {
+          const normalizedSol = sol.replace(/\s+/g, '').toLowerCase()
+                                  .replace(/\·/g, '.')
+                                  .replace(/\+/g, '+');
+          return val === normalizedSol;
+        });
+        
+        if (matches) {
+          score++;
+          html += `
+            <div class="result-item correct">
+              <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="result-content">
+                <h4>Fonction ${key.toUpperCase()}</h4>
+                <p class="result-text">${input.value || 'Non renseigné'}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="result-item incorrect">
+              <div class="result-icon"><i class="fas fa-times-circle"></i></div>
+              <div class="result-content">
+                <h4>Fonction ${key.toUpperCase()}</h4>
+                <p class="result-text">${input.value || 'Non renseigné'}</p>
+                <p class="result-explanation">Réponse correcte : ${solutions[key].join(' ou ')}</p>
+              </div>
+            </div>
+          `;
+        }
       }
-      html += '</ul>';
+      
+      const scorePercentage = (score / totalQuestions) * 100;
+      let scoreMessage = '';
+      let scoreIconClass = '';
+      
+      if (scorePercentage >= 80) {
+        scoreMessage = 'Excellent ! Vous maîtrisez bien les simplifications logiques.';
+        scoreIconClass = 'fa-trophy';
+      } else if (scorePercentage >= 60) {
+        scoreMessage = 'Bon travail ! Continuez à pratiquer.';
+        scoreIconClass = 'fa-thumbs-up';
+      } else {
+        scoreMessage = 'Vous devriez réviser les méthodes de simplification.';
+        scoreIconClass = 'fa-book';
+      }
+      
+      const resultHTML = `
+        <div class="score-container">
+          <div class="score-circle" style="--score-percentage: ${scorePercentage}%">
+            <div class="score-value">${score}/${totalQuestions}</div>
+          </div>
+          <div class="score-message">
+            <i class="fas ${scoreIconClass}"></i>
+            <p>${scoreMessage}</p>
+          </div>
+        </div>
+        <h3 class="results-title">Détails des réponses</h3>
+        <div class="results-details">
+          ${html}
+        </div>
+      `;
+      
       const zone = document.getElementById('corrections');
-      zone.innerHTML = html;
-      zone.style.display = 'block';
+      zone.innerHTML = resultHTML;
+      zone.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>

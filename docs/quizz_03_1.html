@@ -4,122 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab2 - Les Codes Binaires</title>
-  <style>
-    body {
-      background-color: #2f3136;
-      color: #dcddde;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      margin: 0;
-    }
-    h1, h2, h3 {
-      color: #ffffff;
-    }
-    table {
-      border-collapse: collapse;
-      width: 60%;
-      margin: 20px 0;
-    }
-    th, td {
-      border: 1px solid #72767d;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #36393f;
-    }
-    input[type="text"] {
-      width: 60px;
-      background-color: #40444b;
-      color: #dcddde;
-      border: 1px solid #72767d;
-      padding: 4px;
-      text-align: center;
-    }
-    button {
-      background-color: #7289da;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .note {
-      font-style: italic;
-      color: #b9bbbe;
-    }
-    .code {
-      font-family: monospace;
-      background: #40444b;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-    .correction {
-      margin-top: 10px;
-      background-color: #23272a;
-      padding: 10px;
-      border-left: 4px solid #43b581;
-    }
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  </style>
-  <!-- Inclusion du script de navbar -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="navbar.js"></script>
 </head>
 <body>
   <div class="content">
-    <h1>Lab2. Les Codes Binaires</h1>
-    <h2>I/ Le code binaire naturel</h2>
-    <p>Travailler en code binaire naturel revient à travailler en base 2.</p>
+    <div class="header-section">
+      <div class="icon-container">
+        <i class="fas fa-binary"></i>
+      </div>
+      <h1>Lab2. Les Codes Binaires</h1>
+      <p class="subtitle">Comprendre les différentes représentations binaires et leur utilisation.</p>
+    </div>
 
-    <h3>Rappels sur la base 10 :</h3>
-    <p>
-      Le nombre cent cinquante-deux en base 10 s'écrit : <br>
-      <strong>1</strong> (centaines) <strong>5</strong> (dizaines) <strong>2</strong> (unités)<br>
-      10<sup>2</sup> = 100, 10<sup>1</sup> = 10, 10<sup>0</sup> = 1<br>
-      <span class="code">1 × 100 + 5 × 10 + 2 × 1 = 152</span>
-    </p>
+    <div class="category">
+      <div class="category-header">
+        <i class="fas fa-stream"></i>
+        <h2>I/ Le code binaire naturel</h2>
+      </div>
+      <p>Travailler en code binaire naturel revient à travailler en base 2.</p>
 
-    <h3>De la même façon en base 2 :</h3>
-    <p>
-      Le nombre "cent un" en base 2 s'écrit : <br>
-      <strong>1</strong> <strong>0</strong> <strong>1</strong> (unités)<br>
-      2<sup>2</sup> = 4, 2<sup>1</sup> = 2, 2<sup>0</sup> = 1<br>
-      <span class="code">1 × 4 + 0 × 2 + 1 × 1 = 5</span>
-    </p>
+      <div class="box">
+        <h3>Rappels sur la base 10 :</h3>
+        <p>
+          Le nombre cent cinquante-deux en base 10 s'écrit : <br>
+          <strong>1</strong> (centaines) <strong>5</strong> (dizaines) <strong>2</strong> (unités)<br>
+          10<sup>2</sup> = 100, 10<sup>1</sup> = 10, 10<sup>0</sup> = 1<br>
+          <span class="code">1 × 100 + 5 × 10 + 2 × 1 = 152</span>
+        </p>
+      </div>
 
-    <h3>1) Les premiers nombres en base 2</h3>
+      <div class="box">
+        <h3>De la même façon en base 2 :</h3>
+        <p>
+          Le nombre "cent un" en base 2 s'écrit : <br>
+          <strong>1</strong> <strong>0</strong> <strong>1</strong> (unités)<br>
+          2<sup>2</sup> = 4, 2<sup>1</sup> = 2, 2<sup>0</sup> = 1<br>
+          <span class="code">1 × 4 + 0 × 2 + 1 × 1 = 5</span>
+        </p>
+      </div>
 
-    <table id="binaryTable">
-      <thead>
-        <tr>
-          <th>Base 10</th>
-          <th>Base 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>0</td><td><input type="text"></td></tr>
-        <tr><td>1</td><td><input type="text"></td></tr>
-        <tr><td>2</td><td><input type="text"></td></tr>
-        <tr><td>3</td><td><input type="text"></td></tr>
-        <tr><td>4</td><td><input type="text"></td></tr>
-        <tr><td>5</td><td><input type="text"></td></tr>
-        <tr><td>6</td><td><input type="text"></td></tr>
-        <tr><td>7</td><td><input type="text"></td></tr>
-        <tr><td>8</td><td><input type="text"></td></tr>
-        <tr><td>9</td><td><input type="text"></td></tr>
-        <tr><td>10</td><td><input type="text"></td></tr>
-      </tbody>
-    </table>
+      <div class="exercise">
+        <h3><i class="fas fa-pencil-alt"></i> Les premiers nombres en base 2</h3>
 
-    <button onclick="checkAnswers()">Vérifier les résultats</button>
+        <table id="binaryTable">
+          <thead>
+            <tr>
+              <th>Base 10</th>
+              <th>Base 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td><input type="text"></td></tr>
+            <tr><td>1</td><td><input type="text"></td></tr>
+            <tr><td>2</td><td><input type="text"></td></tr>
+            <tr><td>3</td><td><input type="text"></td></tr>
+            <tr><td>4</td><td><input type="text"></td></tr>
+            <tr><td>5</td><td><input type="text"></td></tr>
+            <tr><td>6</td><td><input type="text"></td></tr>
+            <tr><td>7</td><td><input type="text"></td></tr>
+            <tr><td>8</td><td><input type="text"></td></tr>
+            <tr><td>9</td><td><input type="text"></td></tr>
+            <tr><td>10</td><td><input type="text"></td></tr>
+          </tbody>
+        </table>
 
-    <div id="corrections" class="correction" style="display: none;"></div>
+        <div class="quiz-actions">
+          <button type="button" class="submit-button" onclick="checkAnswers()">
+            <i class="fas fa-check-circle"></i> Vérifier les résultats
+          </button>
+        </div>
 
-    <p class="note">Binaire naturel & Binaire code Gray (Réfléchis)</p>
+        <div id="corrections" class="correction" style="display: none;"></div>
+      </div>
+
+      <p class="note"><i class="fas fa-info-circle"></i> Binaire naturel & Binaire code Gray (Réfléchis)</p>
+    </div>
   </div>
 
   <script>
@@ -130,18 +94,51 @@
       const correctionDiv = document.getElementById('corrections');
       correctionDiv.innerHTML = '<strong>Correction :</strong><br><ul>';
 
+      let score = 0;
       inputs.forEach((input, index) => {
         const userValue = input.value.trim();
         const correctValue = corrections[index];
         if (userValue === correctValue) {
-          correctionDiv.innerHTML += `<li>${index} : ✅ ${userValue}</li>`;
+          correctionDiv.innerHTML += `
+            <div class="result-item correct">
+              <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="result-content">
+                <h4>Nombre ${index}</h4>
+                <p class="result-text">${userValue}</p>
+              </div>
+            </div>
+          `;
+          score++;
+          input.parentElement.classList.add('correct-answer');
         } else {
-          correctionDiv.innerHTML += `<li>${index} : ❌ ${userValue || 'vide'} → ${correctValue}</li>`;
+          correctionDiv.innerHTML += `
+            <div class="result-item incorrect">
+              <div class="result-icon"><i class="fas fa-times-circle"></i></div>
+              <div class="result-content">
+                <h4>Nombre ${index}</h4>
+                <p class="result-text">${userValue || 'Non renseigné'}</p>
+                <p class="result-explanation">Réponse correcte : ${correctValue}</p>
+              </div>
+            </div>
+          `;
+          input.parentElement.classList.add('wrong-answer');
         }
       });
 
-      correctionDiv.innerHTML += '</ul>';
+      correctionDiv.innerHTML += `
+        <div class="score-container">
+          <div class="score-circle" style="--score-percentage: ${(score/corrections.length)*100}%">
+            <div class="score-value">${score}/${corrections.length}</div>
+          </div>
+          <div class="score-message">
+            <i class="fas ${score >= 8 ? 'fa-trophy' : score >= 5 ? 'fa-thumbs-up' : 'fa-book'}"></i>
+            <p>${score >= 8 ? 'Excellent !' : score >= 5 ? 'Bon travail !' : 'Continuez à vous exercer.'}</p>
+          </div>
+        </div>
+      `;
+      
       correctionDiv.style.display = 'block';
+      correctionDiv.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>

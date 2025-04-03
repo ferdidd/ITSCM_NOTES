@@ -5,85 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Logique Numérique</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="navbar.js"></script>
 </head>
 <body>
   <div class="content">
-    <h1>🧠 Quiz : Logique Numérique</h1>
-    <form id="quiz">
-      <div class="question">
-        1. Que signifie TOR ?<br>
-        <input type="radio" name="q1" value="0"> Temps ou Résistance<br>
-        <input type="radio" name="q1" value="1"> Tout ou Rien<br>
-        <input type="radio" name="q1" value="0"> Test ou Réinitialisation<br>
+    <div class="header-section">
+      <div class="icon-container">
+        <i class="fas fa-brain"></i>
       </div>
+      <h1>Quiz : Logique Numérique</h1>
+      <p class="subtitle">Testez vos connaissances sur les concepts fondamentaux du cours. Ce quiz couvre les notions essentielles pour l'examen.</p>
+    </div>
 
-      <div class="question">
-        2. Un front montant correspond à :<br>
-        <input type="radio" name="q2" value="1"> de 0 à 1<br>
-        <input type="radio" name="q2" value="0"> de 1 à 0<br>
-        <input type="radio" name="q2" value="0"> toujours à 1<br>
+    <div class="category">
+      <div class="category-header">
+        <i class="fas fa-question-circle"></i>
+        <h2>Questionnaire</h2>
       </div>
+      
+      <form id="quiz" class="quiz-form">
+        <div class="questions-container">
+          <div class="question-card">
+            <div class="question-number"><span>1</span></div>
+            <div class="question-content">
+              <h3>Que signifie TOR ?</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q1" value="0">
+                  <span class="option-text">Temps ou Résistance</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q1" value="1">
+                  <span class="option-text">Tout ou Rien</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q1" value="0">
+                  <span class="option-text">Test ou Réinitialisation</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        3. Quelle est l'unité de la résistance ?<br>
-        <input type="radio" name="q3" value="0"> Farad<br>
-        <input type="radio" name="q3" value="1"> Ohm<br>
-        <input type="radio" name="q3" value="0"> Watt<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>2</span></div>
+            <div class="question-content">
+              <h3>Un front montant correspond à :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q2" value="1">
+                  <span class="option-text">de 0 à 1</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q2" value="0">
+                  <span class="option-text">de 1 à 0</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q2" value="0">
+                  <span class="option-text">toujours à 1</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        4. Si une impulsion est de 3V, le milieu de l'impulsion est à :<br>
-        <input type="radio" name="q4" value="1"> 1,5V<br>
-        <input type="radio" name="q4" value="0"> 0V<br>
-        <input type="radio" name="q4" value="0"> 3V<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>3</span></div>
+            <div class="question-content">
+              <h3>Quelle est l'unité de la résistance ?</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q3" value="0">
+                  <span class="option-text">Farad</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q3" value="1">
+                  <span class="option-text">Ohm</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q3" value="0">
+                  <span class="option-text">Watt</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        5. La fréquence est :<br>
-        <input type="radio" name="q5" value="0"> T x 2<br>
-        <input type="radio" name="q5" value="1"> 1 / T<br>
-        <input type="radio" name="q5" value="0"> T / 2<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>4</span></div>
+            <div class="question-content">
+              <h3>Si une impulsion est de 3V, le milieu de l'impulsion est à :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q4" value="1">
+                  <span class="option-text">1,5V</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q4" value="0">
+                  <span class="option-text">0V</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q4" value="0">
+                  <span class="option-text">3V</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        6. Un signal périodique a une valeur moyenne :<br>
-        <input type="radio" name="q6" value="1"> proche de zéro<br>
-        <input type="radio" name="q6" value="0"> égale à l'amplitude<br>
-        <input type="radio" name="q6" value="0"> constante non nulle<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>5</span></div>
+            <div class="question-content">
+              <h3>La fréquence est :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q5" value="0">
+                  <span class="option-text">T x 2</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q5" value="1">
+                  <span class="option-text">1 / T</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q5" value="0">
+                  <span class="option-text">T / 2</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        7. La porte logique qui inverse une entrée est :<br>
-        <input type="radio" name="q7" value="1"> NOT (inverseur)<br>
-        <input type="radio" name="q7" value="0"> AND<br>
-        <input type="radio" name="q7" value="0"> OR<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>6</span></div>
+            <div class="question-content">
+              <h3>Un signal périodique a une valeur moyenne :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q6" value="1">
+                  <span class="option-text">proche de zéro</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q6" value="0">
+                  <span class="option-text">égale à l'amplitude</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q6" value="0">
+                  <span class="option-text">constante non nulle</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        8. La condition vraie correspond à :<br>
-        <input type="radio" name="q8" value="1"> niveau haut<br>
-        <input type="radio" name="q8" value="0"> niveau bas<br>
-        <input type="radio" name="q8" value="0"> zéro logique<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>7</span></div>
+            <div class="question-content">
+              <h3>La porte logique qui inverse une entrée est :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q7" value="1">
+                  <span class="option-text">NOT</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q7" value="0">
+                  <span class="option-text">AND</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q7" value="0">
+                  <span class="option-text">OR</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        9. Le symbole logique pour la porte OU est :<br>
-        <input type="radio" name="q9" value="1"> ≥1<br>
-        <input type="radio" name="q9" value="0"> D<br>
-        <input type="radio" name="q9" value="0"> o◁<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>8</span></div>
+            <div class="question-content">
+              <h3>La condition vraie correspond à :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q8" value="1">
+                  <span class="option-text">niveau haut</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q8" value="0">
+                  <span class="option-text">niveau bas</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q8" value="0">
+                  <span class="option-text">zéro logique</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <div class="question">
-        10. Le picoFarad est une unité de :<br>
-        <input type="radio" name="q10" value="1"> capacité<br>
-        <input type="radio" name="q10" value="0"> résistance<br>
-        <input type="radio" name="q10" value="0"> tension<br>
-      </div>
+          <div class="question-card">
+            <div class="question-number"><span>9</span></div>
+            <div class="question-content">
+              <h3>Le symbole logique pour la porte OU est :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q9" value="1">
+                  <span class="option-text">≥1</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q9" value="0">
+                  <span class="option-text">D</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q9" value="0">
+                  <span class="option-text">o◁</span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-      <button type="button" onclick="corriger()">✅ Voir le résultat</button>
-      <div id="result" class="result"></div>
-    </form>
+          <div class="question-card">
+            <div class="question-number"><span>10</span></div>
+            <div class="question-content">
+              <h3>Le picoFarad est une unité de :</h3>
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="q10" value="1">
+                  <span class="option-text">capacité</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q10" value="0">
+                  <span class="option-text">résistance</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="q10" value="0">
+                  <span class="option-text">tension</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" onclick="corriger()" class="submit-button">
+            <i class="fas fa-check-circle"></i> Voir le résultat
+          </button>
+        </div>
+
+        <div id="result" class="result-container"></div>
+      </form>
+    </div>
   </div>
 
   <script>
@@ -103,16 +268,108 @@
     function corriger() {
       let score = 0;
       let details = "";
+      
+      // Vérifier si l'utilisateur a répondu à toutes les questions
+      let allAnswered = true;
+      let unansweredQuestions = [];
       for (let i = 1; i <= 10; i++) {
         const r = document.querySelector(`input[name='q${i}']:checked`);
-        if (r && r.value === "1") {
-          score++;
-          details += `✅ Q${i} : <span class='correct'>Bonne réponse</span>\n`;
-        } else {
-          details += `❌ Q${i} : <span class='incorrect'>Mauvaise réponse</span> → ${explications[i - 1]}\n`;
+        if (!r) {
+          allAnswered = false;
+          unansweredQuestions.push(i);
         }
       }
-      document.getElementById("result").innerHTML = `🎯 Score : ${score}/10\n\n${details}`;
+      
+      if (!allAnswered) {
+        // Créer dynamiquement la div d'avertissement
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `
+          <div class="result warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+        `;
+        
+        // Ajouter une classe aux questions non répondues pour les mettre en évidence
+        unansweredQuestions.forEach(qNum => {
+          const questionCard = document.querySelector(`input[name='q${qNum}']`).closest('.question-card');
+          questionCard.classList.add('unanswered');
+        });
+        
+        // Scroller vers le résultat
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      
+      // Supprimer la classe 'unanswered' de toutes les questions
+      document.querySelectorAll('.question-card.unanswered').forEach(card => {
+        card.classList.remove('unanswered');
+      });
+      
+      for (let i = 1; i <= 10; i++) {
+        const r = document.querySelector(`input[name='q${i}']:checked`);
+        const questionCard = document.querySelector(`input[name='q${i}']`).closest('.question-card');
+        
+        if (r.value === "1") {
+          score++;
+          questionCard.classList.add('correct-answer');
+          details += `
+            <div class="result-item correct">
+              <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="result-content">
+                <h4>Question ${i}</h4>
+                <p class="result-text">Bonne réponse</p>
+              </div>
+            </div>
+          `;
+        } else {
+          questionCard.classList.add('wrong-answer');
+          details += `
+            <div class="result-item incorrect">
+              <div class="result-icon"><i class="fas fa-times-circle"></i></div>
+              <div class="result-content">
+                <h4>Question ${i}</h4>
+                <p class="result-text">Mauvaise réponse</p>
+                <p class="result-explanation">${explications[i - 1]}</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+      
+      const scorePercentage = (score / 10) * 100;
+      let scoreMessage = '';
+      let scoreIconClass = '';
+      
+      if (scorePercentage >= 80) {
+        scoreMessage = 'Excellent ! Vous maîtrisez bien ce sujet.';
+        scoreIconClass = 'fa-trophy';
+      } else if (scorePercentage >= 60) {
+        scoreMessage = 'Bon travail ! Continuez vos révisions.';
+        scoreIconClass = 'fa-thumbs-up';
+      } else {
+        scoreMessage = 'Vous devriez réviser davantage ces notions avant l\'examen.';
+        scoreIconClass = 'fa-book';
+      }
+      
+      document.getElementById("result").innerHTML = `
+        <div class="score-container">
+          <div class="score-circle" style="--score-percentage: ${scorePercentage}%">
+            <div class="score-value">${score}/10</div>
+          </div>
+          <div class="score-message">
+            <i class="fas ${scoreIconClass}"></i>
+            <p>${scoreMessage}</p>
+          </div>
+        </div>
+        <h3 class="results-title">Détails des réponses</h3>
+        <div class="results-details">
+          ${details}
+        </div>
+      `;
+      
+      // Scroll to results
+      document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>

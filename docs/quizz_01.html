@@ -5,43 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP Logique Numérique – Interactif</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="navbar.js"></script>
-    <style>
-      body { font-family: "Segoe UI", sans-serif; background-color: #2f3136; color: #dcddde; padding: 20px; }
-      .page { margin-bottom: 20px; }
-      .question, .exercise { margin-bottom: 15px; background: #36393f; padding: 10px; border-radius: 5px; }
-      .exercise { background: #2c2f33; border-left: 3px solid #7289da; }
-      .nav-btn { padding: 10px 15px; background-color: #7289da; color: white; border: none; border-radius: 5px; cursor: pointer; }
-      .nav-btn:hover { background-color: #5b6eae; }
-      #result { white-space: pre-wrap; font-weight: bold; background: #23272a; padding: 15px; border-radius: 5px; }
-      .correct { color: #43b581; }
-      .incorrect { color: #f04747; }
-      .truth-table {
-        border-collapse: collapse;
-        margin: 15px 0;
-        width: auto;
-      }
-      .truth-table th, .truth-table td {
-        border: 1px solid var(--border-color);
-        padding: 8px;
-        text-align: center;
-      }
-      .inputs {
-        background-color: var(--bg-tertiary);
-      }
-      .input-row {
-        background-color: var(--bg-secondary);
-      }
-      .output-cell {
-        background-color: var(--bg-input);
-        cursor: pointer;
-      }
-      .note {
-        font-style: italic;
-        color: var(--text-secondary);
-        margin-top: 20px;
-      }
-    </style>
     <!-- React et ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
@@ -49,9 +17,23 @@
   </head>
   <body>
     <div class="content">
-      <h1>TP Logique Numérique – Interactif</h1>
-      <div id="root"></div>
+      <div class="header-section">
+        <div class="icon-container">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h1>TP Logique Numérique – Interactif</h1>
+        <p class="subtitle">Explorez les portes logiques et leurs fonctionnements à travers des exercices pratiques.</p>
+      </div>
+
+      <div class="category">
+        <div class="category-header">
+          <i class="fas fa-cogs"></i>
+          <h2>Exercices Interactifs</h2>
+        </div>
+        <div id="root"></div>
+      </div>
     </div>
+
     <script type="text/babel">
       const { useState } = React;
       function App() {
@@ -68,186 +50,368 @@
           "La porte OU donne 1 si au moins une des entrées vaut 1.",
           "La sortie est à 0 uniquement si les deux entrées sont à 0."
         ];
+        
         const handleAnswerChange = (e) => {
           const { name, value } = e.target;
           setAnswers({ ...answers, [name]: value });
         };
+        
         const corriger = () => {
           let score = 0, details = "";
+          let allAnswered = true;
+          let unansweredQuestions = [];
+          
+          for (let i = 1; i <= 8; i++) {
+            if (!answers["q"+i]) {
+              allAnswered = false;
+              unansweredQuestions.push(i);
+            }
+          }
+          
+          if (!allAnswered) {
+            setResult(`
+              <div class="result warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Veuillez répondre à toutes les questions avant de valider.</p>
+              </div>
+            `);
+            return;
+          }
+          
           for (let i = 1; i <= 8; i++) {
             if (answers["q"+i] === "1") {
               score++;
-              details += `✅ Q${i} : Bonne réponse\n`;
+              details += `
+                <div class="result-item correct">
+                  <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+                  <div class="result-content">
+                    <h4>Question ${i}</h4>
+                    <p class="result-text">Bonne réponse</p>
+                  </div>
+                </div>
+              `;
             } else {
-              details += `❌ Q${i} : Mauvaise réponse → ${explications[i-1]}\n`;
+              details += `
+                <div class="result-item incorrect">
+                  <div class="result-icon"><i class="fas fa-times-circle"></i></div>
+                  <div class="result-content">
+                    <h4>Question ${i}</h4>
+                    <p class="result-text">Mauvaise réponse</p>
+                    <p class="result-explanation">${explications[i-1]}</p>
+                  </div>
+                </div>
+              `;
             }
           }
-          setResult(`🎯 Score : ${score}/8\n\n${details}`);
+          
+          const scorePercentage = (score / 8) * 100;
+          let scoreMessage = '';
+          let scoreIconClass = '';
+          
+          if (scorePercentage >= 80) {
+            scoreMessage = 'Excellent ! Vous maîtrisez bien ce sujet.';
+            scoreIconClass = 'fa-trophy';
+          } else if (scorePercentage >= 60) {
+            scoreMessage = 'Bon travail ! Continuez vos révisions.';
+            scoreIconClass = 'fa-thumbs-up';
+          } else {
+            scoreMessage = 'Vous devriez réviser davantage ces notions avant l\'examen.';
+            scoreIconClass = 'fa-book';
+          }
+          
+          setResult(`
+            <div class="score-container">
+              <div class="score-circle" style="--score-percentage: ${scorePercentage}%">
+                <div class="score-value">${score}/8</div>
+              </div>
+              <div class="score-message">
+                <i class="fas ${scoreIconClass}"></i>
+                <p>${scoreMessage}</p>
+              </div>
+            </div>
+            <h3 class="results-title">Détails des réponses</h3>
+            <div class="results-details">
+              ${details}
+            </div>
+          `);
+          
+          // Scroll to results after rendering
+          setTimeout(() => {
+            document.querySelector('.results-title').scrollIntoView({ behavior: 'smooth' });
+          }, 100);
         };
+        
         const nextPage = () => setCurrentPage(currentPage + 1);
+        const previousPage = () => setCurrentPage(currentPage - 1);
+        
+        const renderQuestionPage = (title, questionNum1, questionText1, options1, questionNum2, questionText2, options2, exerciseContent) => (
+          <div className="page">
+            <h2>{title}</h2>
+            
+            <div className="question-card">
+              <div className="question-number"><span>{questionNum1}</span></div>
+              <div className="question-content">
+                <h3>{questionText1}</h3>
+                <div className="options">
+                  {options1.map((option, idx) => (
+                    <label key={idx} className="option">
+                      <input 
+                        type="radio" 
+                        name={`q${questionNum1}`} 
+                        value={option.isCorrect ? "1" : "0"} 
+                        onChange={handleAnswerChange}
+                        checked={answers[`q${questionNum1}`] === (option.isCorrect ? "1" : "0")}
+                      />
+                      <span className="option-text">{option.text}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <div className="question-card">
+              <div className="question-number"><span>{questionNum2}</span></div>
+              <div className="question-content">
+                <h3>{questionText2}</h3>
+                <div className="options">
+                  {options2.map((option, idx) => (
+                    <label key={idx} className="option">
+                      <input 
+                        type="radio" 
+                        name={`q${questionNum2}`} 
+                        value={option.isCorrect ? "1" : "0"} 
+                        onChange={handleAnswerChange}
+                        checked={answers[`q${questionNum2}`] === (option.isCorrect ? "1" : "0")}
+                      />
+                      <span className="option-text">{option.text}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <div className="exercise">
+              <h3><i className="fas fa-pencil-alt"></i> Travaux pratiques</h3>
+              <div dangerouslySetInnerHTML={{__html: exerciseContent}}></div>
+            </div>
+            
+            <div className="quiz-actions">
+              {currentPage > 0 && (
+                <button className="submit-button" onClick={previousPage}>
+                  <i className="fas fa-arrow-left"></i> Précédent
+                </button>
+              )}
+              <button className="submit-button" onClick={nextPage}>
+                <i className="fas fa-arrow-right"></i> Suivant
+              </button>
+            </div>
+          </div>
+        );
+
         return (
           <div>
-            {currentPage === 0 && (
-              <div className="page">
-                <h2>Porte OUI (égalité)</h2>
-                <div className="question">
-                  1. Quelle est l'équation logique correcte pour une porte OUI ?<br/>
-                  <label><input type="radio" name="q1" value="1" onChange={handleAnswerChange}/> L = a</label><br/>
-                  <label><input type="radio" name="q1" value="0" onChange={handleAnswerChange}/> L = !a</label><br/>
-                  <label><input type="radio" name="q1" value="0" onChange={handleAnswerChange}/> L = a.b</label>
-                </div>
-                <div className="question">
-                  2. Quelle est la bonne description logique ?<br/>
-                  <label><input type="radio" name="q2" value="1" onChange={handleAnswerChange}/> L suit exactement l'état de a</label><br/>
-                  <label><input type="radio" name="q2" value="0" onChange={handleAnswerChange}/> L est toujours à 0</label><br/>
-                  <label><input type="radio" name="q2" value="0" onChange={handleAnswerChange}/> L est toujours à 1</label>
-                </div>
-                <div className="exercise">
-                  ✏️ Dessiner les symboles européens et américains de la porte OUI<br/>
-                  ✏️ Représenter le schéma à contacts<br/>
-                  ✏️ Compléter la table de vérité<br/>
-                  ✏️ Tracer le logigramme<br/>
-                  ✏️ Réaliser le chronogramme (entrée a et sortie L)<br/>
-                  ✏️ Donner une application informatique possible
-                </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
-              </div>
+            {currentPage === 0 && renderQuestionPage(
+              "Porte OUI (égalité)",
+              1,
+              "Quelle est l'équation logique correcte pour une porte OUI ?",
+              [
+                { text: "L = a", isCorrect: true },
+                { text: "L = !a", isCorrect: false },
+                { text: "L = a.b", isCorrect: false }
+              ],
+              2,
+              "Quelle est la bonne description logique ?",
+              [
+                { text: "L suit exactement l'état de a", isCorrect: true },
+                { text: "L est toujours à 0", isCorrect: false },
+                { text: "L est toujours à 1", isCorrect: false }
+              ],
+              `
+                <p>✏️ Dessiner les symboles européens et américains de la porte OUI</p>
+                <p>✏️ Représenter le schéma à contacts</p>
+                <p>✏️ Compléter la table de vérité</p>
+                <p>✏️ Tracer le logigramme</p>
+                <p>✏️ Réaliser le chronogramme (entrée a et sortie L)</p>
+                <p>✏️ Donner une application informatique possible</p>
+              `
             )}
-            {currentPage === 1 && (
-              <div className="page">
-                <h2>Porte NON (négation)</h2>
-                <div className="question">
-                  3. Quelle est l'équation logique correcte pour une porte NON ?<br/>
-                  <label><input type="radio" name="q3" value="1" onChange={handleAnswerChange}/> L = a̅</label><br/>
-                  <label><input type="radio" name="q3" value="0" onChange={handleAnswerChange}/> L = a</label><br/>
-                  <label><input type="radio" name="q3" value="0" onChange={handleAnswerChange}/> L = a + b</label>
-                </div>
-                <div className="question">
-                  4. Quelle est la bonne description logique ?<br/>
-                  <label><input type="radio" name="q4" value="1" onChange={handleAnswerChange}/> La sortie est l'inverse logique de l'entrée</label><br/>
-                  <label><input type="radio" name="q4" value="0" onChange={handleAnswerChange}/> La sortie est toujours à 1</label><br/>
-                  <label><input type="radio" name="q4" value="0" onChange={handleAnswerChange}/> La sortie suit l'entrée</label>
-                </div>
-                <div className="exercise">
-                  ✏️ Symboles européen/américain<br/>
-                  ✏️ Schéma à contacts<br/>
-                  ✏️ Table de vérité<br/>
-                  ✏️ Logigramme<br/>
-                  ✏️ Chronogramme<br/>
-                  ✏️ Application en informatique
-                </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
-              </div>
+            
+            {currentPage === 1 && renderQuestionPage(
+              "Porte NON (négation)",
+              3,
+              "Quelle est l'équation logique correcte pour une porte NON ?",
+              [
+                { text: "L = a̅", isCorrect: true },
+                { text: "L = a", isCorrect: false },
+                { text: "L = a + b", isCorrect: false }
+              ],
+              4,
+              "Quelle est la bonne description logique ?",
+              [
+                { text: "La sortie est l'inverse logique de l'entrée", isCorrect: true },
+                { text: "La sortie est toujours à 1", isCorrect: false },
+                { text: "La sortie suit l'entrée", isCorrect: false }
+              ],
+              `
+                <p>✏️ Symboles européen/américain</p>
+                <p>✏️ Schéma à contacts</p>
+                <p>✏️ Table de vérité</p>
+                <p>✏️ Logigramme</p>
+                <p>✏️ Chronogramme</p>
+                <p>✏️ Application en informatique</p>
+              `
             )}
-            {currentPage === 2 && (
-              <div className="page">
-                <h2>Porte ET (produit logique)</h2>
-                <div className="question">
-                  5. Quelle est l'équation logique correcte ?<br/>
-                  <label><input type="radio" name="q5" value="1" onChange={handleAnswerChange}/> L = a.b</label><br/>
-                  <label><input type="radio" name="q5" value="0" onChange={handleAnswerChange}/> L = a + b</label><br/>
-                  <label><input type="radio" name="q5" value="0" onChange={handleAnswerChange}/> L = a̅</label>
-                </div>
-                <div className="question">
-                  6. Description correcte :<br/>
-                  <label><input type="radio" name="q6" value="1" onChange={handleAnswerChange}/> La sortie est à 1 seulement si a et b sont à 1</label><br/>
-                  <label><input type="radio" name="q6" value="0" onChange={handleAnswerChange}/> La sortie est à 1 quand une des deux entrées est à 0</label><br/>
-                  <label><input type="radio" name="q6" value="0" onChange={handleAnswerChange}/> La sortie est à 1 tout le temps</label>
-                </div>
-                <div className="exercise">
-                  ✏️ Symboles européen/américain<br/>
-                  ✏️ Schéma à contacts<br/>
-                  ✏️ Table de vérité<br/>
-                  ✏️ Logigramme<br/>
-                  ✏️ Chronogramme<br/>
-                  ✏️ Application en informatique
-                </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
-              </div>
+            
+            {currentPage === 2 && renderQuestionPage(
+              "Porte ET (produit logique)",
+              5,
+              "Quelle est l'équation logique correcte ?",
+              [
+                { text: "L = a.b", isCorrect: true },
+                { text: "L = a + b", isCorrect: false },
+                { text: "L = a̅", isCorrect: false }
+              ],
+              6,
+              "Description correcte :",
+              [
+                { text: "La sortie est à 1 seulement si a et b sont à 1", isCorrect: true },
+                { text: "La sortie est à 1 quand une des deux entrées est à 0", isCorrect: false },
+                { text: "La sortie est à 1 tout le temps", isCorrect: false }
+              ],
+              `
+                <p>✏️ Symboles européen/américain</p>
+                <p>✏️ Schéma à contacts</p>
+                <p>✏️ Table de vérité</p>
+                <p>✏️ Logigramme</p>
+                <p>✏️ Chronogramme</p>
+                <p>✏️ Application en informatique</p>
+              `
             )}
-            {currentPage === 3 && (
-              <div className="page">
-                <h2>Porte OU (somme logique)</h2>
-                <div className="question">
-                  7. Quelle est l'équation logique correcte ?<br/>
-                  <label><input type="radio" name="q7" value="1" onChange={handleAnswerChange}/> L = a + b</label><br/>
-                  <label><input type="radio" name="q7" value="0" onChange={handleAnswerChange}/> L = a.b</label><br/>
-                  <label><input type="radio" name="q7" value="0" onChange={handleAnswerChange}/> L = a̅</label>
-                </div>
-                <div className="question">
-                  8. Description correcte :<br/>
-                  <label><input type="radio" name="q8" value="1" onChange={handleAnswerChange}/> La sortie est à 0 seulement si les deux entrées sont à 0</label><br/>
-                  <label><input type="radio" name="q8" value="0" onChange={handleAnswerChange}/> La sortie suit toujours a</label><br/>
-                  <label><input type="radio" name="q8" value="0" onChange={handleAnswerChange}/> La sortie est toujours à 1</label>
-                </div>
-                <div className="exercise">
-                  ✏️ Symboles européen/américain<br/>
-                  ✏️ Schéma à contacts<br/>
-                  ✏️ Table de vérité<br/>
-                  ✏️ Logigramme<br/>
-                  ✏️ Chronogramme<br/>
-                  ✏️ Application en informatique
-                </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
-              </div>
+            
+            {currentPage === 3 && renderQuestionPage(
+              "Porte OU (somme logique)",
+              7,
+              "Quelle est l'équation logique correcte ?",
+              [
+                { text: "L = a + b", isCorrect: true },
+                { text: "L = a.b", isCorrect: false },
+                { text: "L = a̅", isCorrect: false }
+              ],
+              8,
+              "Description correcte :",
+              [
+                { text: "La sortie est à 0 seulement si les deux entrées sont à 0", isCorrect: true },
+                { text: "La sortie suit toujours a", isCorrect: false },
+                { text: "La sortie est toujours à 1", isCorrect: false }
+              ],
+              `
+                <p>✏️ Symboles européen/américain</p>
+                <p>✏️ Schéma à contacts</p>
+                <p>✏️ Table de vérité</p>
+                <p>✏️ Logigramme</p>
+                <p>✏️ Chronogramme</p>
+                <p>✏️ Application en informatique</p>
+              `
             )}
+            
             {currentPage === 4 && (
               <div className="page">
                 <h2>Portes composées : NAND, NOR, INHIBITION</h2>
+                
                 <div className="exercise">
-                  ✏️ Compléter :<br/>
-                  • Symboles européens et américains<br/>
-                  • Équations logiques<br/>
-                  • Table de vérité<br/>
-                  • Schéma à contacts<br/>
-                  • Logigrammes et chronogrammes<br/>
-                  • Application informatique pour chaque porte
+                  <h3><i className="fas fa-pencil-alt"></i> Travaux pratiques</h3>
+                  <p>Pour chaque porte logique composée, complétez :</p>
+                  <ul>
+                    <li>Symboles européens et américains</li>
+                    <li>Équations logiques</li>
+                    <li>Table de vérité</li>
+                    <li>Schéma à contacts</li>
+                    <li>Logigrammes et chronogrammes</li>
+                    <li>Application informatique pour chaque porte</li>
+                  </ul>
                 </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
+                
+                <div className="quiz-actions">
+                  <button className="submit-button" onClick={previousPage}>
+                    <i className="fas fa-arrow-left"></i> Précédent
+                  </button>
+                  <button className="submit-button" onClick={nextPage}>
+                    <i className="fas fa-arrow-right"></i> Suivant
+                  </button>
+                </div>
               </div>
             )}
+            
             {currentPage === 5 && (
               <div className="page">
                 <h2>Exercices Complémentaires</h2>
+                
                 <div className="exercise">
-                  ✏️ Complète un tableau de vérité pour les trois entrées a, b, c avec toutes les combinaisons possibles (8 lignes).<br/>
-                  Indique les résultats pour les sorties suivantes : a.b, a + b, (a + b).c, a̅ + b.c̅
+                  <h3><i className="fas fa-table"></i> Tables de vérité</h3>
+                  <p>Complète un tableau de vérité pour les trois entrées a, b, c avec toutes les combinaisons possibles (8 lignes).</p>
+                  <p>Indique les résultats pour les sorties suivantes : a.b, a + b, (a + b).c, a̅ + b.c̅</p>
                 </div>
+                
                 <div className="exercise">
-                  ✏️ Propose un circuit combinatoire qui active une sortie L uniquement si deux entrées sur trois sont à 1. Dessine le schéma logique correspondant.<br/>
-                  Puis dresse la table de vérité complète.
+                  <h3><i className="fas fa-project-diagram"></i> Circuit combinatoire</h3>
+                  <p>Propose un circuit combinatoire qui active une sortie L uniquement si deux entrées sur trois sont à 1. Dessine le schéma logique correspondant.</p>
+                  <p>Puis dresse la table de vérité complète.</p>
                 </div>
+                
                 <div className="exercise">
-                  ✏️ Simplifie les équations suivantes en utilisant les lois de Boole :<br/>
-                  - A = a + a.b<br/>
-                  - B = (a + b).(a + b̅)<br/>
-                  - C = a.b + a.b̅<br/>
-                  - D = (a + b̅)(a + b)
+                  <h3><i className="fas fa-calculator"></i> Simplifications de Boole</h3>
+                  <p>Simplifie les équations suivantes en utilisant les lois de Boole :</p>
+                  <ul>
+                    <li>A = a + a.b</li>
+                    <li>B = (a + b).(a + b̅)</li>
+                    <li>C = a.b + a.b̅</li>
+                    <li>D = (a + b̅)(a + b)</li>
+                  </ul>
                 </div>
+                
                 <div className="exercise">
-                  ✏️ Déduis à partir de la table de vérité la forme canonique (SOP – somme de produits) de la sortie d'un circuit donné.<br/>
-                  Fais aussi la forme POS (produit de sommes).
+                  <h3><i className="fas fa-sitemap"></i> Forme canonique</h3>
+                  <p>Déduis à partir de la table de vérité la forme canonique (SOP – somme de produits) de la sortie d'un circuit donné.</p>
+                  <p>Fais aussi la forme POS (produit de sommes).</p>
                 </div>
+                
                 <div className="exercise">
-                  ✏️ Dessine un chronogramme pour a, b, et la sortie d'un circuit contenant une porte NAND et une porte OU, avec un signal d'horloge commun.
+                  <h3><i className="fas fa-wave-square"></i> Chronogramme</h3>
+                  <p>Dessine un chronogramme pour a, b, et la sortie d'un circuit contenant une porte NAND et une porte OU, avec un signal d'horloge commun.</p>
                 </div>
+                
                 <div className="exercise">
-                  ✏️ Analyse un mini automate logique : si a passe à 1 puis b, la sortie devient 1, sinon elle reste 0.<br/>
-                  Écris la table d'état et les équations correspondantes (réponse libre).
+                  <h3><i className="fas fa-network-wired"></i> Automate</h3>
+                  <p>Analyse un mini automate logique : si a passe à 1 puis b, la sortie devient 1, sinon elle reste 0.</p>
+                  <p>Écris la table d'état et les équations correspondantes (réponse libre).</p>
                 </div>
-                <button className="nav-btn" onClick={nextPage}>Suivant</button>
+                
+                <div className="quiz-actions">
+                  <button className="submit-button" onClick={previousPage}>
+                    <i className="fas fa-arrow-left"></i> Précédent
+                  </button>
+                  <button className="submit-button" onClick={nextPage}>
+                    <i className="fas fa-arrow-right"></i> Suivant
+                  </button>
+                </div>
               </div>
             )}
+            
             {currentPage === 6 && (
               <div className="page">
                 <h2>Résultat</h2>
-                <button className="nav-btn" onClick={corriger}>Afficher mes résultats</button>
-                <div id="result">{result}</div>
+                <div className="quiz-actions">
+                  <button className="submit-button" onClick={corriger}>
+                    <i className="fas fa-check-circle"></i> Afficher mes résultats
+                  </button>
+                </div>
+                <div className="result-container" dangerouslySetInnerHTML={{ __html: result }}></div>
               </div>
             )}
           </div>
         );
       }
+      
       ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
