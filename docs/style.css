@@ -1235,4 +1235,72 @@ li {
     top: 5px;
     right: 5px;
   }
+}
+
+/* Bannière d'avertissement */
+.banner-disclaimer {
+  width: 100%;
+  background-color: var(--imperial-red);
+  color: white;
+  padding: 12px 0;
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.banner-content i {
+  font-size: 1.8rem;
+  margin-right: 20px;
+  color: var(--seashell);
+  animation: pulse 2s infinite;
+}
+
+.banner-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.banner-content strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--seashell);
+}
+
+.banner-content a {
+  color: var(--seashell);
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.banner-content a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 15px;
+  }
+  
+  .banner-content i {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .banner-content p {
+    font-size: 0.9rem;
+  }
 } 
