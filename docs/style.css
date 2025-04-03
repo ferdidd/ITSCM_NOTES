@@ -1,17 +1,24 @@
 /* Styles communs pour tout le site des quiz */
 :root {
   /* Palette de couleurs */
-  --bg-primary: #2f3136;
-  --bg-secondary: #36393f;
-  --bg-tertiary: #23272a;
-  --bg-input: #40444b;
-  --text-primary: #dcddde;
+  --imperial-red: #e54b4bff;
+  --atomic-tangerine: #ffa987ff;
+  --seashell: #f7ebe8ff;
+  --jet: #444140ff;
+  --raisin-black: #1e1e24ff;
+
+  /* Couleurs dérivées */
+  --bg-primary: var(--raisin-black);
+  --bg-secondary: var(--jet);
+  --bg-tertiary: #2a2a32;
+  --bg-input: #3a3a42;
+  --text-primary: var(--seashell);
   --text-secondary: #b9bbbe;
-  --accent-color: #7289da;
-  --accent-hover: #5b6eae;
+  --accent-color: var(--imperial-red);
+  --accent-hover: #c43a3a;
   --success-color: #43b581;
-  --error-color: #f04747;
-  --warning-color: #faa61a;
+  --error-color: var(--imperial-red);
+  --warning-color: var(--atomic-tangerine);
   --border-color: #72767d;
 }
 
@@ -33,7 +40,7 @@ body {
 
 /* Typographie */
 h1, h2, h3, h4 {
-  color: white;
+  color: var(--seashell);
   margin-top: 0;
 }
 
@@ -62,13 +69,19 @@ p {
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Boutons */
 button {
   background-color: var(--accent-color);
-  color: white;
+  color: var(--seashell);
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
@@ -132,12 +145,12 @@ select {
 }
 
 .result.error {
-  background-color: rgba(240, 71, 71, 0.2);
+  background-color: rgba(229, 75, 75, 0.2);
   border-left: 4px solid var(--error-color);
 }
 
 .result.warning {
-  background-color: rgba(250, 166, 26, 0.2);
+  background-color: rgba(255, 169, 135, 0.2);
   border-left: 4px solid var(--warning-color);
 }
 
@@ -214,6 +227,17 @@ th {
 
 .navbar .dropdown-content a:hover {
   background-color: var(--bg-secondary);
+}
+
+/* Logo */
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
 }
 
 /* Grilles responsives */
