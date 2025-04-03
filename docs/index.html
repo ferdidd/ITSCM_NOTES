@@ -8,94 +8,127 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="navbar.js"></script>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="https://www.geekinfos.fr/wp-content/uploads/2019/01/Circuit-Scramble-Logo.png" alt="Logo Circuit Scramble" class="logo">
-  </div>
-
   <div class="content">
-    <h1>Portail des Quiz - Logique Numérique</h1>
-    <p class="subtitle">Explorez le monde fascinant de la logique numérique à travers nos quiz interactifs et pédagogiques.</p>
+    <div class="header-section">
+      <div class="icon-container">
+        <i class="fas fa-microchip"></i>
+      </div>
+      <h1>Logique Numérique - Préparation Examen</h1>
+      <p class="subtitle">Salut à tous ! Voici des exercices pratiques basés sur nos notes de cours pour vous aider à préparer l'examen. D'autres contenus seront ajoutés prochainement. Et ne venez pas me dire le jour de l'examen, monsieur je sais pas j'ai pas vu.</p>
+    </div>
 
     <div class="category">
-      <h2>Quiz Basiques</h2>
-      <p class="category-description">Découvrez les fondamentaux de la logique numérique avec nos quiz d'introduction.</p>
+      <div class="category-header">
+        <i class="fas fa-puzzle-piece"></i>
+        <h2>Les bases du cours</h2>
+      </div>
+      <p class="category-description">Ces exercices reprennent les concepts vus en classe. Faites-les pour vous assurer de bien maîtriser les notions fondamentales.</p>
       <div class="card-container">
         <div class="card">
+          <div class="card-icon"><i class="fas fa-cogs"></i></div>
           <h3>Quiz Logique Numérique</h3>
-          <p>Testez vos connaissances sur les concepts fondamentaux : TOR, portes logiques, impulsions et plus encore.</p>
-          <a href="quizz_00.html">Commencer le Quiz</a>
+          <p>Les bases du cours : TOR, portes logiques, impulsions - tout ce qu'il faut réviser pour l'examen.</p>
+          <a href="quizz_00.html">Faire le quiz <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="card">
-          <h3>TP Logique Numérique – Interactif</h3>
-          <p>Apprenez de manière interactive les portes logiques de base : OUI, NON, ET, OU avec des exercices pratiques.</p>
-          <a href="quizz_01.html">Commencer le TP</a>
+          <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+          <h3>TP Interactif</h3>
+          <p>Exercices pratiques sur les portes OUI, NON, ET, OU comme on a vu en TD la semaine dernière.</p>
+          <a href="quizz_01.html">Faire les exercices <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="card">
-          <h3>TP Conversions (4 niveaux)</h3>
-          <p>Maîtrisez les conversions entre les bases numériques : binaire, décimal, octal et hexadécimal.</p>
-          <a href="quizz_02.html">Commencer les Exercices</a>
+          <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>Conversions (4 niveaux)</h3>
+          <p>Exercices de conversion entre bases numériques - certainement au programme de l'examen !</p>
+          <a href="quizz_02.html">S'entraîner <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category binary-codes">
+      <div class="category-header">
+        <i class="fas fa-binary"></i>
+        <h2>Codes Binaires (Lab2)</h2>
+      </div>
+      <p class="category-description">Série d'exercices sur le Lab2 qu'on a fait ensemble. Reprenez vos notes de cours pour ces exercices, ils seront similaires à ceux de l'examen.</p>
+      
+      <div class="subcategory">
+        <h3 class="subcategory-title"><i class="fas fa-layer-group"></i> Partie 1 - Les bases</h3>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-stream"></i></div>
+            <h3>Binaire Naturel (1/6)</h3>
+            <p>Rappel sur les bases en binaire naturel - première partie du cours.</p>
+            <a href="quizz_03_1.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+            <h3>Transcription Base 2 ↔ Base 10 (2/6)</h3>
+            <p>Exercices de conversion entre binaire et décimal - pratique pour l'examen.</p>
+            <a href="quizz_03_2.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-calculator"></i></div>
+            <h3>Exercices Base 10 → Base 2 (3/6)</h3>
+            <p>Plus d'exercices sur les conversions décimal vers binaire.</p>
+            <a href="quizz_03_3.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="subcategory">
+        <h3 class="subcategory-title"><i class="fas fa-code-branch"></i> Partie 2 - Codes avancés</h3>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-code-branch"></i></div>
+            <h3>Code Gray Explication (4/6)</h3>
+            <p>Le code Gray comme vu en TD - à maîtriser pour l'examen.</p>
+            <a href="quizz_03_4.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-table"></i></div>
+            <h3>Code Gray Table (5/6)</h3>
+            <p>Exercices pratiques sur les tables du code Gray - très important.</p>
+            <a href="quizz_03_5.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-digital-tachograph"></i></div>
+            <h3>Code DCB (6/6)</h3>
+            <p>Exercices sur le Décimal Codé Binaire - préparation idéale pour l'examen.</p>
+            <a href="quizz_03_6.html">Commencer <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="category">
-      <h2>Codes Binaires (Lab2)</h2>
-      <p class="category-description">Plongez dans l'univers des codes binaires et de leurs applications pratiques.</p>
-      <div class="card-container">
-        <div class="card">
-          <h3>Binaire Naturel (1/6)</h3>
-          <p>Introduction aux nombres en base 2 et exploration du code binaire naturel.</p>
-          <a href="quizz_03_1.html">Commencer la Leçon</a>
-        </div>
-        <div class="card">
-          <h3>Transcription Base 2 ↔ Base 10 (2/6)</h3>
-          <p>Techniques de conversion entre binaire et décimal avec exercices guidés.</p>
-          <a href="quizz_03_2.html">Commencer les Conversions</a>
-        </div>
-        <div class="card">
-          <h3>Exercices Base 10 → Base 2 (3/6)</h3>
-          <p>Pratiquez la conversion du décimal vers le binaire avec des exercices progressifs.</p>
-          <a href="quizz_03_3.html">Commencer les Exercices</a>
-        </div>
-        <div class="card">
-          <h3>Code Gray Explication (4/6)</h3>
-          <p>Découvrez le code binaire réfléchi (Gray) et ses applications pratiques.</p>
-          <a href="quizz_03_4.html">Commencer l'Étude</a>
-        </div>
-        <div class="card">
-          <h3>Code Gray Table (5/6)</h3>
-          <p>Analyse complète de la table du code Gray avec exercices d'application.</p>
-          <a href="quizz_03_5.html">Commencer l'Analyse</a>
-        </div>
-        <div class="card">
-          <h3>Code DCB (6/6)</h3>
-          <p>Étude approfondie du Décimal Codé Binaire et de ses utilisations.</p>
-          <a href="quizz_03_6.html">Commencer l'Étude</a>
-        </div>
+      <div class="category-header">
+        <i class="fas fa-project-diagram"></i>
+        <h2>Tableaux de Karnaugh</h2>
       </div>
-    </div>
-
-    <div class="category">
-      <h2>Simplifications Logiques</h2>
-      <p class="category-description">Apprenez à simplifier les fonctions logiques avec des méthodes efficaces.</p>
+      <p class="category-description">Ces exercices reprennent ce qu'on a vu sur les simplifications avec Karnaugh. Attention, cette partie sera certainement évaluée à l'examen !</p>
       <div class="card-container">
         <div class="card">
-          <h3>Simplifications Karnaugh (1/3)</h3>
-          <p>Maîtrisez les tableaux de Karnaugh pour simplifier les fonctions logiques.</p>
-          <a href="quizz_04_1.html">Commencer l'Apprentissage</a>
+          <div class="card-icon"><i class="fas fa-th"></i></div>
+          <h3>Simplifications (1/3)</h3>
+          <p>Révision des méthodes de simplification avec les tableaux de Karnaugh.</p>
+          <a href="quizz_04_1.html">S'exercer <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="card">
-          <h3>Simplifications Avancées - S3 (2/3)</h3>
-          <p>Exercice avancé de simplification pour la fonction logique S3.</p>
-          <a href="quizz_04_2.html">Commencer l'Exercice</a>
+          <div class="card-icon"><i class="fas fa-bezier-curve"></i></div>
+          <h3>Fonction S3 (2/3)</h3>
+          <p>Exercice avancé sur la fonction S3 qu'on a travaillée en TD.</p>
+          <a href="quizz_04_2.html">S'exercer <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="card">
-          <h3>Exercices de Karnaugh Interactifs (3/3)</h3>
-          <p>Application interactive pour pratiquer les tableaux de Karnaugh.</p>
-          <a href="quizz_04_3.html">Commencer la Pratique</a>
+          <div class="card-icon"><i class="fas fa-cubes"></i></div>
+          <h3>Exercices interactifs (3/3)</h3>
+          <p>Pratique supplémentaire sur Karnaugh - parfait pour se préparer.</p>
+          <a href="quizz_04_3.html">S'exercer <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>

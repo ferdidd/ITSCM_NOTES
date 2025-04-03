@@ -2,32 +2,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const navbarHTML = `
     <div class="navbar">
       <ul>
-        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
         <li class="dropdown">
-          <a href="#">Quiz Basiques</a>
+          <a href="#"><i class="fas fa-puzzle-piece"></i> Quiz</a>
           <div class="dropdown-content">
-            <a href="quizz_00.html">Quiz Logique Numérique</a>
-            <a href="quizz_01.html">TP Logique Numérique – Interactif</a>
-            <a href="quizz_02.html">TP Conversions (4 niveaux)</a>
+            <a href="quizz_00.html"><i class="fas fa-cogs"></i> Logique</a>
+            <a href="quizz_01.html"><i class="fas fa-sitemap"></i> TPs interactifs</a>
+            <a href="quizz_02.html"><i class="fas fa-exchange-alt"></i> Conversions</a>
           </div>
         </li>
         <li class="dropdown">
-          <a href="#">Codes Binaires</a>
+          <a href="#"><i class="fas fa-binary"></i> Binaire</a>
           <div class="dropdown-content">
-            <a href="quizz_03_1.html">Binaire Naturel (1/6)</a>
-            <a href="quizz_03_2.html">Transcription Base 2 ↔ Base 10 (2/6)</a>
-            <a href="quizz_03_3.html">Exercices Base 10 → Base 2 (3/6)</a>
-            <a href="quizz_03_4.html">Code Gray Explication (4/6)</a>
-            <a href="quizz_03_5.html">Code Gray Table (5/6)</a>
-            <a href="quizz_03_6.html">Code DCB (6/6)</a>
+            <a href="quizz_03_1.html"><i class="fas fa-stream"></i> Binaire naturel</a>
+            <a href="quizz_03_2.html"><i class="fas fa-sync-alt"></i> Transcription</a>
+            <a href="quizz_03_3.html"><i class="fas fa-calculator"></i> Exercices</a>
+            <a href="quizz_03_4.html"><i class="fas fa-code-branch"></i> Code Gray</a>
+            <a href="quizz_03_5.html"><i class="fas fa-table"></i> Table Gray</a>
+            <a href="quizz_03_6.html"><i class="fas fa-digital-tachograph"></i> DCB</a>
           </div>
         </li>
         <li class="dropdown">
-          <a href="#">Simplifications</a>
+          <a href="#"><i class="fas fa-project-diagram"></i> Karnaugh</a>
           <div class="dropdown-content">
-            <a href="quizz_04_1.html">Simplifications Karnaugh (1/3)</a>
-            <a href="quizz_04_2.html">Simplifications Avancées - S3 (2/3)</a>
-            <a href="quizz_04_3.html">Exercices de Karnaugh Interactifs (3/3)</a>
+            <a href="quizz_04_1.html"><i class="fas fa-th"></i> Simplifications</a>
+            <a href="quizz_04_2.html"><i class="fas fa-bezier-curve"></i> S3 avancé</a>
+            <a href="quizz_04_3.html"><i class="fas fa-cubes"></i> Exercices</a>
           </div>
         </li>
       </ul>
