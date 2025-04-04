@@ -227,12 +227,16 @@
                 { text: "L est toujours à 1", isCorrect: false }
               ],
               `
+                <h4>Exercice à faire sur papier :</h4>
                 <p>✏️ Dessiner les symboles européens et américains de la porte OUI</p>
                 <p>✏️ Représenter le schéma à contacts</p>
                 <p>✏️ Compléter la table de vérité</p>
-                <p>✏️ Tracer le logigramme</p>
-                <p>✏️ Réaliser le chronogramme (entrée a et sortie L)</p>
-                <p>✏️ Donner une application informatique possible</p>
+                <p>✏️ Tracer le chronogramme pour une entrée a et prédire la sortie L</p>
+                <p>✏️ Écrire une description logique de cette porte</p>
+
+                <div class="solutions-hint">
+                  <p>Les solutions seront affichées avec le résultat final.</p>
+                </div>
               `
             )}
             
@@ -253,12 +257,16 @@
                 { text: "La sortie suit l'entrée", isCorrect: false }
               ],
               `
-                <p>✏️ Symboles européen/américain</p>
-                <p>✏️ Schéma à contacts</p>
-                <p>✏️ Table de vérité</p>
-                <p>✏️ Logigramme</p>
-                <p>✏️ Chronogramme</p>
-                <p>✏️ Application en informatique</p>
+                <h4>Exercice à faire sur papier :</h4>
+                <p>✏️ Dessiner les symboles européens et américains de la porte NON</p>
+                <p>✏️ Représenter le schéma à contacts</p>
+                <p>✏️ Compléter la table de vérité</p>
+                <p>✏️ Tracer le chronogramme pour une entrée a et prédire la sortie L</p>
+                <p>✏️ Écrire une description logique de cette porte</p>
+
+                <div class="solutions-hint">
+                  <p>Les solutions seront affichées avec le résultat final.</p>
+                </div>
               `
             )}
             
@@ -279,12 +287,16 @@
                 { text: "La sortie est à 1 tout le temps", isCorrect: false }
               ],
               `
-                <p>✏️ Symboles européen/américain</p>
-                <p>✏️ Schéma à contacts</p>
-                <p>✏️ Table de vérité</p>
-                <p>✏️ Logigramme</p>
-                <p>✏️ Chronogramme</p>
-                <p>✏️ Application en informatique</p>
+                <h4>Exercice à faire sur papier :</h4>
+                <p>✏️ Dessiner les symboles européens et américains de la porte ET</p>
+                <p>✏️ Représenter le schéma à contacts</p>
+                <p>✏️ Compléter la table de vérité</p>
+                <p>✏️ Tracer le chronogramme pour les entrées a, b et prédire la sortie L</p>
+                <p>✏️ Écrire une description logique de cette porte</p>
+
+                <div class="solutions-hint">
+                  <p>Les solutions seront affichées avec le résultat final.</p>
+                </div>
               `
             )}
             
@@ -305,12 +317,16 @@
                 { text: "La sortie est toujours à 1", isCorrect: false }
               ],
               `
-                <p>✏️ Symboles européen/américain</p>
-                <p>✏️ Schéma à contacts</p>
-                <p>✏️ Table de vérité</p>
-                <p>✏️ Logigramme</p>
-                <p>✏️ Chronogramme</p>
-                <p>✏️ Application en informatique</p>
+                <h4>Exercice à faire sur papier :</h4>
+                <p>✏️ Dessiner les symboles européens et américains de la porte OU</p>
+                <p>✏️ Représenter le schéma à contacts</p>
+                <p>✏️ Compléter la table de vérité</p>
+                <p>✏️ Tracer le chronogramme pour les entrées a, b et prédire la sortie L</p>
+                <p>✏️ Écrire une description logique de cette porte</p>
+
+                <div class="solutions-hint">
+                  <p>Les solutions seront affichées avec le résultat final.</p>
+                </div>
               `
             )}
             
@@ -399,13 +415,220 @@
             
             {currentPage === 6 && (
               <div className="page">
-                <h2>Résultat</h2>
+                <h2>Résultat du quiz</h2>
                 <div className="quiz-actions">
                   <button className="submit-button" onClick={corriger}>
                     <i className="fas fa-check-circle"></i> Afficher mes résultats
                   </button>
                 </div>
                 <div className="result-container" dangerouslySetInnerHTML={{ __html: result }}></div>
+                
+                {/* Section pour les solutions des exercices pratiques */}
+                <div className="solutions-section" style={{display: result ? 'block' : 'none'}}>
+                  <h2>Solutions des exercices pratiques</h2>
+                  
+                  <div className="solution-card">
+                    <h3>Porte OUI (égalité)</h3>
+                    <div className="solution-grid">
+                      <div className="solution-item">
+                        <h4>Symboles</h4>
+                        <p>Européen : <span className="placeholder">[Image à venir]</span></p>
+                        <p>Américain : <span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Schéma à contacts</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Table de vérité</h4>
+                        <table className="truth-table">
+                          <thead>
+                            <tr>
+                              <th>a</th>
+                              <th>L</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>1</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Chronogramme</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Description logique</h4>
+                        <p>L'état de sortie est synchronisé avec l'entrée. La sortie L suit exactement l'état de l'entrée a.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="solution-card">
+                    <h3>Porte NON (négation)</h3>
+                    <div className="solution-grid">
+                      <div className="solution-item">
+                        <h4>Symboles</h4>
+                        <p>Européen : <span className="placeholder">[Image à venir]</span></p>
+                        <p>Américain : <span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Schéma à contacts</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Table de vérité</h4>
+                        <table className="truth-table">
+                          <thead>
+                            <tr>
+                              <th>a</th>
+                              <th>L</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>0</td>
+                              <td>1</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>0</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Chronogramme</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Description logique</h4>
+                        <p>La sortie est l'inverse logique de l'entrée. Quand a = 0, L = 1 et quand a = 1, L = 0.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="solution-card">
+                    <h3>Porte ET (produit logique)</h3>
+                    <div className="solution-grid">
+                      <div className="solution-item">
+                        <h4>Symboles</h4>
+                        <p>Européen : <span className="placeholder">[Image à venir]</span></p>
+                        <p>Américain : <span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Schéma à contacts</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Table de vérité</h4>
+                        <table className="truth-table">
+                          <thead>
+                            <tr>
+                              <th>a</th>
+                              <th>b</th>
+                              <th>L</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>1</td>
+                              <td>1</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Chronogramme</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Description logique</h4>
+                        <p>La sortie est à 1 seulement si les deux entrées a et b sont à 1. Dans tous les autres cas, la sortie est à 0.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="solution-card">
+                    <h3>Porte OU (somme logique)</h3>
+                    <div className="solution-grid">
+                      <div className="solution-item">
+                        <h4>Symboles</h4>
+                        <p>Européen : <span className="placeholder">[Image à venir]</span></p>
+                        <p>Américain : <span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Schéma à contacts</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Table de vérité</h4>
+                        <table className="truth-table">
+                          <thead>
+                            <tr>
+                              <th>a</th>
+                              <th>b</th>
+                              <th>L</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>1</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>1</td>
+                              <td>1</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Chronogramme</h4>
+                        <p><span className="placeholder">[Image à venir]</span></p>
+                      </div>
+                      <div className="solution-item">
+                        <h4>Description logique</h4>
+                        <p>La sortie est toujours à 1, sauf quand les deux entrées sont à 0. Si au moins une entrée est à 1, la sortie est à 1.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
