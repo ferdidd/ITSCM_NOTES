@@ -21,9 +21,6 @@
       </div>
       
       <div class="conversion-selector" id="conversionSelector">
-        <button class="conversion-btn active" onclick="selectConversion('decimal')"><i class="fas fa-calculator"></i> Binaire → Décimal</button>
-        <button class="conversion-btn" onclick="selectConversion('octal')"><i class="fas fa-exchange-alt"></i> Binaire → Octal</button>
-        <button class="conversion-btn" onclick="selectConversion('hexa')"><i class="fas fa-code"></i> Binaire → Hexadécimal</button>
         <button class="conversion-btn" onclick="selectConversion('binDec')"><i class="fas fa-stream"></i> Binaire → Décimal</button>
         <button class="conversion-btn" onclick="selectConversion('binOct')"><i class="fas fa-sitemap"></i> Binaire → Octal</button>
         <button class="conversion-btn" onclick="selectConversion('binHex')"><i class="fas fa-code-branch"></i> Binaire → Hexa</button>
@@ -2386,7 +2383,10 @@
     document.querySelectorAll('.conversion-btn').forEach(btn => {
       btn.classList.remove('selected');
     });
-    document.querySelector(`.conversion-btn[onclick="selectConversion('${conversion}')"]`).classList.add('selected');
+    let convBtn = document.querySelector(`.conversion-btn[onclick="selectConversion('${conversion}')"]`);
+    if (convBtn) {
+      convBtn.classList.add('selected');
+    }
     
     // Réinitialiser l'affichage des résultats
     resetResults(conversion);
@@ -2508,8 +2508,8 @@
 
   // Initialisation: afficher la première conversion et le premier niveau par défaut
   document.addEventListener('DOMContentLoaded', function() {
-    selectConversion('dec');
-    selectLevel('dec', 'f');
+    selectConversion('binDec');
+    selectLevel('binDec', 'f');
   });
 </script>
 </body>
