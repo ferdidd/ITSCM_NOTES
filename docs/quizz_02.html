@@ -102,6 +102,7 @@
       <button class="level-btn" onclick="selectLevel(4)">Niveau 4: Hexadécimal → Binaire</button>
       <button class="level-btn" onclick="selectLevel(5)">Niveau 5: Décimal → Octal</button>
       <button class="level-btn" onclick="selectLevel(6)">Niveau 6: Multi-bases</button>
+      <button class="level-btn" onclick="selectLevel(7)">Binaire (3 niveaux)</button>
     </div>
     
     <div id="level1" class="level">
@@ -302,6 +303,50 @@
       <button onclick="checkLevel6()">Vérifier les réponses</button>
       <button onclick="showExplanations(6)">Voir les explications</button>
             </div>
+    
+    <div id="level7" class="level hidden">
+      <h2>Binaire: Conversions à 3 niveaux de difficulté</h2>
+      <p>Complétez ces exercices de conversion avec le binaire comme point de départ:</p>
+      
+      <div class="level" style="background-color: var(--bg-tertiary);">
+        <h3>Niveau Facile: Binaire → Décimal</h3>
+        <div class="conversion-help">
+          <p><strong>Méthode:</strong> Multiplier chaque chiffre par la puissance de 2 correspondant à sa position.</p>
+          <p>Exemple: 1101 → (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) → 8 + 4 + 0 + 1 = 13</p>
+        </div>
+        <div class="question">
+          <span class="binaire">10101</span> = <input type="text" class="quiz-input" id="q7-1"> (décimal) <span id="result7-1"></span>
+          <div id="explanation7-1" class="explanation hidden"></div>
+        </div>
+      </div>
+      
+      <div class="level" style="background-color: var(--bg-tertiary);">
+        <h3>Niveau Moyen: Binaire → Octal</h3>
+        <div class="conversion-help">
+          <p><strong>Méthode:</strong> Grouper les bits par 3 (de droite à gauche) puis convertir chaque groupe en octal.</p>
+          <p>Exemple: 101011 → 101 011 → 5 3 → 53 en octal</p>
+        </div>
+        <div class="question">
+          <span class="binaire">111010</span> = <input type="text" class="quiz-input" id="q7-2"> (octal) <span id="result7-2"></span>
+          <div id="explanation7-2" class="explanation hidden"></div>
+        </div>
+      </div>
+      
+      <div class="level" style="background-color: var(--bg-tertiary);">
+        <h3>Niveau Difficile: Binaire → Hexadécimal</h3>
+        <div class="conversion-help">
+          <p><strong>Méthode:</strong> Grouper les bits par 4 (de droite à gauche) puis convertir chaque groupe en hexadécimal.</p>
+          <p>Exemple: 10110111 → 1011 0111 → B 7 → B7 en hexadécimal</p>
+        </div>
+        <div class="question">
+          <span class="binaire">11111010</span> = <input type="text" class="quiz-input" id="q7-3"> (hexadécimal) <span id="result7-3"></span>
+          <div id="explanation7-3" class="explanation hidden"></div>
+        </div>
+      </div>
+      
+      <button onclick="checkLevel7()">Vérifier les réponses</button>
+      <button onclick="showExplanations(7)">Voir les explications</button>
+    </div>
           </div>
   
   <script>
@@ -373,6 +418,13 @@
       '4': '55'
     };
     
+    // Solutions niveau 7: Binaire (3 niveaux)
+    const solutions7 = {
+      '1': '21',
+      '2': '72',
+      '3': 'fa'
+    };
+    
     // Explications niveau 1
     const explanations1 = {
       '1': '5 en décimal : 5 = 4 + 1 = 2² + 2⁰ = 101 en binaire',
@@ -421,6 +473,13 @@
       '4': '125 en octal → 85 en décimal → 55 en hexadécimal'
     };
     
+    // Explications niveau 7
+    const explanations7 = {
+      '1': '10101 en binaire : 1×2⁴ + 0×2³ + 1×2² + 0×2¹ + 1×2⁰ = 16 + 0 + 4 + 0 + 1 = 21 en décimal',
+      '2': '111010 en binaire : 111 010 (groupé par 3) → 7 2 → 72 en octal',
+      '3': '11111010 en binaire : 1111 1010 (groupé par 4) → F A → FA en hexadécimal'
+    };
+    
     // Fonction générique pour vérifier les réponses
     function checkLevel(level) {
       const solutions = window[`solutions${level}`];
@@ -448,15 +507,41 @@
     function checkLevel4() { checkLevel(4); }
     function checkLevel5() { checkLevel(5); }
     function checkLevel6() { checkLevel(6); }
+    function checkLevel7() { 
+      const solutions = solutions7;
+      
+      for (let i = 1; i <= 3; i++) {
+        const userAnswer = document.getElementById(`q7-${i}`).value.trim().toLowerCase();
+        const correctAnswer = solutions[i];
+        
+        const resultElement = document.getElementById(`result7-${i}`);
+        
+        if (userAnswer === correctAnswer) {
+          resultElement.textContent = "✅";
+          resultElement.className = "correct";
+        } else {
+          resultElement.textContent = "❌";
+          resultElement.className = "incorrect";
+        }
+      }
+    }
     
     // Afficher les explications pour un niveau
     function showExplanations(level) {
       const explanations = window[`explanations${level}`];
       
-      for (let i = 1; i <= 4; i++) {
-        const explanationElement = document.getElementById(`explanation${level}-${i}`);
-        explanationElement.textContent = explanations[i];
-        explanationElement.classList.remove('hidden');
+      if (level === 7) {
+        for (let i = 1; i <= 3; i++) {
+          const explanationElement = document.getElementById(`explanation7-${i}`);
+          explanationElement.textContent = explanations[i];
+          explanationElement.classList.remove('hidden');
+        }
+      } else {
+        for (let i = 1; i <= 4; i++) {
+          const explanationElement = document.getElementById(`explanation${level}-${i}`);
+          explanationElement.textContent = explanations[i];
+          explanationElement.classList.remove('hidden');
+        }
       }
     }
     
