@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversions Binaires</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="navbar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="navbar.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <body>
-    <div class="content">
+  <div class="content">
       <div class="header-section">
         <div class="icon-container">
           <i class="fas fa-microchip"></i>
-        </div>
+    </div>
         <h1>Conversions Binaires</h1>
         <p class="subtitle">Maîtrisez les conversions à partir de la base binaire</p>
         <p class="description">Ces exercices vous aideront à pratiquer la conversion de nombres binaires vers d'autres bases numériques, une compétence essentielle pour l'examen.</p>
@@ -23,6 +23,9 @@
         <button class="conversion-btn active" onclick="selectConversion('decimal')"><i class="fas fa-calculator"></i> Binaire → Décimal</button>
         <button class="conversion-btn" onclick="selectConversion('octal')"><i class="fas fa-exchange-alt"></i> Binaire → Octal</button>
         <button class="conversion-btn" onclick="selectConversion('hexa')"><i class="fas fa-code"></i> Binaire → Hexadécimal</button>
+        <button class="conversion-btn" onclick="selectConversion('octoBin')"><i class="fas fa-retweet"></i> Octal → Binaire</button>
+        <button class="conversion-btn" onclick="selectConversion('octoDec')"><i class="fas fa-sort-numeric-up"></i> Octal → Décimal</button>
+        <button class="conversion-btn" onclick="selectConversion('octoHex')"><i class="fas fa-hashtag"></i> Octal → Hexadécimal</button>
       </div>
       
       <!-- SECTION BINAIRE → DÉCIMAL -->
@@ -128,8 +131,8 @@
             <button class="submit-button" onclick="checkAnswers('dec', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
             <button class="submit-button" onclick="showExplanations('dec', 'i')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
-        </div>
-        
+      </div>
+      
         <!-- Niveau difficile - Binaire → Décimal -->
         <div id="decimal-diff" class="level-content hidden">
           <h2>Niveau Difficile: Binaire → Décimal</h2>
@@ -139,22 +142,22 @@
                 <p><span class="binaire">1011001</span> = <input type="text" class="quiz-input" id="dec-d-1"> <span id="result-dec-d-1"></span></p>
                 <div id="explanation-dec-d-1" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="dec-d-2"> <span id="result-dec-d-2"></span></p>
                 <div id="explanation-dec-d-2" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="dec-d-3"> <span id="result-dec-d-3"></span></p>
                 <div id="explanation-dec-d-3" class="explanation hidden"></div>
               </div>
-            </div>
-            
+    </div>
+    
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11111111</span> = <input type="text" class="quiz-input" id="dec-d-4"> <span id="result-dec-d-4"></span></p>
@@ -168,8 +171,8 @@
                 <div id="explanation-dec-d-5" class="explanation hidden"></div>
               </div>
             </div>
-          </div>
-          
+      </div>
+      
           <div class="quiz-actions">
             <button class="submit-button" onclick="checkAnswers('dec', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
             <button class="submit-button" onclick="showExplanations('dec', 'd')"><i class="fas fa-book-open"></i> Explications</button>
@@ -182,14 +185,14 @@
         <div class="conversion-help">
           <p><strong>Méthode:</strong> Grouper les bits par 3 (de droite à gauche) puis convertir chaque groupe en octal.</p>
           <p>Exemple: 101011 → 101 011 → 5 3 → 53 en octal</p>
-        </div>
-        
+      </div>
+      
         <div class="level-selector">
           <button class="level-btn active" onclick="selectLevel('octal', 'facile')"><i class="fas fa-star"></i> Facile</button>
           <button class="level-btn" onclick="selectLevel('octal', 'inter')"><i class="fas fa-star-half-alt"></i> Intermédiaire</button>
           <button class="level-btn" onclick="selectLevel('octal', 'diff')"><i class="fas fa-star"></i><i class="fas fa-star"></i> Difficile</button>
-        </div>
-        
+      </div>
+      
         <!-- Niveau facile - Binaire → Octal -->
         <div id="octal-facile" class="level-content">
           <h2>Niveau Facile: Binaire → Octal</h2>
@@ -199,15 +202,15 @@
                 <p><span class="binaire">111</span> = <input type="text" class="quiz-input" id="oct-f-1"> <span id="result-oct-f-1"></span></p>
                 <div id="explanation-oct-f-1" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">101</span> = <input type="text" class="quiz-input" id="oct-f-2"> <span id="result-oct-f-2"></span></p>
                 <div id="explanation-oct-f-2" class="explanation hidden"></div>
               </div>
-            </div>
-            
+    </div>
+    
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">001</span> = <input type="text" class="quiz-input" id="oct-f-3"> <span id="result-oct-f-3"></span></p>
@@ -220,22 +223,22 @@
                 <p><span class="binaire">110</span> = <input type="text" class="quiz-input" id="oct-f-4"> <span id="result-oct-f-4"></span></p>
                 <div id="explanation-oct-f-4" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">011</span> = <input type="text" class="quiz-input" id="oct-f-5"> <span id="result-oct-f-5"></span></p>
                 <div id="explanation-oct-f-5" class="explanation hidden"></div>
               </div>
             </div>
-          </div>
-          
+      </div>
+      
           <div class="quiz-actions">
             <button class="submit-button" onclick="checkAnswers('oct', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
             <button class="submit-button" onclick="showExplanations('oct', 'f')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
-        </div>
-        
+      </div>
+      
         <!-- Niveau intermédiaire - Binaire → Octal -->
         <div id="octal-inter" class="level-content hidden">
           <h2>Niveau Intermédiaire: Binaire → Octal</h2>
@@ -245,22 +248,22 @@
                 <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="oct-i-1"> <span id="result-oct-i-1"></span></p>
                 <div id="explanation-oct-i-1" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11001</span> = <input type="text" class="quiz-input" id="oct-i-2"> <span id="result-oct-i-2"></span></p>
                 <div id="explanation-oct-i-2" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="oct-i-3"> <span id="result-oct-i-3"></span></p>
                 <div id="explanation-oct-i-3" class="explanation hidden"></div>
               </div>
-            </div>
-            
+    </div>
+    
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10110</span> = <input type="text" class="quiz-input" id="oct-i-4"> <span id="result-oct-i-4"></span></p>
@@ -274,14 +277,14 @@
                 <div id="explanation-oct-i-5" class="explanation hidden"></div>
               </div>
             </div>
-          </div>
-          
+      </div>
+      
           <div class="quiz-actions">
             <button class="submit-button" onclick="checkAnswers('oct', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
             <button class="submit-button" onclick="showExplanations('oct', 'i')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
-        </div>
-        
+      </div>
+      
         <!-- Niveau difficile - Binaire → Octal -->
         <div id="octal-diff" class="level-content hidden">
           <h2>Niveau Difficile: Binaire → Octal</h2>
@@ -291,29 +294,29 @@
                 <p><span class="binaire">10111001</span> = <input type="text" class="quiz-input" id="oct-d-1"> <span id="result-oct-d-1"></span></p>
                 <div id="explanation-oct-d-1" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11101110</span> = <input type="text" class="quiz-input" id="oct-d-2"> <span id="result-oct-d-2"></span></p>
                 <div id="explanation-oct-d-2" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="oct-d-3"> <span id="result-oct-d-3"></span></p>
                 <div id="explanation-oct-d-3" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11111000</span> = <input type="text" class="quiz-input" id="oct-d-4"> <span id="result-oct-d-4"></span></p>
                 <div id="explanation-oct-d-4" class="explanation hidden"></div>
               </div>
             </div>
-            
+    
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10000111</span> = <input type="text" class="quiz-input" id="oct-d-5"> <span id="result-oct-d-5"></span></p>
@@ -331,7 +334,7 @@
       
       <!-- SECTION BINAIRE → HEXADÉCIMAL -->
       <div id="hexa-section" class="conversion-section hidden">
-        <div class="conversion-help">
+      <div class="conversion-help">
           <p><strong>Méthode:</strong> Grouper les bits par 4 (de droite à gauche) puis convertir chaque groupe en hexadécimal.</p>
           <p>Tableau de conversion: 0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9, 10=A, 11=B, 12=C, 13=D, 14=E, 15=F</p>
           <p>Exemple: 10110111 → 1011 0111 → B 7 → B7 en hexadécimal</p>
@@ -353,28 +356,28 @@
                 <div id="explanation-hex-f-1" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">1111</span> = <input type="text" class="quiz-input" id="hex-f-2"> <span id="result-hex-f-2"></span></p>
                 <div id="explanation-hex-f-2" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">0101</span> = <input type="text" class="quiz-input" id="hex-f-3"> <span id="result-hex-f-3"></span></p>
                 <div id="explanation-hex-f-3" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">1100</span> = <input type="text" class="quiz-input" id="hex-f-4"> <span id="result-hex-f-4"></span></p>
                 <div id="explanation-hex-f-4" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">1001</span> = <input type="text" class="quiz-input" id="hex-f-5"> <span id="result-hex-f-5"></span></p>
@@ -399,14 +402,14 @@
                 <div id="explanation-hex-i-1" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10101</span> = <input type="text" class="quiz-input" id="hex-i-2"> <span id="result-hex-i-2"></span></p>
                 <div id="explanation-hex-i-2" class="explanation hidden"></div>
               </div>
             </div>
-            
+    
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="hex-i-3"> <span id="result-hex-i-3"></span></p>
@@ -420,7 +423,7 @@
                 <div id="explanation-hex-i-4" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">111111</span> = <input type="text" class="quiz-input" id="hex-i-5"> <span id="result-hex-i-5"></span></p>
@@ -445,28 +448,28 @@
                 <div id="explanation-hex-d-1" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10101111</span> = <input type="text" class="quiz-input" id="hex-d-2"> <span id="result-hex-d-2"></span></p>
                 <div id="explanation-hex-d-2" class="explanation hidden"></div>
               </div>
             </div>
-            
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="hex-d-3"> <span id="result-hex-d-3"></span></p>
                 <div id="explanation-hex-d-3" class="explanation hidden"></div>
               </div>
-            </div>
-            
+      </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">11001100</span> = <input type="text" class="quiz-input" id="hex-d-4"> <span id="result-hex-d-4"></span></p>
                 <div id="explanation-hex-d-4" class="explanation hidden"></div>
               </div>
-            </div>
-            
+              </div>
+      
             <div class="question-card">
               <div class="question-content">
                 <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="hex-d-5"> <span id="result-hex-d-5"></span></p>
@@ -480,10 +483,10 @@
             <button class="submit-button" onclick="showExplanations('hex', 'd')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
         </div>
-      </div>
-    </div>
+            </div>
+          </div>
   
-    <script>
+  <script>
       // Solutions et explications pour les conversions binaire → décimal
       const solutions = {
         // Binaire → Décimal
@@ -556,6 +559,78 @@
             '3': 'f5',
             '4': 'cc',
             '5': 'aa'
+          }
+        },
+        // Octal → Binaire
+        'octoBin': {
+          'f': { // Facile
+            '1': '111',
+            '2': '101',
+            '3': '011',
+            '4': '010',
+            '5': '100'
+          },
+          'i': { // Intermédiaire
+            '1': '001010',
+            '2': '010101',
+            '3': '011110',
+            '4': '101011',
+            '5': '100111'
+          },
+          'd': { // Difficile
+            '1': '001110111',
+            '2': '010111011',
+            '3': '011100101',
+            '4': '100010001',
+            '5': '110101000'
+          }
+        },
+        // Octal → Décimal
+        'octoDec': {
+          'f': { // Facile
+            '1': '7',
+            '2': '11',
+            '3': '17',
+            '4': '5',
+            '5': '14'
+          },
+          'i': { // Intermédiaire
+            '1': '31',
+            '2': '42',
+            '3': '53',
+            '4': '67',
+            '5': '102'
+          },
+          'd': { // Difficile
+            '1': '159',
+            '2': '253',
+            '3': '306',
+            '4': '460',
+            '5': '375'
+          }
+        },
+        // Octal → Hexadécimal
+        'octoHex': {
+          'f': { // Facile
+            '1': 'f',
+            '2': '17',
+            '3': '8',
+            '4': '1a',
+            '5': '6'
+          },
+          'i': { // Intermédiaire
+            '1': '27',
+            '2': '53',
+            '3': '3e',
+            '4': '1d',
+            '5': '6b'
+          },
+          'd': { // Difficile
+            '1': 'f7',
+            '2': 'af',
+            '3': '1d3',
+            '4': '10e',
+            '5': '1bd'
           }
         }
       };
@@ -633,6 +708,78 @@
             '4': '11001100 en binaire : grouper par 4 → 1100 1100 → 12 12 → CC en hexadécimal',
             '5': '10101010 en binaire : grouper par 4 → 1010 1010 → 10 10 → AA en hexadécimal'
           }
+        },
+        // Octal → Binaire
+        'octoBin': {
+          'f': { // Facile
+            '1': '7 en octal → 111 en binaire',
+            '2': '5 en octal → 101 en binaire',
+            '3': '3 en octal → 011 en binaire',
+            '4': '2 en octal → 010 en binaire',
+            '5': '4 en octal → 100 en binaire'
+          },
+          'i': { // Intermédiaire
+            '1': '12 en octal → 1 2 → 001 010 → 001010 en binaire',
+            '2': '25 en octal → 2 5 → 010 101 → 010101 en binaire',
+            '3': '36 en octal → 3 6 → 011 110 → 011110 en binaire',
+            '4': '53 en octal → 5 3 → 101 011 → 101011 en binaire',
+            '5': '47 en octal → 4 7 → 100 111 → 100111 en binaire'
+          },
+          'd': { // Difficile
+            '1': '167 en octal → 1 6 7 → 001 110 111 → 001110111 en binaire',
+            '2': '273 en octal → 2 7 3 → 010 111 011 → 010111011 en binaire',
+            '3': '345 en octal → 3 4 5 → 011 100 101 → 011100101 en binaire',
+            '4': '421 en octal → 4 2 1 → 100 010 001 → 100010001 en binaire',
+            '5': '650 en octal → 6 5 0 → 110 101 000 → 110101000 en binaire'
+          }
+        },
+        // Octal → Décimal
+        'octoDec': {
+          'f': { // Facile
+            '1': '7 en octal → 7×8⁰ → 7 en décimal',
+            '2': '13 en octal → 1×8¹ + 3×8⁰ → 8 + 3 = 11 en décimal',
+            '3': '21 en octal → 2×8¹ + 1×8⁰ → 16 + 1 = 17 en décimal',
+            '4': '5 en octal → 5×8⁰ → 5 en décimal',
+            '5': '16 en octal → 1×8¹ + 6×8⁰ → 8 + 6 = 14 en décimal'
+          },
+          'i': { // Intermédiaire
+            '1': '37 en octal → 3×8¹ + 7×8⁰ → 24 + 7 = 31 en décimal',
+            '2': '52 en octal → 5×8¹ + 2×8⁰ → 40 + 2 = 42 en décimal',
+            '3': '65 en octal → 6×8¹ + 5×8⁰ → 48 + 5 = 53 en décimal',
+            '4': '103 en octal → 1×8² + 0×8¹ + 3×8⁰ → 64 + 0 + 3 = 67 en décimal',
+            '5': '146 en octal → 1×8² + 4×8¹ + 6×8⁰ → 64 + 32 + 6 = 102 en décimal'
+          },
+          'd': { // Difficile
+            '1': '237 en octal → 2×8² + 3×8¹ + 7×8⁰ → 128 + 24 + 7 = 159 en décimal',
+            '2': '375 en octal → 3×8² + 7×8¹ + 5×8⁰ → 192 + 56 + 5 = 253 en décimal',
+            '3': '462 en octal → 4×8² + 6×8¹ + 2×8⁰ → 256 + 48 + 2 = 306 en décimal',
+            '4': '714 en octal → 7×8² + 1×8¹ + 4×8⁰ → 448 + 8 + 4 = 460 en décimal',
+            '5': '567 en octal → 5×8² + 6×8¹ + 7×8⁰ → 320 + 48 + 7 = 375 en décimal'
+          }
+        },
+        // Octal → Hexadécimal
+        'octoHex': {
+          'f': { // Facile
+            '1': '17 en octal → 1 7 → 001 111 en binaire → 0000 1111 → 0F en hexadécimal → F',
+            '2': '27 en octal → 2 7 → 010 111 en binaire → 0001 0111 → 17 en hexadécimal',
+            '3': '10 en octal → 1 0 → 001 000 en binaire → 0000 1000 → 08 en hexadécimal → 8',
+            '4': '32 en octal → 3 2 → 011 010 en binaire → 0001 1010 → 1A en hexadécimal',
+            '5': '6 en octal → 110 en binaire → 0000 0110 → 06 en hexadécimal → 6'
+          },
+          'i': { // Intermédiaire
+            '1': '47 en octal → 4 7 → 100 111 en binaire → 0010 0111 → 27 en hexadécimal',
+            '2': '123 en octal → 1 2 3 → 001 010 011 en binaire → 0101 0011 → 53 en hexadécimal',
+            '3': '76 en octal → 7 6 → 111 110 en binaire → 0011 1110 → 3E en hexadécimal',
+            '4': '35 en octal → 3 5 → 011 101 en binaire → 0001 1101 → 1D en hexadécimal',
+            '5': '153 en octal → 1 5 3 → 001 101 011 en binaire → 0110 1011 → 6B en hexadécimal'
+          },
+          'd': { // Difficile
+            '1': '367 en octal → 3 6 7 → 011 110 111 en binaire → 1111 0111 → F7 en hexadécimal',
+            '2': '257 en octal → 2 5 7 → 010 101 111 en binaire → 1010 1111 → AF en hexadécimal',
+            '3': '723 en octal → 7 2 3 → 111 010 011 en binaire → 0001 1101 0011 → 1D3 en hexadécimal',
+            '4': '416 en octal → 4 1 6 → 100 001 110 en binaire → 0001 0000 1110 → 10E en hexadécimal',
+            '5': '675 en octal → 6 7 5 → 110 111 101 en binaire → 0001 1011 1101 → 1BD en hexadécimal'
+          }
         }
       };
       
@@ -640,10 +787,10 @@
       function selectConversion(conversion) {
         // Cacher toutes les sections
         document.querySelectorAll('.conversion-section').forEach(el => {
-          el.classList.add('hidden');
-        });
-        
-        // Mettre à jour les boutons
+        el.classList.add('hidden');
+      });
+      
+      // Mettre à jour les boutons
         document.querySelectorAll('.conversion-btn').forEach(btn => {
           btn.classList.remove('active');
         });
@@ -683,17 +830,17 @@
           const correctAnswer = solutionsForLevel[i];
           
           const resultElement = document.getElementById(`result-${conversion}-${level}-${i}`);
-          
-          if (userAnswer === correctAnswer) {
-            resultElement.textContent = "✅";
-            resultElement.className = "correct";
-          } else {
-            resultElement.textContent = "❌";
-            resultElement.className = "incorrect";
-          }
+        
+        if (userAnswer === correctAnswer) {
+          resultElement.textContent = "✅";
+          resultElement.className = "correct";
+        } else {
+          resultElement.textContent = "❌";
+          resultElement.className = "incorrect";
         }
       }
-      
+    }
+    
       // Afficher les explications pour une conversion et un niveau
       function showExplanations(conversion, level) {
         const explanationsForLevel = explanations[conversion][level];
@@ -701,16 +848,16 @@
         for (let i = 1; i <= 5; i++) {
           const explanationElement = document.getElementById(`explanation-${conversion}-${level}-${i}`);
           explanationElement.textContent = explanationsForLevel[i];
-          explanationElement.classList.remove('hidden');
-        }
+        explanationElement.classList.remove('hidden');
       }
-      
+    }
+    
       // Initialisation de la page
-      document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         // Démarrer avec la conversion binaire → décimal, niveau facile
         selectConversion('decimal');
         selectLevel('decimal', 'facile');
-      });
+    });
     </script>
   </body>
 </html>
