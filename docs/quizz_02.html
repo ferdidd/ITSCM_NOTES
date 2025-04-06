@@ -19,269 +19,670 @@
         <p class="description">Ces exercices vous aideront à pratiquer la conversion de nombres binaires vers d'autres bases numériques, une compétence essentielle pour l'examen.</p>
       </div>
       
-      <div class="level-selector" id="levelSelector">
-        <button class="level-btn" onclick="selectLevel(1)"><i class="fas fa-star"></i> Niveau Facile</button>
-        <button class="level-btn" onclick="selectLevel(2)"><i class="fas fa-star-half-alt"></i> Niveau Intermédiaire</button>
-        <button class="level-btn" onclick="selectLevel(3)"><i class="fas fa-star"></i><i class="fas fa-star"></i> Niveau Difficile</button>
+      <div class="conversion-selector" id="conversionSelector">
+        <button class="conversion-btn active" onclick="selectConversion('decimal')"><i class="fas fa-calculator"></i> Binaire → Décimal</button>
+        <button class="conversion-btn" onclick="selectConversion('octal')"><i class="fas fa-exchange-alt"></i> Binaire → Octal</button>
+        <button class="conversion-btn" onclick="selectConversion('hexa')"><i class="fas fa-code"></i> Binaire → Hexadécimal</button>
       </div>
       
-      <div id="level1" class="level">
-        <h2><i class="fas fa-calculator"></i> Niveau Facile: Binaire → Décimal</h2>
-        <p>Convertissez ces nombres binaires en décimal:</p>
-        
+      <!-- SECTION BINAIRE → DÉCIMAL -->
+      <div id="decimal-section" class="conversion-section">
         <div class="conversion-help">
           <p><strong>Méthode:</strong> Multiplier chaque chiffre par la puissance de 2 correspondant à sa position (de droite à gauche, en commençant par 2⁰).</p>
           <p>Exemple: 1101 → (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) → 8 + 4 + 0 + 1 = 13</p>
         </div>
         
-        <div class="questions-container">
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 1</h3>
-              <p><span class="binaire">1011</span> = <input type="text" class="quiz-input" id="q1-1"> <span id="result1-1"></span></p>
-              <div id="explanation1-1" class="explanation hidden"></div>
+        <div class="level-selector">
+          <button class="level-btn active" onclick="selectLevel('decimal', 'facile')"><i class="fas fa-star"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('decimal', 'inter')"><i class="fas fa-star-half-alt"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('decimal', 'diff')"><i class="fas fa-star"></i><i class="fas fa-star"></i> Difficile</button>
+        </div>
+        
+        <!-- Niveau facile - Binaire → Décimal -->
+        <div id="decimal-facile" class="level-content">
+          <h2>Niveau Facile: Binaire → Décimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">101</span> = <input type="text" class="quiz-input" id="dec-f-1"> <span id="result-dec-f-1"></span></p>
+                <div id="explanation-dec-f-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1001</span> = <input type="text" class="quiz-input" id="dec-f-2"> <span id="result-dec-f-2"></span></p>
+                <div id="explanation-dec-f-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="dec-f-3"> <span id="result-dec-f-3"></span></p>
+                <div id="explanation-dec-f-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1100</span> = <input type="text" class="quiz-input" id="dec-f-4"> <span id="result-dec-f-4"></span></p>
+                <div id="explanation-dec-f-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10001</span> = <input type="text" class="quiz-input" id="dec-f-5"> <span id="result-dec-f-5"></span></p>
+                <div id="explanation-dec-f-5" class="explanation hidden"></div>
+              </div>
             </div>
           </div>
           
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 2</h3>
-              <p><span class="binaire">10110</span> = <input type="text" class="quiz-input" id="q1-2"> <span id="result1-2"></span></p>
-              <div id="explanation1-2" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 3</h3>
-              <p><span class="binaire">11111</span> = <input type="text" class="quiz-input" id="q1-3"> <span id="result1-3"></span></p>
-              <div id="explanation1-3" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 4</h3>
-              <p><span class="binaire">101101</span> = <input type="text" class="quiz-input" id="q1-4"> <span id="result1-4"></span></p>
-              <div id="explanation1-4" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 5</h3>
-              <p><span class="binaire">10001</span> = <input type="text" class="quiz-input" id="q1-5"> <span id="result1-5"></span></p>
-              <div id="explanation1-5" class="explanation hidden"></div>
-            </div>
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('dec', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('dec', 'f')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
         </div>
         
-        <div class="quiz-actions">
-          <button class="submit-button" onclick="checkLevel1()"><i class="fas fa-check-circle"></i> Vérifier les réponses</button>
-          <button class="submit-button" onclick="showExplanations(1)"><i class="fas fa-book-open"></i> Voir les explications</button>
+        <!-- Niveau intermédiaire - Binaire → Décimal -->
+        <div id="decimal-inter" class="level-content hidden">
+          <h2>Niveau Intermédiaire: Binaire → Décimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10110</span> = <input type="text" class="quiz-input" id="dec-i-1"> <span id="result-dec-i-1"></span></p>
+                <div id="explanation-dec-i-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11011</span> = <input type="text" class="quiz-input" id="dec-i-2"> <span id="result-dec-i-2"></span></p>
+                <div id="explanation-dec-i-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">101010</span> = <input type="text" class="quiz-input" id="dec-i-3"> <span id="result-dec-i-3"></span></p>
+                <div id="explanation-dec-i-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">111000</span> = <input type="text" class="quiz-input" id="dec-i-4"> <span id="result-dec-i-4"></span></p>
+                <div id="explanation-dec-i-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">100101</span> = <input type="text" class="quiz-input" id="dec-i-5"> <span id="result-dec-i-5"></span></p>
+                <div id="explanation-dec-i-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('dec', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('dec', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+        </div>
+        
+        <!-- Niveau difficile - Binaire → Décimal -->
+        <div id="decimal-diff" class="level-content hidden">
+          <h2>Niveau Difficile: Binaire → Décimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1011001</span> = <input type="text" class="quiz-input" id="dec-d-1"> <span id="result-dec-d-1"></span></p>
+                <div id="explanation-dec-d-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="dec-d-2"> <span id="result-dec-d-2"></span></p>
+                <div id="explanation-dec-d-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="dec-d-3"> <span id="result-dec-d-3"></span></p>
+                <div id="explanation-dec-d-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11111111</span> = <input type="text" class="quiz-input" id="dec-d-4"> <span id="result-dec-d-4"></span></p>
+                <div id="explanation-dec-d-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10000000</span> = <input type="text" class="quiz-input" id="dec-d-5"> <span id="result-dec-d-5"></span></p>
+                <div id="explanation-dec-d-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('dec', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('dec', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
         </div>
       </div>
       
-      <div id="level2" class="level hidden">
-        <h2><i class="fas fa-exchange-alt"></i> Niveau Intermédiaire: Binaire → Octal</h2>
-        <p>Convertissez ces nombres binaires en octal:</p>
-        
+      <!-- SECTION BINAIRE → OCTAL -->
+      <div id="octal-section" class="conversion-section hidden">
         <div class="conversion-help">
           <p><strong>Méthode:</strong> Grouper les bits par 3 (de droite à gauche) puis convertir chaque groupe en octal.</p>
           <p>Exemple: 101011 → 101 011 → 5 3 → 53 en octal</p>
         </div>
         
-        <div class="questions-container">
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 1</h3>
-              <p><span class="binaire">111</span> = <input type="text" class="quiz-input" id="q2-1"> <span id="result2-1"></span></p>
-              <div id="explanation2-1" class="explanation hidden"></div>
+        <div class="level-selector">
+          <button class="level-btn active" onclick="selectLevel('octal', 'facile')"><i class="fas fa-star"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('octal', 'inter')"><i class="fas fa-star-half-alt"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('octal', 'diff')"><i class="fas fa-star"></i><i class="fas fa-star"></i> Difficile</button>
+        </div>
+        
+        <!-- Niveau facile - Binaire → Octal -->
+        <div id="octal-facile" class="level-content">
+          <h2>Niveau Facile: Binaire → Octal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">111</span> = <input type="text" class="quiz-input" id="oct-f-1"> <span id="result-oct-f-1"></span></p>
+                <div id="explanation-oct-f-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">101</span> = <input type="text" class="quiz-input" id="oct-f-2"> <span id="result-oct-f-2"></span></p>
+                <div id="explanation-oct-f-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">001</span> = <input type="text" class="quiz-input" id="oct-f-3"> <span id="result-oct-f-3"></span></p>
+                <div id="explanation-oct-f-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">110</span> = <input type="text" class="quiz-input" id="oct-f-4"> <span id="result-oct-f-4"></span></p>
+                <div id="explanation-oct-f-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">011</span> = <input type="text" class="quiz-input" id="oct-f-5"> <span id="result-oct-f-5"></span></p>
+                <div id="explanation-oct-f-5" class="explanation hidden"></div>
+              </div>
             </div>
           </div>
           
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 2</h3>
-              <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="q2-2"> <span id="result2-2"></span></p>
-              <div id="explanation2-2" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 3</h3>
-              <p><span class="binaire">11001</span> = <input type="text" class="quiz-input" id="q2-3"> <span id="result2-3"></span></p>
-              <div id="explanation2-3" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 4</h3>
-              <p><span class="binaire">10111001</span> = <input type="text" class="quiz-input" id="q2-4"> <span id="result2-4"></span></p>
-              <div id="explanation2-4" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 5</h3>
-              <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="q2-5"> <span id="result2-5"></span></p>
-              <div id="explanation2-5" class="explanation hidden"></div>
-            </div>
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('oct', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('oct', 'f')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
         </div>
         
-        <div class="quiz-actions">
-          <button class="submit-button" onclick="checkLevel2()"><i class="fas fa-check-circle"></i> Vérifier les réponses</button>
-          <button class="submit-button" onclick="showExplanations(2)"><i class="fas fa-book-open"></i> Voir les explications</button>
+        <!-- Niveau intermédiaire - Binaire → Octal -->
+        <div id="octal-inter" class="level-content hidden">
+          <h2>Niveau Intermédiaire: Binaire → Octal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="oct-i-1"> <span id="result-oct-i-1"></span></p>
+                <div id="explanation-oct-i-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11001</span> = <input type="text" class="quiz-input" id="oct-i-2"> <span id="result-oct-i-2"></span></p>
+                <div id="explanation-oct-i-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="oct-i-3"> <span id="result-oct-i-3"></span></p>
+                <div id="explanation-oct-i-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10110</span> = <input type="text" class="quiz-input" id="oct-i-4"> <span id="result-oct-i-4"></span></p>
+                <div id="explanation-oct-i-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">101011</span> = <input type="text" class="quiz-input" id="oct-i-5"> <span id="result-oct-i-5"></span></p>
+                <div id="explanation-oct-i-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('oct', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('oct', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+        </div>
+        
+        <!-- Niveau difficile - Binaire → Octal -->
+        <div id="octal-diff" class="level-content hidden">
+          <h2>Niveau Difficile: Binaire → Octal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10111001</span> = <input type="text" class="quiz-input" id="oct-d-1"> <span id="result-oct-d-1"></span></p>
+                <div id="explanation-oct-d-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11101110</span> = <input type="text" class="quiz-input" id="oct-d-2"> <span id="result-oct-d-2"></span></p>
+                <div id="explanation-oct-d-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="oct-d-3"> <span id="result-oct-d-3"></span></p>
+                <div id="explanation-oct-d-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11111000</span> = <input type="text" class="quiz-input" id="oct-d-4"> <span id="result-oct-d-4"></span></p>
+                <div id="explanation-oct-d-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10000111</span> = <input type="text" class="quiz-input" id="oct-d-5"> <span id="result-oct-d-5"></span></p>
+                <div id="explanation-oct-d-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('oct', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('oct', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
         </div>
       </div>
       
-      <div id="level3" class="level hidden">
-        <h2><i class="fas fa-code"></i> Niveau Difficile: Binaire → Hexadécimal</h2>
-        <p>Convertissez ces nombres binaires en hexadécimal:</p>
-        
+      <!-- SECTION BINAIRE → HEXADÉCIMAL -->
+      <div id="hexa-section" class="conversion-section hidden">
         <div class="conversion-help">
           <p><strong>Méthode:</strong> Grouper les bits par 4 (de droite à gauche) puis convertir chaque groupe en hexadécimal.</p>
           <p>Tableau de conversion: 0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9, 10=A, 11=B, 12=C, 13=D, 14=E, 15=F</p>
           <p>Exemple: 10110111 → 1011 0111 → B 7 → B7 en hexadécimal</p>
         </div>
         
-        <div class="questions-container">
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 1</h3>
-              <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="q3-1"> <span id="result3-1"></span></p>
-              <div id="explanation3-1" class="explanation hidden"></div>
+        <div class="level-selector">
+          <button class="level-btn active" onclick="selectLevel('hexa', 'facile')"><i class="fas fa-star"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('hexa', 'inter')"><i class="fas fa-star-half-alt"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('hexa', 'diff')"><i class="fas fa-star"></i><i class="fas fa-star"></i> Difficile</button>
+        </div>
+        
+        <!-- Niveau facile - Binaire → Hexadécimal -->
+        <div id="hexa-facile" class="level-content">
+          <h2>Niveau Facile: Binaire → Hexadécimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1010</span> = <input type="text" class="quiz-input" id="hex-f-1"> <span id="result-hex-f-1"></span></p>
+                <div id="explanation-hex-f-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1111</span> = <input type="text" class="quiz-input" id="hex-f-2"> <span id="result-hex-f-2"></span></p>
+                <div id="explanation-hex-f-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">0101</span> = <input type="text" class="quiz-input" id="hex-f-3"> <span id="result-hex-f-3"></span></p>
+                <div id="explanation-hex-f-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1100</span> = <input type="text" class="quiz-input" id="hex-f-4"> <span id="result-hex-f-4"></span></p>
+                <div id="explanation-hex-f-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">1001</span> = <input type="text" class="quiz-input" id="hex-f-5"> <span id="result-hex-f-5"></span></p>
+                <div id="explanation-hex-f-5" class="explanation hidden"></div>
+              </div>
             </div>
           </div>
           
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 2</h3>
-              <p><span class="binaire">11110</span> = <input type="text" class="quiz-input" id="q3-2"> <span id="result3-2"></span></p>
-              <div id="explanation3-2" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 3</h3>
-              <p><span class="binaire">10001101</span> = <input type="text" class="quiz-input" id="q3-3"> <span id="result3-3"></span></p>
-              <div id="explanation3-3" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 4</h3>
-              <p><span class="binaire">10101111</span> = <input type="text" class="quiz-input" id="q3-4"> <span id="result3-4"></span></p>
-              <div id="explanation3-4" class="explanation hidden"></div>
-            </div>
-          </div>
-          
-          <div class="question-card">
-            <div class="question-content">
-              <h3>Question 5</h3>
-              <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="q3-5"> <span id="result3-5"></span></p>
-              <div id="explanation3-5" class="explanation hidden"></div>
-            </div>
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hex', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hex', 'f')"><i class="fas fa-book-open"></i> Explications</button>
           </div>
         </div>
         
-        <div class="quiz-actions">
-          <button class="submit-button" onclick="checkLevel3()"><i class="fas fa-check-circle"></i> Vérifier les réponses</button>
-          <button class="submit-button" onclick="showExplanations(3)"><i class="fas fa-book-open"></i> Voir les explications</button>
+        <!-- Niveau intermédiaire - Binaire → Hexadécimal -->
+        <div id="hexa-inter" class="level-content hidden">
+          <h2>Niveau Intermédiaire: Binaire → Hexadécimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11110</span> = <input type="text" class="quiz-input" id="hex-i-1"> <span id="result-hex-i-1"></span></p>
+                <div id="explanation-hex-i-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10101</span> = <input type="text" class="quiz-input" id="hex-i-2"> <span id="result-hex-i-2"></span></p>
+                <div id="explanation-hex-i-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="hex-i-3"> <span id="result-hex-i-3"></span></p>
+                <div id="explanation-hex-i-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">101010</span> = <input type="text" class="quiz-input" id="hex-i-4"> <span id="result-hex-i-4"></span></p>
+                <div id="explanation-hex-i-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">111111</span> = <input type="text" class="quiz-input" id="hex-i-5"> <span id="result-hex-i-5"></span></p>
+                <div id="explanation-hex-i-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hex', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hex', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+        </div>
+        
+        <!-- Niveau difficile - Binaire → Hexadécimal -->
+        <div id="hexa-diff" class="level-content hidden">
+          <h2>Niveau Difficile: Binaire → Hexadécimal</h2>
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10001101</span> = <input type="text" class="quiz-input" id="hex-d-1"> <span id="result-hex-d-1"></span></p>
+                <div id="explanation-hex-d-1" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10101111</span> = <input type="text" class="quiz-input" id="hex-d-2"> <span id="result-hex-d-2"></span></p>
+                <div id="explanation-hex-d-2" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="hex-d-3"> <span id="result-hex-d-3"></span></p>
+                <div id="explanation-hex-d-3" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">11001100</span> = <input type="text" class="quiz-input" id="hex-d-4"> <span id="result-hex-d-4"></span></p>
+                <div id="explanation-hex-d-4" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="binaire">10101010</span> = <input type="text" class="quiz-input" id="hex-d-5"> <span id="result-hex-d-5"></span></p>
+                <div id="explanation-hex-d-5" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hex', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hex', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
         </div>
       </div>
     </div>
   
     <script>
-      // Sélectionner un niveau
-      function selectLevel(level) {
-        // Cacher tous les niveaux
-        document.querySelectorAll('.level').forEach(el => {
+      // Solutions et explications pour les conversions binaire → décimal
+      const solutions = {
+        // Binaire → Décimal
+        'dec': {
+          'f': { // Facile
+            '1': '5',
+            '2': '9',
+            '3': '10',
+            '4': '12',
+            '5': '17'
+          },
+          'i': { // Intermédiaire
+            '1': '22',
+            '2': '27',
+            '3': '42',
+            '4': '56',
+            '5': '37'
+          },
+          'd': { // Difficile
+            '1': '89',
+            '2': '245',
+            '3': '170',
+            '4': '255',
+            '5': '128'
+          }
+        },
+        // Binaire → Octal
+        'oct': {
+          'f': { // Facile
+            '1': '7',
+            '2': '5',
+            '3': '1',
+            '4': '6',
+            '5': '3'
+          },
+          'i': { // Intermédiaire
+            '1': '12',
+            '2': '31',
+            '3': '65',
+            '4': '26',
+            '5': '53'
+          },
+          'd': { // Difficile
+            '1': '271',
+            '2': '356',
+            '3': '252',
+            '4': '370',
+            '5': '207'
+          }
+        },
+        // Binaire → Hexadécimal
+        'hex': {
+          'f': { // Facile
+            '1': 'a',
+            '2': 'f',
+            '3': '5',
+            '4': 'c',
+            '5': '9'
+          },
+          'i': { // Intermédiaire
+            '1': '1e',
+            '2': '15',
+            '3': '35',
+            '4': '2a',
+            '5': '3f'
+          },
+          'd': { // Difficile
+            '1': '8d',
+            '2': 'af',
+            '3': 'f5',
+            '4': 'cc',
+            '5': 'aa'
+          }
+        }
+      };
+      
+      // Explications pour toutes les conversions
+      const explanations = {
+        // Binaire → Décimal
+        'dec': {
+          'f': { // Facile
+            '1': '101 en binaire : 1×2² + 0×2¹ + 1×2⁰ = 4 + 0 + 1 = 5 en décimal',
+            '2': '1001 en binaire : 1×2³ + 0×2² + 0×2¹ + 1×2⁰ = 8 + 0 + 0 + 1 = 9 en décimal',
+            '3': '1010 en binaire : 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 8 + 0 + 2 + 0 = 10 en décimal',
+            '4': '1100 en binaire : 1×2³ + 1×2² + 0×2¹ + 0×2⁰ = 8 + 4 + 0 + 0 = 12 en décimal',
+            '5': '10001 en binaire : 1×2⁴ + 0×2³ + 0×2² + 0×2¹ + 1×2⁰ = 16 + 0 + 0 + 0 + 1 = 17 en décimal'
+          },
+          'i': { // Intermédiaire
+            '1': '10110 en binaire : 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰ = 16 + 0 + 4 + 2 + 0 = 22 en décimal',
+            '2': '11011 en binaire : 1×2⁴ + 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 16 + 8 + 0 + 2 + 1 = 27 en décimal',
+            '3': '101010 en binaire : 1×2⁵ + 0×2⁴ + 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 32 + 0 + 8 + 0 + 2 + 0 = 42 en décimal',
+            '4': '111000 en binaire : 1×2⁵ + 1×2⁴ + 1×2³ + 0×2² + 0×2¹ + 0×2⁰ = 32 + 16 + 8 + 0 + 0 + 0 = 56 en décimal',
+            '5': '100101 en binaire : 1×2⁵ + 0×2⁴ + 0×2³ + 1×2² + 0×2¹ + 1×2⁰ = 32 + 0 + 0 + 4 + 0 + 1 = 37 en décimal'
+          },
+          'd': { // Difficile
+            '1': '1011001 en binaire : 1×2⁶ + 0×2⁵ + 1×2⁴ + 1×2³ + 0×2² + 0×2¹ + 1×2⁰ = 64 + 0 + 16 + 8 + 0 + 0 + 1 = 89 en décimal',
+            '2': '11110101 en binaire : 1×2⁷ + 1×2⁶ + 1×2⁵ + 1×2⁴ + 0×2³ + 1×2² + 0×2¹ + 1×2⁰ = 128 + 64 + 32 + 16 + 0 + 4 + 0 + 1 = 245 en décimal',
+            '3': '10101010 en binaire : 1×2⁷ + 0×2⁶ + 1×2⁵ + 0×2⁴ + 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 128 + 0 + 32 + 0 + 8 + 0 + 2 + 0 = 170 en décimal',
+            '4': '11111111 en binaire : 1×2⁷ + 1×2⁶ + 1×2⁵ + 1×2⁴ + 1×2³ + 1×2² + 1×2¹ + 1×2⁰ = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255 en décimal',
+            '5': '10000000 en binaire : 1×2⁷ + 0×2⁶ + 0×2⁵ + 0×2⁴ + 0×2³ + 0×2² + 0×2¹ + 0×2⁰ = 128 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 128 en décimal'
+          }
+        },
+        // Binaire → Octal
+        'oct': {
+          'f': { // Facile
+            '1': '111 en binaire : groupe de 3 bits → 111 → 7 en octal',
+            '2': '101 en binaire : groupe de 3 bits → 101 → 5 en octal',
+            '3': '001 en binaire : groupe de 3 bits → 001 → 1 en octal',
+            '4': '110 en binaire : groupe de 3 bits → 110 → 6 en octal',
+            '5': '011 en binaire : groupe de 3 bits → 011 → 3 en octal'
+          },
+          'i': { // Intermédiaire
+            '1': '1010 en binaire : grouper par 3 → 001 010 → 1 2 → 12 en octal',
+            '2': '11001 en binaire : grouper par 3 → 011 001 → 3 1 → 31 en octal',
+            '3': '110101 en binaire : grouper par 3 → 110 101 → 6 5 → 65 en octal',
+            '4': '10110 en binaire : grouper par 3 → 010 110 → 2 6 → 26 en octal',
+            '5': '101011 en binaire : grouper par 3 → 101 011 → 5 3 → 53 en octal'
+          },
+          'd': { // Difficile
+            '1': '10111001 en binaire : grouper par 3 → 010 111 001 → 2 7 1 → 271 en octal',
+            '2': '11101110 en binaire : grouper par 3 → 011 101 110 → 3 5 6 → 356 en octal',
+            '3': '10101010 en binaire : grouper par 3 → 010 101 010 → 2 5 2 → 252 en octal',
+            '4': '11111000 en binaire : grouper par 3 → 011 111 000 → 3 7 0 → 370 en octal',
+            '5': '10000111 en binaire : grouper par 3 → 010 000 111 → 2 0 7 → 207 en octal'
+          }
+        },
+        // Binaire → Hexadécimal
+        'hex': {
+          'f': { // Facile
+            '1': '1010 en binaire : groupe de 4 bits → 1010 → 10 en décimal → A en hexadécimal',
+            '2': '1111 en binaire : groupe de 4 bits → 1111 → 15 en décimal → F en hexadécimal',
+            '3': '0101 en binaire : groupe de 4 bits → 0101 → 5 en décimal → 5 en hexadécimal',
+            '4': '1100 en binaire : groupe de 4 bits → 1100 → 12 en décimal → C en hexadécimal',
+            '5': '1001 en binaire : groupe de 4 bits → 1001 → 9 en décimal → 9 en hexadécimal'
+          },
+          'i': { // Intermédiaire
+            '1': '11110 en binaire : grouper par 4 → 0001 1110 → 1 14 → 1E en hexadécimal',
+            '2': '10101 en binaire : grouper par 4 → 0001 0101 → 1 5 → 15 en hexadécimal',
+            '3': '110101 en binaire : grouper par 4 → 0011 0101 → 3 5 → 35 en hexadécimal',
+            '4': '101010 en binaire : grouper par 4 → 0010 1010 → 2 10 → 2A en hexadécimal',
+            '5': '111111 en binaire : grouper par 4 → 0011 1111 → 3 15 → 3F en hexadécimal'
+          },
+          'd': { // Difficile
+            '1': '10001101 en binaire : grouper par 4 → 1000 1101 → 8 13 → 8D en hexadécimal',
+            '2': '10101111 en binaire : grouper par 4 → 1010 1111 → 10 15 → AF en hexadécimal',
+            '3': '11110101 en binaire : grouper par 4 → 1111 0101 → 15 5 → F5 en hexadécimal',
+            '4': '11001100 en binaire : grouper par 4 → 1100 1100 → 12 12 → CC en hexadécimal',
+            '5': '10101010 en binaire : grouper par 4 → 1010 1010 → 10 10 → AA en hexadécimal'
+          }
+        }
+      };
+      
+      // Sélectionner une conversion
+      function selectConversion(conversion) {
+        // Cacher toutes les sections
+        document.querySelectorAll('.conversion-section').forEach(el => {
           el.classList.add('hidden');
         });
         
         // Mettre à jour les boutons
-        document.querySelectorAll('.level-btn').forEach((btn, index) => {
-          if (index + 1 === level) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+        document.querySelectorAll('.conversion-btn').forEach(btn => {
+          btn.classList.remove('active');
         });
         
-        // Afficher le niveau sélectionné
-        document.getElementById(`level${level}`).classList.remove('hidden');
+        // Activer le bouton sélectionné
+        document.querySelector(`.conversion-btn[onclick="selectConversion('${conversion}')"]`).classList.add('active');
+        
+        // Afficher la section sélectionnée
+        document.getElementById(`${conversion}-section`).classList.remove('hidden');
       }
       
-      // Solutions niveau 1: Binaire → Décimal
-      const solutions1 = {
-        '1': '11',
-        '2': '22',
-        '3': '31',
-        '4': '45',
-        '5': '17'
-      };
+      // Sélectionner un niveau
+      function selectLevel(conversion, level) {
+        // Cacher tous les contenus de niveau pour cette conversion
+        document.querySelectorAll(`#${conversion}-section .level-content`).forEach(el => {
+          el.classList.add('hidden');
+        });
+        
+        // Mettre à jour les boutons
+        document.querySelectorAll(`#${conversion}-section .level-btn`).forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Activer le bouton sélectionné
+        document.querySelector(`#${conversion}-section .level-btn[onclick="selectLevel('${conversion}', '${level}')"]`).classList.add('active');
+        
+        // Afficher le niveau sélectionné
+        document.getElementById(`${conversion}-${level}`).classList.remove('hidden');
+      }
       
-      // Solutions niveau 2: Binaire → Octal
-      const solutions2 = {
-        '1': '7',
-        '2': '12',
-        '3': '31',
-        '4': '271',
-        '5': '65'
-      };
-      
-      // Solutions niveau 3: Binaire → Hexadécimal
-      const solutions3 = {
-        '1': 'a',
-        '2': '1e',
-        '3': '8d',
-        '4': 'af',
-        '5': 'f5'
-      };
-      
-      // Explications niveau 1
-      const explanations1 = {
-        '1': '1011 en binaire : 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11 en décimal',
-        '2': '10110 en binaire : 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰ = 16 + 0 + 4 + 2 + 0 = 22 en décimal',
-        '3': '11111 en binaire : 1×2⁴ + 1×2³ + 1×2² + 1×2¹ + 1×2⁰ = 16 + 8 + 4 + 2 + 1 = 31 en décimal',
-        '4': '101101 en binaire : 1×2⁵ + 0×2⁴ + 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 32 + 0 + 8 + 4 + 0 + 1 = 45 en décimal',
-        '5': '10001 en binaire : 1×2⁴ + 0×2³ + 0×2² + 0×2¹ + 1×2⁰ = 16 + 0 + 0 + 0 + 1 = 17 en décimal'
-      };
-      
-      // Explications niveau 2
-      const explanations2 = {
-        '1': '111 en binaire : groupe de 3 bits → 111 → 7 en octal',
-        '2': '1010 en binaire : grouper par 3 → 001 010 → 1 2 → 12 en octal',
-        '3': '11001 en binaire : grouper par 3 → 011 001 → 3 1 → 31 en octal',
-        '4': '10111001 en binaire : grouper par 3 → 010 111 001 → 2 7 1 → 271 en octal',
-        '5': '110101 en binaire : grouper par 3 → 110 101 → 6 5 → 65 en octal'
-      };
-      
-      // Explications niveau 3
-      const explanations3 = {
-        '1': '1010 en binaire : grouper par 4 → 1010 → 10 en décimal → A en hexadécimal',
-        '2': '11110 en binaire : grouper par 4 → 0001 1110 → 1 14 → 1E en hexadécimal',
-        '3': '10001101 en binaire : grouper par 4 → 1000 1101 → 8 13 → 8D en hexadécimal',
-        '4': '10101111 en binaire : grouper par 4 → 1010 1111 → 10 15 → AF en hexadécimal',
-        '5': '11110101 en binaire : grouper par 4 → 1111 0101 → 15 5 → F5 en hexadécimal'
-      };
-      
-      // Fonction générique pour vérifier les réponses
-      function checkLevel(level) {
-        const solutions = window[`solutions${level}`];
+      // Vérifier les réponses pour une conversion et un niveau
+      function checkAnswers(conversion, level) {
+        const solutionsForLevel = solutions[conversion][level];
         
         for (let i = 1; i <= 5; i++) {
-          const userAnswer = document.getElementById(`q${level}-${i}`).value.trim().toLowerCase();
-          const correctAnswer = solutions[i];
+          const userAnswer = document.getElementById(`${conversion}-${level}-${i}`).value.trim().toLowerCase();
+          const correctAnswer = solutionsForLevel[i];
           
-          const resultElement = document.getElementById(`result${level}-${i}`);
+          const resultElement = document.getElementById(`result-${conversion}-${level}-${i}`);
           
           if (userAnswer === correctAnswer) {
             resultElement.textContent = "✅";
@@ -293,28 +694,22 @@
         }
       }
       
-      // Fonctions de vérification pour chaque niveau
-      function checkLevel1() { checkLevel(1); }
-      function checkLevel2() { checkLevel(2); }
-      function checkLevel3() { checkLevel(3); }
-      
-      // Afficher les explications pour un niveau
-      function showExplanations(level) {
-        const explanations = window[`explanations${level}`];
+      // Afficher les explications pour une conversion et un niveau
+      function showExplanations(conversion, level) {
+        const explanationsForLevel = explanations[conversion][level];
         
         for (let i = 1; i <= 5; i++) {
-          const explanationElement = document.getElementById(`explanation${level}-${i}`);
-          explanationElement.textContent = explanations[i];
+          const explanationElement = document.getElementById(`explanation-${conversion}-${level}-${i}`);
+          explanationElement.textContent = explanationsForLevel[i];
           explanationElement.classList.remove('hidden');
         }
       }
       
-      // Démarrer avec le niveau 1
+      // Initialisation de la page
       document.addEventListener('DOMContentLoaded', function() {
-        selectLevel(1);
-        
-        // Ajouter la classe active au premier bouton
-        document.querySelector('.level-btn').classList.add('active');
+        // Démarrer avec la conversion binaire → décimal, niveau facile
+        selectConversion('decimal');
+        selectLevel('decimal', 'facile');
       });
     </script>
   </body>
