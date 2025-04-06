@@ -702,6 +702,13 @@ p {
   margin-bottom: 30px;
 }
 
+/* Surcharge pour quizz_02.html qui utilise une grille */
+.conversion-section .questions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .question-card {
   position: relative;
   background: rgba(31, 31, 38, 0.5);
@@ -1642,11 +1649,6 @@ li {
   background-color: var(--imperial-red);
   color: var(--seashell);
   font-weight: bold;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .gate-image {
