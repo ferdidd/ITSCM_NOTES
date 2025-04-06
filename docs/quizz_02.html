@@ -24,12 +24,18 @@
         <button class="conversion-btn active" onclick="selectConversion('decimal')"><i class="fas fa-calculator"></i> Binaire → Décimal</button>
         <button class="conversion-btn" onclick="selectConversion('octal')"><i class="fas fa-exchange-alt"></i> Binaire → Octal</button>
         <button class="conversion-btn" onclick="selectConversion('hexa')"><i class="fas fa-code"></i> Binaire → Hexadécimal</button>
-        <button class="conversion-btn" onclick="selectConversion('octoBin')"><i class="fas fa-retweet"></i> Octal → Binaire</button>
-        <button class="conversion-btn" onclick="selectConversion('octoDec')"><i class="fas fa-sort-numeric-up"></i> Octal → Décimal</button>
-        <button class="conversion-btn" onclick="selectConversion('octoHex')"><i class="fas fa-hashtag"></i> Octal → Hexadécimal</button>
+        <button class="conversion-btn" onclick="selectConversion('binDec')"><i class="fas fa-stream"></i> Binaire → Décimal</button>
+        <button class="conversion-btn" onclick="selectConversion('binOct')"><i class="fas fa-sitemap"></i> Binaire → Octal</button>
+        <button class="conversion-btn" onclick="selectConversion('binHex')"><i class="fas fa-code-branch"></i> Binaire → Hexa</button>
+        <button class="conversion-btn" onclick="selectConversion('octBin')"><i class="fas fa-stream"></i> Octal → Binaire</button>
+        <button class="conversion-btn" onclick="selectConversion('octDec')"><i class="fas fa-sitemap"></i> Octal → Décimal</button>
+        <button class="conversion-btn" onclick="selectConversion('octHex')"><i class="fas fa-code-branch"></i> Octal → Hexa</button>
         <button class="conversion-btn" onclick="selectConversion('decBin')"><i class="fas fa-stream"></i> Décimal → Binaire</button>
         <button class="conversion-btn" onclick="selectConversion('decOct')"><i class="fas fa-sitemap"></i> Décimal → Octal</button>
         <button class="conversion-btn" onclick="selectConversion('decHex')"><i class="fas fa-code-branch"></i> Décimal → Hexa</button>
+        <button class="conversion-btn" onclick="selectConversion('hexBin')"><i class="fas fa-stream"></i> Hexa → Binaire</button>
+        <button class="conversion-btn" onclick="selectConversion('hexOct')"><i class="fas fa-sitemap"></i> Hexa → Octal</button>
+        <button class="conversion-btn" onclick="selectConversion('hexDec')"><i class="fas fa-code-branch"></i> Hexa → Décimal</button>
       </div>
       
       <!-- SECTION BINAIRE → DÉCIMAL -->
@@ -1400,6 +1406,393 @@
           </div>
         </div>
       </div>
+      
+      <!-- Conversion Hexa → Binaire -->
+      <div id="hexBin-conversion" class="conversion-section hidden">
+        <div class="conversion-help">
+          <h3><i class="fas fa-info-circle"></i> Méthode de conversion Hexadécimal → Binaire</h3>
+          <p>Pour convertir de l'hexadécimal vers le binaire, chaque chiffre hexadécimal est remplacé par sa représentation binaire sur 4 bits:</p>
+          <ul>
+            <li>0 = 0000</li>
+            <li>1 = 0001</li>
+            <li>2 = 0010</li>
+            <li>3 = 0011</li>
+            <li>4 = 0100</li>
+            <li>5 = 0101</li>
+            <li>6 = 0110</li>
+            <li>7 = 0111</li>
+            <li>8 = 1000</li>
+            <li>9 = 1001</li>
+            <li>A = 1010</li>
+            <li>B = 1011</li>
+            <li>C = 1100</li>
+            <li>D = 1101</li>
+            <li>E = 1110</li>
+            <li>F = 1111</li>
+          </ul>
+          <p>Par exemple:<br>
+          A2 → 1010 0010 → 10100010</p>
+        </div>
+        
+        <div class="level-selector">
+          <button class="level-btn" onclick="selectLevel('hexBin', 'f')"><i class="fas fa-child"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('hexBin', 'i')"><i class="fas fa-user"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('hexBin', 'd')"><i class="fas fa-user-graduate"></i> Difficile</button>
+        </div>
+        
+        <!-- Facile -->
+        <div id="hexBin-f" class="level-questions">
+          <h3>Niveau Facile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">3</span> = <input type="text" class="quiz-input" id="hexBin-f-1-answer"> <span id="hexBin-f-1-result"></span></p>
+                <div id="hexBin-f-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A</span> = <input type="text" class="quiz-input" id="hexBin-f-2-answer"> <span id="hexBin-f-2-result"></span></p>
+                <div id="hexBin-f-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">C</span> = <input type="text" class="quiz-input" id="hexBin-f-3-answer"> <span id="hexBin-f-3-result"></span></p>
+                <div id="hexBin-f-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">7</span> = <input type="text" class="quiz-input" id="hexBin-f-4-answer"> <span id="hexBin-f-4-result"></span></p>
+                <div id="hexBin-f-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">9</span> = <input type="text" class="quiz-input" id="hexBin-f-5-answer"> <span id="hexBin-f-5-result"></span></p>
+                <div id="hexBin-f-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexBin', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexBin', 'f')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexBin-f-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexBin-f-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Intermédiaire -->
+        <div id="hexBin-i" class="level-questions hidden">
+          <h3>Niveau Intermédiaire</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">16</span> = <input type="text" class="quiz-input" id="hexBin-i-1-answer"> <span id="hexBin-i-1-result"></span></p>
+                <div id="hexBin-i-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">11</span> = <input type="text" class="quiz-input" id="hexBin-i-2-answer"> <span id="hexBin-i-2-result"></span></p>
+                <div id="hexBin-i-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">1C</span> = <input type="text" class="quiz-input" id="hexBin-i-3-answer"> <span id="hexBin-i-3-result"></span></p>
+                <div id="hexBin-i-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">D</span> = <input type="text" class="quiz-input" id="hexBin-i-4-answer"> <span id="hexBin-i-4-result"></span></p>
+                <div id="hexBin-i-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">B</span> = <input type="text" class="quiz-input" id="hexBin-i-5-answer"> <span id="hexBin-i-5-result"></span></p>
+                <div id="hexBin-i-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexBin', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexBin', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexBin-i-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexBin-i-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Difficile -->
+        <div id="hexBin-d" class="level-questions hidden">
+          <h3>Niveau Difficile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">BB</span> = <input type="text" class="quiz-input" id="hexBin-d-1-answer"> <span id="hexBin-d-1-result"></span></p>
+                <div id="hexBin-d-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">CA</span> = <input type="text" class="quiz-input" id="hexBin-d-2-answer"> <span id="hexBin-d-2-result"></span></p>
+                <div id="hexBin-d-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A7</span> = <input type="text" class="quiz-input" id="hexBin-d-3-answer"> <span id="hexBin-d-3-result"></span></p>
+                <div id="hexBin-d-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">F1</span> = <input type="text" class="quiz-input" id="hexBin-d-4-answer"> <span id="hexBin-d-4-result"></span></p>
+                <div id="hexBin-d-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">96</span> = <input type="text" class="quiz-input" id="hexBin-d-5-answer"> <span id="hexBin-d-5-result"></span></p>
+                <div id="hexBin-d-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexBin', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexBin', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexBin-d-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexBin-d-score" class="score" style="display: none;"></div>
+        </div>
+      </div>
+      
+      <!-- Conversion Hexa → Décimal -->
+      <div id="hexDec-conversion" class="conversion-section hidden">
+        <div class="conversion-help">
+          <h3><i class="fas fa-info-circle"></i> Méthode de conversion Hexadécimal → Décimal</h3>
+          <p>Pour convertir de l'hexadécimal vers le décimal, il faut :</p>
+          <ol>
+            <li>Multiplier chaque chiffre hexadécimal par sa puissance de 16 (de droite à gauche)</li>
+            <li>Additionner tous les résultats</li>
+          </ol>
+          <p>Équivalence de chaque lettre hexadécimale :</p>
+          <ul>
+            <li>A = 10</li>
+            <li>B = 11</li>
+            <li>C = 12</li>
+            <li>D = 13</li>
+            <li>E = 14</li>
+            <li>F = 15</li>
+          </ul>
+          <p>Par exemple:<br>
+          2F = 2 × 16¹ + F × 16⁰ = 2 × 16 + 15 × 1 = 32 + 15 = 47</p>
+        </div>
+        
+        <div class="level-selector">
+          <button class="level-btn" onclick="selectLevel('hexDec', 'f')"><i class="fas fa-child"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('hexDec', 'i')"><i class="fas fa-user"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('hexDec', 'd')"><i class="fas fa-user-graduate"></i> Difficile</button>
+        </div>
+        
+        <!-- Facile -->
+        <div id="hexDec-f" class="level-questions">
+          <h3>Niveau Facile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">3</span> = <input type="text" class="quiz-input" id="hexDec-f-1-answer"> <span id="hexDec-f-1-result"></span></p>
+                <div id="hexDec-f-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A</span> = <input type="text" class="quiz-input" id="hexDec-f-2-answer"> <span id="hexDec-f-2-result"></span></p>
+                <div id="hexDec-f-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">C</span> = <input type="text" class="quiz-input" id="hexDec-f-3-answer"> <span id="hexDec-f-3-result"></span></p>
+                <div id="hexDec-f-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">7</span> = <input type="text" class="quiz-input" id="hexDec-f-4-answer"> <span id="hexDec-f-4-result"></span></p>
+                <div id="hexDec-f-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">9</span> = <input type="text" class="quiz-input" id="hexDec-f-5-answer"> <span id="hexDec-f-5-result"></span></p>
+                <div id="hexDec-f-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexDec', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexDec', 'f')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexDec-f-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexDec-f-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Intermédiaire -->
+        <div id="hexDec-i" class="level-questions hidden">
+          <h3>Niveau Intermédiaire</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">16</span> = <input type="text" class="quiz-input" id="hexDec-i-1-answer"> <span id="hexDec-i-1-result"></span></p>
+                <div id="hexDec-i-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">11</span> = <input type="text" class="quiz-input" id="hexDec-i-2-answer"> <span id="hexDec-i-2-result"></span></p>
+                <div id="hexDec-i-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">1C</span> = <input type="text" class="quiz-input" id="hexDec-i-3-answer"> <span id="hexDec-i-3-result"></span></p>
+                <div id="hexDec-i-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">D</span> = <input type="text" class="quiz-input" id="hexDec-i-4-answer"> <span id="hexDec-i-4-result"></span></p>
+                <div id="hexDec-i-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">B</span> = <input type="text" class="quiz-input" id="hexDec-i-5-answer"> <span id="hexDec-i-5-result"></span></p>
+                <div id="hexDec-i-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexDec', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexDec', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexDec-i-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexDec-i-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Difficile -->
+        <div id="hexDec-d" class="level-questions hidden">
+          <h3>Niveau Difficile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">BB</span> = <input type="text" class="quiz-input" id="hexDec-d-1-answer"> <span id="hexDec-d-1-result"></span></p>
+                <div id="hexDec-d-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">CA</span> = <input type="text" class="quiz-input" id="hexDec-d-2-answer"> <span id="hexDec-d-2-result"></span></p>
+                <div id="hexDec-d-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A7</span> = <input type="text" class="quiz-input" id="hexDec-d-3-answer"> <span id="hexDec-d-3-result"></span></p>
+                <div id="hexDec-d-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">F1</span> = <input type="text" class="quiz-input" id="hexDec-d-4-answer"> <span id="hexDec-d-4-result"></span></p>
+                <div id="hexDec-d-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">96</span> = <input type="text" class="quiz-input" id="hexDec-d-5-answer"> <span id="hexDec-d-5-result"></span></p>
+                <div id="hexDec-d-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexDec', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexDec', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexDec-d-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexDec-d-score" class="score" style="display: none;"></div>
+        </div>
+      </div>
     </div>
   
   <script>
@@ -1620,6 +2013,76 @@
         '4': "Pour convertir 500 en hexadécimal:<br>500 ÷ 16 = 31 reste 4<br>31 ÷ 16 = 1 reste 15 (f)<br>1 ÷ 16 = 0 reste 1<br>En lisant les restes de bas en haut: 1f4",
         '5': "Pour convertir 1000 en hexadécimal:<br>1000 ÷ 16 = 62 reste 8<br>62 ÷ 16 = 3 reste 14 (e)<br>3 ÷ 16 = 0 reste 3<br>En lisant les restes de bas en haut: 3e8"
       }
+    },
+    // Solutions pour les conversions depuis l'hexadécimal
+    'hexBin': {
+      'f': { // Facile
+        '1': "0011",
+        '2': "1010",
+        '3': "1100",
+        '4': "0111",
+        '5': "1001"
+      },
+      'i': { // Intermédiaire
+        '1': "10110",
+        '2': "10001",
+        '3': "11100",
+        '4': "01101",
+        '5': "01011"
+      },
+      'd': { // Difficile
+        '1': "10111011",
+        '2': "11001010",
+        '3': "10100111",
+        '4': "11110001",
+        '5': "10010110"
+      }
+    },
+    'hexOct': {
+      'f': { // Facile
+        '1': "3",
+        '2': "12",
+        '3': "14",
+        '4': "7",
+        '5': "11"
+      },
+      'i': { // Intermédiaire
+        '1': "26",
+        '2': "21",
+        '3': "34",
+        '4': "15",
+        '5': "13"
+      },
+      'd': { // Difficile
+        '1': "273",
+        '2': "312",
+        '3': "247",
+        '4': "361",
+        '5': "226"
+      }
+    },
+    'hexDec': {
+      'f': { // Facile
+        '1': "3",
+        '2': "10",
+        '3': "12",
+        '4': "7",
+        '5': "9"
+      },
+      'i': { // Intermédiaire
+        '1': "22",
+        '2': "17",
+        '3': "28",
+        '4': "13",
+        '5': "11"
+      },
+      'd': { // Difficile
+        '1': "187",
+        '2': "202",
+        '3': "167",
+        '4': "241",
+        '5': "150"
+      }
     }
   };
 
@@ -1637,6 +2100,88 @@
         '1': "Pour convertir 10110 en décimal:<br>1 × 2⁴ + 0 × 2³ + 1 × 2² + 1 × 2¹ + 0 × 2⁰ = 16 + 0 + 4 + 2 + 0 = 22",
         '2': "Pour convertir 11011 en décimal:<br>1 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 1 × 2⁰ = 16 + 8 + 0 + 2 + 1 = 27",
         '3': "Pour convertir 101010 en décimal:<br>1 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 32 + 0 + 8 + 0 + 2 + 0 = 42",
+        '4': "Pour convertir 111000 en décimal:<br>1 × 2⁵ + 1 × 2⁴ + 1 × 2³ + 0 × 2² + 0 × 2¹ + 0 × 2⁰ = 32 + 16 + 8 + 0 + 0 + 0 = 56",
+        '5': "Pour convertir 100101 en décimal:<br>1 × 2⁵ + 0 × 2⁴ + 0 × 2³ + 1 × 2² + 0 × 2¹ + 1 × 2⁰ = 32 + 0 + 0 + 4 + 0 + 1 = 37"
+      },
+      'd': { // Difficile
+        '1': "Pour convertir 1110001 en décimal:<br>1 × 2⁶ + 1 × 2⁵ + 1 × 2⁴ + 0 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 64 + 32 + 16 + 0 + 0 + 0 + 1 = 113",
+        '2': "Pour convertir 10100111 en décimal:<br>1 × 2⁷ + 0 × 2⁶ + 1 × 2⁵ + 0 × 2⁴ + 0 × 2³ + 1 × 2² + 1 × 2¹ + 1 × 2⁰ = 128 + 0 + 32 + 0 + 0 + 4 + 2 + 1 = 167",
+        '3': "Pour convertir 11001101 en décimal:<br>1 × 2⁷ + 1 × 2⁶ + 0 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 1 × 2² + 0 × 2¹ + 1 × 2⁰ = 128 + 64 + 0 + 0 + 8 + 4 + 0 + 1 = 205",
+        '4': "Pour convertir 10111010 en décimal:<br>1 × 2⁷ + 0 × 2⁶ + 1 × 2⁵ + 1 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 128 + 0 + 32 + 16 + 8 + 0 + 2 + 0 = 186",
+        '5': "Pour convertir 11110000 en décimal:<br>1 × 2⁷ + 1 × 2⁶ + 1 × 2⁵ + 1 × 2⁴ + 0 × 2³ + 0 × 2² + 0 × 2¹ + 0 × 2⁰ = 128 + 64 + 32 + 16 + 0 + 0 + 0 + 0 = 240"
+      }
+    },
+    'hexBin': {
+      'f': {
+        '1': "Pour convertir 3 en binaire:<br>3 = 0011 (chaque chiffre hexadécimal correspond à 4 bits)",
+        '2': "Pour convertir A en binaire:<br>A (10 en décimal) = 1010",
+        '3': "Pour convertir C en binaire:<br>C (12 en décimal) = 1100",
+        '4': "Pour convertir 7 en binaire:<br>7 = 0111",
+        '5': "Pour convertir 9 en binaire:<br>9 = 1001"
+      },
+      'i': {
+        '1': "Pour convertir 16 en binaire:<br>1 = 0001, 6 = 0110 → 0001 0110 = 10110",
+        '2': "Pour convertir 11 en binaire:<br>1 = 0001, 1 = 0001 → 0001 0001 = 10001",
+        '3': "Pour convertir 1C en binaire:<br>1 = 0001, C = 1100 → 0001 1100 = 11100",
+        '4': "Pour convertir D en binaire:<br>D (13 en décimal) = 1101",
+        '5': "Pour convertir B en binaire:<br>B (11 en décimal) = 1011"
+      },
+      'd': {
+        '1': "Pour convertir BB en binaire:<br>B = 1011, B = 1011 → 1011 1011 = 10111011",
+        '2': "Pour convertir CA en binaire:<br>C = 1100, A = 1010 → 1100 1010 = 11001010",
+        '3': "Pour convertir A7 en binaire:<br>A = 1010, 7 = 0111 → 1010 0111 = 10100111",
+        '4': "Pour convertir F1 en binaire:<br>F = 1111, 1 = 0001 → 1111 0001 = 11110001",
+        '5': "Pour convertir 96 en binaire:<br>9 = 1001, 6 = 0110 → 1001 0110 = 10010110"
+      }
+    },
+    'hexOct': {
+      'f': {
+        '1': "Pour convertir 3 en octal:<br>3 en binaire = 0011, qui est 3 en octal",
+        '2': "Pour convertir A en octal:<br>A en binaire = 1010, qui est 12 en octal",
+        '3': "Pour convertir C en octal:<br>C en binaire = 1100, qui est 14 en octal",
+        '4': "Pour convertir 7 en octal:<br>7 en binaire = 0111, qui est 7 en octal",
+        '5': "Pour convertir 9 en octal:<br>9 en binaire = 1001, qui est 11 en octal"
+      },
+      'i': {
+        '1': "Pour convertir 16 en octal:<br>16 en binaire = 10110, qui est 26 en octal",
+        '2': "Pour convertir 11 en octal:<br>11 en binaire = 10001, qui est 21 en octal",
+        '3': "Pour convertir 1C en octal:<br>1C en binaire = 11100, qui est 34 en octal",
+        '4': "Pour convertir D en octal:<br>D en binaire = 1101, qui est 15 en octal",
+        '5': "Pour convertir B en octal:<br>B en binaire = 1011, qui est 13 en octal"
+      },
+      'd': {
+        '1': "Pour convertir BB en octal:<br>BB en binaire = 10111011, qui est 273 en octal",
+        '2': "Pour convertir CA en octal:<br>CA en binaire = 11001010, qui est 312 en octal",
+        '3': "Pour convertir A7 en octal:<br>A7 en binaire = 10100111, qui est 247 en octal",
+        '4': "Pour convertir F1 en octal:<br>F1 en binaire = 11110001, qui est 361 en octal",
+        '5': "Pour convertir 96 en octal:<br>96 en binaire = 10010110, qui est 226 en octal"
+      }
+    },
+    'hexDec': {
+      'f': {
+        '1': "Pour convertir 3 en décimal:<br>3 × 16⁰ = 3 × 1 = 3",
+        '2': "Pour convertir A en décimal:<br>A = 10 en décimal, donc A × 16⁰ = 10 × 1 = 10",
+        '3': "Pour convertir C en décimal:<br>C = 12 en décimal, donc C × 16⁰ = 12 × 1 = 12",
+        '4': "Pour convertir 7 en décimal:<br>7 × 16⁰ = 7 × 1 = 7",
+        '5': "Pour convertir 9 en décimal:<br>9 × 16⁰ = 9 × 1 = 9"
+      },
+      'i': {
+        '1': "Pour convertir 16 en décimal:<br>1 × 16¹ + 6 × 16⁰ = 16 + 6 = 22",
+        '2': "Pour convertir 11 en décimal:<br>1 × 16¹ + 1 × 16⁰ = 16 + 1 = 17",
+        '3': "Pour convertir 1C en décimal:<br>1 × 16¹ + C × 16⁰ = 16 + 12 = 28",
+        '4': "Pour convertir D en décimal:<br>D = 13 en décimal, donc D × 16⁰ = 13 × 1 = 13",
+        '5': "Pour convertir B en décimal:<br>B = 11 en décimal, donc B × 16⁰ = 11 × 1 = 11"
+      },
+      'd': {
+        '1': "Pour convertir BB en décimal:<br>B × 16¹ + B × 16⁰ = 11 × 16 + 11 × 1 = 176 + 11 = 187",
+        '2': "Pour convertir CA en décimal:<br>C × 16¹ + A × 16⁰ = 12 × 16 + 10 × 1 = 192 + 10 = 202",
+        '3': "Pour convertir A7 en décimal:<br>A × 16¹ + 7 × 16⁰ = 10 × 16 + 7 × 1 = 160 + 7 = 167",
+        '4': "Pour convertir F1 en décimal:<br>F × 16¹ + 1 × 16⁰ = 15 × 16 + 1 × 1 = 240 + 1 = 241",
+        '5': "Pour convertir 96 en décimal:<br>9 × 16¹ + 6 × 16⁰ = 9 × 16 + 6 × 1 = 144 + 6 = 150"
+      }
+    }
+  };
+
   // Variables pour garder en mémoire les sélections actuelles
   let currentConversion = 'dec';
   let currentLevel = 'f';
