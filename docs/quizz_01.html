@@ -742,22 +742,7 @@ L  ┐  ┌┐┐  ┌┐    ┌┐
                   <button className="submit-button" onClick={previousPage}>
                     <i className="fas fa-arrow-left"></i> Précédent
                   </button>
-                  <button className="submit-button" onClick={nextPage}>
-                    <i className="fas fa-arrow-right"></i> Suivant
-                  </button>
                 </div>
-              </div>
-            )}
-            
-            {currentPage === 5 && (
-              <div className="page">
-                <h2>Résultat du quiz</h2>
-                <div className="quiz-actions">
-                  <button className="submit-button" onClick={corriger}>
-                    <i className="fas fa-check-circle"></i> Afficher mes résultats
-                  </button>
-                </div>
-                <div className="result-container" dangerouslySetInnerHTML={{ __html: result }}></div>
               </div>
             )}
           </div>
