@@ -20,13 +20,13 @@
       </div>
       
       <div class="level-selector" id="levelSelector">
-        <button class="level-btn" onclick="selectLevel(1)">Niveau 1: Binaire → Décimal</button>
-        <button class="level-btn" onclick="selectLevel(2)">Niveau 2: Binaire → Octal</button>
-        <button class="level-btn" onclick="selectLevel(3)">Niveau 3: Binaire → Hexadécimal</button>
+        <button class="level-btn" onclick="selectLevel(1)"><i class="fas fa-star"></i> Niveau Facile</button>
+        <button class="level-btn" onclick="selectLevel(2)"><i class="fas fa-star-half-alt"></i> Niveau Intermédiaire</button>
+        <button class="level-btn" onclick="selectLevel(3)"><i class="fas fa-star"></i><i class="fas fa-star"></i> Niveau Difficile</button>
       </div>
       
       <div id="level1" class="level">
-        <h2><i class="fas fa-calculator"></i> Conversion Binaire → Décimal</h2>
+        <h2><i class="fas fa-calculator"></i> Niveau Facile: Binaire → Décimal</h2>
         <p>Convertissez ces nombres binaires en décimal:</p>
         
         <div class="conversion-help">
@@ -66,6 +66,14 @@
               <div id="explanation1-4" class="explanation hidden"></div>
             </div>
           </div>
+          
+          <div class="question-card">
+            <div class="question-content">
+              <h3>Question 5</h3>
+              <p><span class="binaire">10001</span> = <input type="text" class="quiz-input" id="q1-5"> <span id="result1-5"></span></p>
+              <div id="explanation1-5" class="explanation hidden"></div>
+            </div>
+          </div>
         </div>
         
         <div class="quiz-actions">
@@ -75,7 +83,7 @@
       </div>
       
       <div id="level2" class="level hidden">
-        <h2><i class="fas fa-exchange-alt"></i> Conversion Binaire → Octal</h2>
+        <h2><i class="fas fa-exchange-alt"></i> Niveau Intermédiaire: Binaire → Octal</h2>
         <p>Convertissez ces nombres binaires en octal:</p>
         
         <div class="conversion-help">
@@ -115,6 +123,14 @@
               <div id="explanation2-4" class="explanation hidden"></div>
             </div>
           </div>
+          
+          <div class="question-card">
+            <div class="question-content">
+              <h3>Question 5</h3>
+              <p><span class="binaire">110101</span> = <input type="text" class="quiz-input" id="q2-5"> <span id="result2-5"></span></p>
+              <div id="explanation2-5" class="explanation hidden"></div>
+            </div>
+          </div>
         </div>
         
         <div class="quiz-actions">
@@ -124,7 +140,7 @@
       </div>
       
       <div id="level3" class="level hidden">
-        <h2><i class="fas fa-code"></i> Conversion Binaire → Hexadécimal</h2>
+        <h2><i class="fas fa-code"></i> Niveau Difficile: Binaire → Hexadécimal</h2>
         <p>Convertissez ces nombres binaires en hexadécimal:</p>
         
         <div class="conversion-help">
@@ -165,6 +181,14 @@
               <div id="explanation3-4" class="explanation hidden"></div>
             </div>
           </div>
+          
+          <div class="question-card">
+            <div class="question-content">
+              <h3>Question 5</h3>
+              <p><span class="binaire">11110101</span> = <input type="text" class="quiz-input" id="q3-5"> <span id="result3-5"></span></p>
+              <div id="explanation3-5" class="explanation hidden"></div>
+            </div>
+          </div>
         </div>
         
         <div class="quiz-actions">
@@ -200,7 +224,8 @@
         '1': '11',
         '2': '22',
         '3': '31',
-        '4': '45'
+        '4': '45',
+        '5': '17'
       };
       
       // Solutions niveau 2: Binaire → Octal
@@ -208,7 +233,8 @@
         '1': '7',
         '2': '12',
         '3': '31',
-        '4': '271'
+        '4': '271',
+        '5': '65'
       };
       
       // Solutions niveau 3: Binaire → Hexadécimal
@@ -216,7 +242,8 @@
         '1': 'a',
         '2': '1e',
         '3': '8d',
-        '4': 'af'
+        '4': 'af',
+        '5': 'f5'
       };
       
       // Explications niveau 1
@@ -224,7 +251,8 @@
         '1': '1011 en binaire : 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11 en décimal',
         '2': '10110 en binaire : 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰ = 16 + 0 + 4 + 2 + 0 = 22 en décimal',
         '3': '11111 en binaire : 1×2⁴ + 1×2³ + 1×2² + 1×2¹ + 1×2⁰ = 16 + 8 + 4 + 2 + 1 = 31 en décimal',
-        '4': '101101 en binaire : 1×2⁵ + 0×2⁴ + 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 32 + 0 + 8 + 4 + 0 + 1 = 45 en décimal'
+        '4': '101101 en binaire : 1×2⁵ + 0×2⁴ + 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 32 + 0 + 8 + 4 + 0 + 1 = 45 en décimal',
+        '5': '10001 en binaire : 1×2⁴ + 0×2³ + 0×2² + 0×2¹ + 1×2⁰ = 16 + 0 + 0 + 0 + 1 = 17 en décimal'
       };
       
       // Explications niveau 2
@@ -232,7 +260,8 @@
         '1': '111 en binaire : groupe de 3 bits → 111 → 7 en octal',
         '2': '1010 en binaire : grouper par 3 → 001 010 → 1 2 → 12 en octal',
         '3': '11001 en binaire : grouper par 3 → 011 001 → 3 1 → 31 en octal',
-        '4': '10111001 en binaire : grouper par 3 → 010 111 001 → 2 7 1 → 271 en octal'
+        '4': '10111001 en binaire : grouper par 3 → 010 111 001 → 2 7 1 → 271 en octal',
+        '5': '110101 en binaire : grouper par 3 → 110 101 → 6 5 → 65 en octal'
       };
       
       // Explications niveau 3
@@ -240,14 +269,15 @@
         '1': '1010 en binaire : grouper par 4 → 1010 → 10 en décimal → A en hexadécimal',
         '2': '11110 en binaire : grouper par 4 → 0001 1110 → 1 14 → 1E en hexadécimal',
         '3': '10001101 en binaire : grouper par 4 → 1000 1101 → 8 13 → 8D en hexadécimal',
-        '4': '10101111 en binaire : grouper par 4 → 1010 1111 → 10 15 → AF en hexadécimal'
+        '4': '10101111 en binaire : grouper par 4 → 1010 1111 → 10 15 → AF en hexadécimal',
+        '5': '11110101 en binaire : grouper par 4 → 1111 0101 → 15 5 → F5 en hexadécimal'
       };
       
       // Fonction générique pour vérifier les réponses
       function checkLevel(level) {
         const solutions = window[`solutions${level}`];
         
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 5; i++) {
           const userAnswer = document.getElementById(`q${level}-${i}`).value.trim().toLowerCase();
           const correctAnswer = solutions[i];
           
@@ -272,7 +302,7 @@
       function showExplanations(level) {
         const explanations = window[`explanations${level}`];
         
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 5; i++) {
           const explanationElement = document.getElementById(`explanation${level}-${i}`);
           explanationElement.textContent = explanations[i];
           explanationElement.classList.remove('hidden');
