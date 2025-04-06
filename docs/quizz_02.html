@@ -2373,8 +2373,18 @@
       section.style.display = 'none';
     });
     
-    // Afficher la section sélectionnée
-    document.getElementById(conversion + '-conversion').style.display = 'block';
+    // Afficher la section sélectionnée - essayez d'abord le nouveau format, puis l'ancien si nécessaire
+    let sectionElement = document.getElementById(`${conversion}-conversion`);
+    if (!sectionElement) {
+      // Essayez l'ancien format d'ID si le nouveau n'existe pas
+      sectionElement = document.getElementById(`${conversion}-section`);
+    }
+    
+    if (sectionElement) {
+      sectionElement.style.display = 'block';
+    } else {
+      console.error(`Section non trouvée: ${conversion}`);
+    }
     
     // Mettre à jour la conversion actuelle
     currentConversion = conversion;
@@ -2508,8 +2518,10 @@
 
   // Initialisation: afficher la première conversion et le premier niveau par défaut
   document.addEventListener('DOMContentLoaded', function() {
+    // Définir la conversion binaire vers décimal comme conversion par défaut
     selectConversion('binDec');
-    selectLevel('binDec', 'f');
+    // Définir le niveau facile comme niveau par défaut
+    selectLevel('binDec', 'easy');
   });
 </script>
 </body>
