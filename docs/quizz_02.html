@@ -1793,6 +1793,189 @@
           <div id="hexDec-d-score" class="score" style="display: none;"></div>
         </div>
       </div>
+      
+      <!-- Conversion Hexa → Octal -->
+      <div id="hexOct-conversion" class="conversion-section hidden">
+        <div class="conversion-help">
+          <h3><i class="fas fa-info-circle"></i> Méthode de conversion Hexadécimal → Octal</h3>
+          <p>Pour convertir de l'hexadécimal vers l'octal, la méthode la plus simple consiste à :</p>
+          <ol>
+            <li>Convertir d'abord l'hexadécimal en binaire (chaque chiffre hexadécimal sur 4 bits)</li>
+            <li>Regrouper les bits par 3 (de droite à gauche)</li>
+            <li>Convertir chaque groupe de 3 bits en valeur octale</li>
+          </ol>
+          <p>Par exemple:<br>
+          A9 → 1010 1001 (binaire) → 001 010 100 1 (regroupés par 3) → 1 2 4 1 → 1241 (octal)</p>
+        </div>
+        
+        <div class="level-selector">
+          <button class="level-btn" onclick="selectLevel('hexOct', 'f')"><i class="fas fa-child"></i> Facile</button>
+          <button class="level-btn" onclick="selectLevel('hexOct', 'i')"><i class="fas fa-user"></i> Intermédiaire</button>
+          <button class="level-btn" onclick="selectLevel('hexOct', 'd')"><i class="fas fa-user-graduate"></i> Difficile</button>
+        </div>
+        
+        <!-- Facile -->
+        <div id="hexOct-f" class="level-questions">
+          <h3>Niveau Facile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">3</span> = <input type="text" class="quiz-input" id="hexOct-f-1-answer"> <span id="hexOct-f-1-result"></span></p>
+                <div id="hexOct-f-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A</span> = <input type="text" class="quiz-input" id="hexOct-f-2-answer"> <span id="hexOct-f-2-result"></span></p>
+                <div id="hexOct-f-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">C</span> = <input type="text" class="quiz-input" id="hexOct-f-3-answer"> <span id="hexOct-f-3-result"></span></p>
+                <div id="hexOct-f-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">7</span> = <input type="text" class="quiz-input" id="hexOct-f-4-answer"> <span id="hexOct-f-4-result"></span></p>
+                <div id="hexOct-f-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">9</span> = <input type="text" class="quiz-input" id="hexOct-f-5-answer"> <span id="hexOct-f-5-result"></span></p>
+                <div id="hexOct-f-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexOct', 'f')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexOct', 'f')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexOct-f-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexOct-f-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Intermédiaire -->
+        <div id="hexOct-i" class="level-questions hidden">
+          <h3>Niveau Intermédiaire</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">16</span> = <input type="text" class="quiz-input" id="hexOct-i-1-answer"> <span id="hexOct-i-1-result"></span></p>
+                <div id="hexOct-i-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">11</span> = <input type="text" class="quiz-input" id="hexOct-i-2-answer"> <span id="hexOct-i-2-result"></span></p>
+                <div id="hexOct-i-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">1C</span> = <input type="text" class="quiz-input" id="hexOct-i-3-answer"> <span id="hexOct-i-3-result"></span></p>
+                <div id="hexOct-i-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">D</span> = <input type="text" class="quiz-input" id="hexOct-i-4-answer"> <span id="hexOct-i-4-result"></span></p>
+                <div id="hexOct-i-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">B</span> = <input type="text" class="quiz-input" id="hexOct-i-5-answer"> <span id="hexOct-i-5-result"></span></p>
+                <div id="hexOct-i-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexOct', 'i')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexOct', 'i')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexOct-i-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexOct-i-score" class="score" style="display: none;"></div>
+        </div>
+        
+        <!-- Difficile -->
+        <div id="hexOct-d" class="level-questions hidden">
+          <h3>Niveau Difficile</h3>
+          
+          <div class="questions-container">
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">BB</span> = <input type="text" class="quiz-input" id="hexOct-d-1-answer"> <span id="hexOct-d-1-result"></span></p>
+                <div id="hexOct-d-1-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">CA</span> = <input type="text" class="quiz-input" id="hexOct-d-2-answer"> <span id="hexOct-d-2-result"></span></p>
+                <div id="hexOct-d-2-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">A7</span> = <input type="text" class="quiz-input" id="hexOct-d-3-answer"> <span id="hexOct-d-3-result"></span></p>
+                <div id="hexOct-d-3-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">F1</span> = <input type="text" class="quiz-input" id="hexOct-d-4-answer"> <span id="hexOct-d-4-result"></span></p>
+                <div id="hexOct-d-4-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+            
+            <div class="question-card">
+              <div class="question-content">
+                <p><span class="hexadecimal">96</span> = <input type="text" class="quiz-input" id="hexOct-d-5-answer"> <span id="hexOct-d-5-result"></span></p>
+                <div id="hexOct-d-5-explanation" class="explanation hidden"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-actions">
+            <button class="submit-button" onclick="checkAnswers('hexOct', 'd')"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button class="submit-button" onclick="showExplanations('hexOct', 'd')"><i class="fas fa-book-open"></i> Explications</button>
+          </div>
+          
+          <div id="hexOct-d-warning" class="result warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Veuillez répondre à toutes les questions avant de valider.</p>
+          </div>
+          
+          <div id="hexOct-d-score" class="score" style="display: none;"></div>
+        </div>
+      </div>
     </div>
   
   <script>
