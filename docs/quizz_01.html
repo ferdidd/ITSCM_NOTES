@@ -343,7 +343,7 @@ L  ┐    ┌────┐    ┌──
               <div class="solution-details">
                 <h4>Porte NON (Inverseur) :</h4>
                 <div class="gate-image">
-                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_not-e1610273698153.png" alt="Porte NON - symboles européen et américain">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_not-e1610273931265.png" alt="Porte NON - symboles européen et américain">
                 </div>
                 
                 <h4>Schéma à contacts :</h4>
@@ -369,7 +369,7 @@ L  └────┐    └────┐
               <div class="solution-details">
                 <h4>Porte ET (AND) :</h4>
                 <div class="gate-image">
-                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_and-e1610273698153.png" alt="Porte ET - symboles européen et américain">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_and-e1610274100433.png" alt="Porte ET - symboles européen et américain">
                 </div>
                 
                 <h4>Schéma à contacts :</h4>
@@ -399,7 +399,7 @@ L        ┌─┐
               <div class="solution-details">
                 <h4>Porte OU (OR) :</h4>
                 <div class="gate-image">
-                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_or-e1610273698153.png" alt="Porte OU - symboles européen et américain">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_or-e1610274228530.png" alt="Porte OU - symboles européen et américain">
                 </div>
                 
                 <h4>Schéma à contacts :</h4>
@@ -423,6 +423,100 @@ b     ┐    ┌────┐
    
 L  ┐  ┌┐    ┌──┐
    └──┘ └────┘  └──
+                </pre>
+              </div>
+            `,
+            'NOR': `
+              <div class="solution-details">
+                <h4>Porte NOR (NON-OU) :</h4>
+                <div class="gate-image">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_nor-e1610274679287.png" alt="Porte NOR - symboles européen et américain">
+                </div>
+                
+                <h4>Schéma à contacts :</h4>
+                <pre class="ascii-art">
+a ──┤/├──┐
+     a   │
+         ├── L
+b ──┤/├──┘
+     b
+                </pre>
+                
+                <h4>Description logique :</h4>
+                <p>La porte NON-OU donne 1 uniquement si les deux entrées sont à 0. L = (a+b)̅ = ā·b̅</p>
+                
+                <h4>Chronogramme :</h4>
+                <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  └──┐      ┌─┐
+       └──────┘ └──
+                </pre>
+              </div>
+            `,
+            'NAND': `
+              <div class="solution-details">
+                <h4>Porte NAND (NON-ET) :</h4>
+                <div class="gate-image">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_nand-e1610274471731.png" alt="Porte NAND - symboles européen et américain">
+                </div>
+                
+                <h4>Schéma à contacts :</h4>
+                <pre class="ascii-art">
+a ──┤ ├──┬── 
+     a   │
+         ├──┤/├── L
+b ──┤ ├──┘
+     b
+                </pre>
+                
+                <h4>Description logique :</h4>
+                <p>La porte NON-ET donne 0 uniquement si les deux entrées sont à 1. L = (a·b)̅ = ā+b̅</p>
+                
+                <h4>Chronogramme :</h4>
+                <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  ┌────┐    ┌────┐
+   │    └────┘    └
+                </pre>
+              </div>
+            `,
+            'XOR': `
+              <div class="solution-details">
+                <h4>Porte XOR (OU exclusif) :</h4>
+                <div class="gate-image">
+                  <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_xor-e1610274325950.png" alt="Porte XOR - symboles européen et américain">
+                </div>
+                
+                <h4>Schéma à contacts :</h4>
+                <pre class="ascii-art">
+a ──┤ ├──┬──┤/├──┐
+     a   │    b   │
+         │         ├── L
+         │         │
+b ──┤ ├──┴──┤/├──┘
+     b        a
+                </pre>
+                
+                <h4>Description logique :</h4>
+                <p>La porte OU exclusif donne 1 si une seule entrée est à 1. L = a⊕b = a·b̅ + ā·b</p>
+                
+                <h4>Chronogramme :</h4>
+                <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  ┐  ┌┐┐  ┌┐    ┌┐
+   └──┘ └──┘ └────┘
                 </pre>
               </div>
             `
@@ -942,7 +1036,7 @@ L  ┐    ┌────┐    ┌──
             <div class="solution-details">
               <h4>Porte NON (Inverseur) :</h4>
               <div class="gate-image">
-                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_not-e1610273698153.png" alt="Porte NON - symboles européen et américain">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_not-e1610273931265.png" alt="Porte NON - symboles européen et américain">
               </div>
               
               <h4>Schéma à contacts :</h4>
@@ -968,7 +1062,7 @@ L  └────┐    └────┐
             <div class="solution-details">
               <h4>Porte ET (AND) :</h4>
               <div class="gate-image">
-                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_and-e1610273698153.png" alt="Porte ET - symboles européen et américain">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_and-e1610274100433.png" alt="Porte ET - symboles européen et américain">
               </div>
               
               <h4>Schéma à contacts :</h4>
@@ -998,7 +1092,7 @@ L        ┌─┐
             <div class="solution-details">
               <h4>Porte OU (OR) :</h4>
               <div class="gate-image">
-                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_or-e1610273698153.png" alt="Porte OU - symboles européen et américain">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_or-e1610274228530.png" alt="Porte OU - symboles européen et américain">
               </div>
               
               <h4>Schéma à contacts :</h4>
@@ -1022,6 +1116,100 @@ b     ┐    ┌────┐
    
 L  ┐  ┌┐    ┌──┐
    └──┘ └────┘  └──
+              </pre>
+            </div>
+          `,
+          'NOR': `
+            <div class="solution-details">
+              <h4>Porte NOR (NON-OU) :</h4>
+              <div class="gate-image">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_nor-e1610274679287.png" alt="Porte NOR - symboles européen et américain">
+              </div>
+              
+              <h4>Schéma à contacts :</h4>
+              <pre class="ascii-art">
+a ──┤/├──┐
+     a   │
+         ├── L
+b ──┤/├──┘
+     b
+              </pre>
+              
+              <h4>Description logique :</h4>
+              <p>La porte NON-OU donne 1 uniquement si les deux entrées sont à 0. L = (a+b)̅ = ā·b̅</p>
+              
+              <h4>Chronogramme :</h4>
+              <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  └──┐      ┌─┐
+       └──────┘ └──
+              </pre>
+            </div>
+          `,
+          'NAND': `
+            <div class="solution-details">
+              <h4>Porte NAND (NON-ET) :</h4>
+              <div class="gate-image">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_nand-e1610274471731.png" alt="Porte NAND - symboles européen et américain">
+              </div>
+              
+              <h4>Schéma à contacts :</h4>
+              <pre class="ascii-art">
+a ──┤ ├──┬── 
+     a   │
+         ├──┤/├── L
+b ──┤ ├──┘
+     b
+              </pre>
+              
+              <h4>Description logique :</h4>
+              <p>La porte NON-ET donne 0 uniquement si les deux entrées sont à 1. L = (a·b)̅ = ā+b̅</p>
+              
+              <h4>Chronogramme :</h4>
+              <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  ┌────┐    ┌────┐
+   │    └────┘    └
+              </pre>
+            </div>
+          `,
+          'XOR': `
+            <div class="solution-details">
+              <h4>Porte XOR (OU exclusif) :</h4>
+              <div class="gate-image">
+                <img src="https://codeur-pro.fr/wp-content/uploads/2021/01/porte_logique_xor-e1610274325950.png" alt="Porte XOR - symboles européen et américain">
+              </div>
+              
+              <h4>Schéma à contacts :</h4>
+              <pre class="ascii-art">
+a ──┤ ├──┬──┤/├──┐
+     a   │    b   │
+         │         ├── L
+         │         │
+b ──┤ ├──┴──┤/├──┘
+     b        a
+              </pre>
+              
+              <h4>Description logique :</h4>
+              <p>La porte OU exclusif donne 1 si une seule entrée est à 1. L = a⊕b = a·b̅ + ā·b</p>
+              
+              <h4>Chronogramme :</h4>
+              <pre class="ascii-art">
+a  ┐    ┌────┐    ┌──
+   └────┘    └────┘
+b     ┐    ┌────┐    
+     └────┘    └────
+   
+L  ┐  ┌┐┐  ┌┐    ┌┐
+   └──┘ └──┘ └────┘
               </pre>
             </div>
           `
