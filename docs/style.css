@@ -686,107 +686,87 @@ p {
 /* Styles pour les quiz */
 .quiz-form {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 20px;
+  background: rgba(42, 42, 50, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--card-shadow);
 }
 
 .questions-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 30px;
 }
 
 .question-card {
-  background: rgba(42, 42, 50, 0.4);
+  position: relative;
+  background: rgba(31, 31, 38, 0.5);
   border-radius: 12px;
   padding: 20px;
-  display: flex;
-  position: relative;
+  padding-left: 65px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all var(--transition-medium);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-}
-
-.question-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--imperial-red), var(--atomic-tangerine));
-  opacity: 0;
-  transition: opacity var(--transition-medium);
-}
-
-.question-card:hover::before {
-  opacity: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .question-number {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 36px;
+  height: 36px;
+  background: var(--imperial-red);
+  color: var(--text-primary);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  background: var(--imperial-red);
-  color: var(--seashell);
-  border-radius: 50%;
   font-weight: 600;
-  margin-right: 15px;
-  flex-shrink: 0;
+  font-size: 1.1rem;
 }
 
 .question-content {
-  flex-grow: 1;
-}
-
-.question-content h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: var(--seashell);
-  font-size: 1.2rem;
+  width: 100%;
 }
 
 .options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .option {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  padding: 10px;
+  background: rgba(58, 58, 66, 0.4);
+  padding: 12px 15px;
   border-radius: 8px;
+  cursor: pointer;
   transition: background-color var(--transition-fast);
-  background: rgba(42, 42, 50, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.option:hover {
-  background: rgba(42, 42, 50, 0.9);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .option input[type="radio"] {
   margin-right: 12px;
-  accent-color: var(--imperial-red);
   width: 18px;
   height: 18px;
   cursor: pointer;
 }
 
 .option-text {
-  color: var(--text-secondary);
   font-size: 1rem;
+  color: var(--text-secondary);
   transition: color var(--transition-fast);
-}
-
-.option:hover .option-text {
-  color: var(--text-primary);
 }
 
 .quiz-actions {
