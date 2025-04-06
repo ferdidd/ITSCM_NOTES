@@ -6,6 +6,7 @@
     <title>Conversions Binaires</title>
   <link rel="stylesheet" href="style.css">
   <script src="navbar.js"></script>
+  <script src="quiz_conversion.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <body>
@@ -1402,7 +1403,8 @@
     </div>
   
   <script>
-  const solutions = {
+  // Définition des solutions
+  window.solutions = {
     // Binaire → Décimal
     'dec': {
       'f': { // Facile
@@ -1425,225 +1427,6 @@
         '3': '170',
         '4': '255',
         '5': '128'
-      }
-    },
-    // Binaire → Octal
-    'oct': {
-      'f': { // Facile
-        '1': '7',
-        '2': '5',
-        '3': '1',
-        '4': '6',
-        '5': '3'
-      },
-      'i': { // Intermédiaire
-        '1': '12',
-        '2': '31',
-        '3': '65',
-        '4': '26',
-        '5': '53'
-      },
-      'd': { // Difficile
-        '1': '271',
-        '2': '356',
-        '3': '252',
-        '4': '370',
-        '5': '207'
-      }
-    },
-    // Binaire → Hexadécimal
-    'hex': {
-      'f': { // Facile
-        '1': 'a',
-        '2': 'f',
-        '3': '5',
-        '4': 'c',
-        '5': '9'
-      },
-      'i': { // Intermédiaire
-        '1': '1e',
-        '2': '15',
-        '3': '35',
-        '4': '2a',
-        '5': '3f'
-      },
-      'd': { // Difficile
-        '1': '8d',
-        '2': 'af',
-        '3': 'f5',
-        '4': 'cc',
-        '5': 'aa'
-      }
-    },
-    // Octal → Binaire
-    'octoBin': {
-      'f': { // Facile
-        '1': '111',
-        '2': '101',
-        '3': '011',
-        '4': '010',
-        '5': '100'
-      },
-      'i': { // Intermédiaire
-        '1': '001010',
-        '2': '010101',
-        '3': '011110',
-        '4': '101011',
-        '5': '100111'
-      },
-      'd': { // Difficile
-        '1': '001110111',
-        '2': '010111011',
-        '3': '011100101',
-        '4': '100010001',
-        '5': '110101000'
-      }
-    },
-    // Octal → Décimal
-    'octoDec': {
-      'f': { // Facile
-        '1': '7',
-        '2': '11',
-        '3': '17',
-        '4': '5',
-        '5': '14'
-      },
-      'i': { // Intermédiaire
-        '1': '31',
-        '2': '42',
-        '3': '53',
-        '4': '67',
-        '5': '102'
-      },
-      'd': { // Difficile
-        '1': '159',
-        '2': '253',
-        '3': '306',
-        '4': '460',
-        '5': '375'
-      }
-    },
-    // Octal → Hexadécimal
-    'octoHex': {
-      'f': { // Facile
-        '1': 'f',
-        '2': '17',
-        '3': '8',
-        '4': '1a',
-        '5': '6'
-      },
-      'i': { // Intermédiaire
-        '1': '27',
-        '2': '53',
-        '3': '3e',
-        '4': '1d',
-        '5': '6b'
-      },
-      'd': { // Difficile
-        '1': 'f7',
-        '2': 'af',
-        '3': '1d3',
-        '4': '10e',
-        '5': '1bd'
-      }
-    },
-    // Décimal → Binaire
-    'decBin': {
-      'f': { // Facile
-        '1': '111',
-        '2': '101',
-        '3': '1001',
-        '4': '1100',
-        '5': '1111'
-      },
-      'i': { // Intermédiaire
-        '1': '10101',
-        '2': '100011',
-        '3': '101010',
-        '4': '110010',
-        '5': '111111'
-      },
-      'd': { // Difficile
-        '1': '10000000',
-        '2': '10101111',
-        '3': '11001000',
-        '4': '11100001',
-        '5': '11111111'
-      }
-    },
-    // Décimal → Octal
-    'decOct': {
-      'f': { // Facile
-        '1': '10',
-        '2': '17',
-        '3': '24',
-        '4': '33',
-        '5': '37'
-      },
-      'i': { // Intermédiaire
-        '1': '62',
-        '2': '113',
-        '3': '143',
-        '4': '170',
-        '5': '220'
-      },
-      'd': { // Difficile
-        '1': '310',
-        '2': '377',
-        '3': '454',
-        '4': '617',
-        '5': '702'
-      }
-    },
-    // Décimal → Hexadécimal
-    'decHex': {
-      'f': { // Facile
-        '1': 'a',
-        '2': 'f',
-        '3': '19',
-        '4': '1f',
-        '5': '2f'
-      },
-      'i': { // Intermédiaire
-        '1': '41',
-        '2': '64',
-        '3': '96',
-        '4': 'af',
-        '5': 'c8'
-      },
-      'd': { // Difficile
-        '1': 'de',
-        '2': 'fa',
-        '3': '12c',
-        '4': '1f4',
-        '5': '3e8'
-      }
-    }
-  };
-
-  const explanations = {
-    // Binaire → Décimal
-    'dec': {
-      'f': { // Facile
-        '1': "Pour convertir 101 en décimal:<br>1 × 2² + 0 × 2¹ + 1 × 2⁰ = 4 + 0 + 1 = 5",
-        '2': "Pour convertir 1001 en décimal:<br>1 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 8 + 0 + 0 + 1 = 9",
-        '3': "Pour convertir 1010 en décimal:<br>1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 8 + 0 + 2 + 0 = 10",
-        '4': "Pour convertir 1100 en décimal:<br>1 × 2³ + 1 × 2² + 0 × 2¹ + 0 × 2⁰ = 8 + 4 + 0 + 0 = 12",
-        '5': "Pour convertir 10001 en décimal:<br>1 × 2⁴ + 0 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 16 + 0 + 0 + 0 + 1 = 17"
-      },
-      'i': { // Intermédiaire
-        '1': "Pour convertir 10110 en décimal:<br>1 × 2⁴ + 0 × 2³ + 1 × 2² + 1 × 2¹ + 0 × 2⁰ = 16 + 0 + 4 + 2 + 0 = 22",
-        '2': "Pour convertir 11011 en décimal:<br>1 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 1 × 2⁰ = 16 + 8 + 0 + 2 + 1 = 27",
-        '3': "Pour convertir 101010 en décimal:<br>1 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 32 + 0 + 8 + 0 + 2 + 0 = 42",
-        '4': "Pour convertir 111000 en décimal:<br>1 × 2⁵ + 1 × 2⁴ + 1 × 2³ + 0 × 2² + 0 × 2¹ + 0 × 2⁰ = 32 + 16 + 8 + 0 + 0 + 0 = 56",
-        '5': "Pour convertir 100101 en décimal:<br>1 × 2⁵ + 0 × 2⁴ + 0 × 2³ + 1 × 2² + 0 × 2¹ + 1 × 2⁰ = 32 + 0 + 0 + 4 + 0 + 1 = 37"
-      },
-      'd': { // Difficile
-        '1': "Pour convertir 1011001 en décimal:<br>1 × 2⁶ + 0 × 2⁵ + 1 × 2⁴ + 1 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 64 + 0 + 16 + 8 + 0 + 0 + 1 = 89",
-        '2': "Pour convertir 11110101 en décimal:<br>1 × 2⁷ + 1 × 2⁶ + 1 × 2⁵ + 1 × 2⁴ + 0 × 2³ + 1 × 2² + 0 × 2¹ + 1 × 2⁰ = 128 + 64 + 32 + 16 + 0 + 4 + 0 + 1 = 245",
-        '3': "Pour convertir 10101010 en décimal:<br>1 × 2⁷ + 0 × 2⁶ + 1 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 128 + 0 + 32 + 0 + 8 + 0 + 2 + 0 = 170",
-        '4': "Pour convertir 11111111 en décimal:<br>1 × 2⁷ + 1 × 2⁶ + 1 × 2⁵ + 1 × 2⁴ + 1 × 2³ + 1 × 2² + 1 × 2¹ + 1 × 2⁰ = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255",
-        '5': "Pour convertir 10000000 en décimal:<br>1 × 2⁷ + 0 × 2⁶ + 0 × 2⁵ + 0 × 2⁴ + 0 × 2³ + 0 × 2² + 0 × 2¹ + 0 × 2⁰ = 128 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 128"
       }
     },
     // Binaire → Octal
@@ -1840,6 +1623,20 @@
     }
   };
 
+  const explanations = {
+    // Binaire → Décimal
+    'dec': {
+      'f': { // Facile
+        '1': "Pour convertir 101 en décimal:<br>1 × 2² + 0 × 2¹ + 1 × 2⁰ = 4 + 0 + 1 = 5",
+        '2': "Pour convertir 1001 en décimal:<br>1 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 8 + 0 + 0 + 1 = 9",
+        '3': "Pour convertir 1010 en décimal:<br>1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 8 + 0 + 2 + 0 = 10",
+        '4': "Pour convertir 1100 en décimal:<br>1 × 2³ + 1 × 2² + 0 × 2¹ + 0 × 2⁰ = 8 + 4 + 0 + 0 = 12",
+        '5': "Pour convertir 10001 en décimal:<br>1 × 2⁴ + 0 × 2³ + 0 × 2² + 0 × 2¹ + 1 × 2⁰ = 16 + 0 + 0 + 0 + 1 = 17"
+      },
+      'i': { // Intermédiaire
+        '1': "Pour convertir 10110 en décimal:<br>1 × 2⁴ + 0 × 2³ + 1 × 2² + 1 × 2¹ + 0 × 2⁰ = 16 + 0 + 4 + 2 + 0 = 22",
+        '2': "Pour convertir 11011 en décimal:<br>1 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 1 × 2⁰ = 16 + 8 + 0 + 2 + 1 = 27",
+        '3': "Pour convertir 101010 en décimal:<br>1 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰ = 32 + 0 + 8 + 0 + 2 + 0 = 42",
   // Variables pour garder en mémoire les sélections actuelles
   let currentConversion = 'dec';
   let currentLevel = 'f';
@@ -1986,5 +1783,6 @@
     selectConversion('dec');
     selectLevel('dec', 'f');
   });
+</script>
 </body>
 </html>
