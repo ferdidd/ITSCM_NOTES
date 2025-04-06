@@ -702,11 +702,20 @@ p {
   margin-bottom: 30px;
 }
 
+/* Styles pour quizz_00.html */
+#quiz .questions-container {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: 1fr !important;
+  gap: 30px !important;
+  margin-bottom: 30px !important;
+}
+
 /* Surcharge pour quizz_02.html qui utilise une grille */
 .conversion-section .questions-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  gap: 20px !important;
 }
 
 .question-card {
